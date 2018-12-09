@@ -1584,6 +1584,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
+    display: flex;
   margin-top: 20px;
   padding-right: 15px;
   padding-left: 15px;
@@ -6800,4 +6801,13 @@ button.close {
   url('../fonts/Yekan.svg') format('svg'); /*نسخه های قدیمی سیستم عامل iOS*/
   font-style: normal;
   font-weight: normal;
+}
+
+.logo{
+    background-image: url("../images/logo.png");
+    height: 60px;
+    width: 100px;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
 }

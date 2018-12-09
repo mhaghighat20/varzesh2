@@ -19,8 +19,8 @@ class Page extends React.Component {
         return (
             <HashRouter>
                 <div>
-                    <NavigationBar switchPage={this.switchPage}/>
-                    <div className="content">
+                    <NavigationBar/>
+                    <div>
                         <Route exact path="/" component={Home}/>
                         <Route path="/news" component={NewsPage}/>
                         <Route path="/league" component={League}/>

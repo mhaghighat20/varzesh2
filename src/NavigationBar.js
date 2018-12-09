@@ -9,7 +9,9 @@ export default class NavigationBar extends React.Component{
             <div className=".nav .navbar-nav navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="/">ورزش ۲</a>
+                        <a href="/">
+                            <div className="logo"/>
+                        </a>
                     </div>
                     <ul className="nav navbar-nav">
                         <li><NavLink exact to="/" className="navbar-link">خانه</NavLink></li>
@@ -21,6 +23,18 @@ export default class NavigationBar extends React.Component{
                     </ul>
                 </div>
             </div>
+        );
+    }
+}
+
+export class LeftAsideBar extends React.Component{
+    render() {
+        return (
+            <aside className="panel panel-primary">
+                <div className="panel-heading">Test Header</div>
+                testing side bar
+                it's amazing
+            </aside>
         );
     }
 }
