@@ -4326,6 +4326,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav {
+  display: flex;
   margin: 7.5px -15px;
 }
 .navbar-nav > li > a {
@@ -6816,8 +6817,14 @@ button.close {
 
 .left-side-bar{
   order: 2;
+  flex-grow: 1;
 }
 
 .middle-panel{
   order: 1;
+  flex-grow: 3;
+}
+
+.my-nav-bar{
+  display: flex;
 }
