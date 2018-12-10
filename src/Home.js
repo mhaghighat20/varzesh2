@@ -6,12 +6,10 @@ export default class Home extends React.Component{
     render() {
         return (
             <main className="container container-fluid" style={{marginTop: '20px'}}>
-                <div className="container">
-                    <LeftAsideBar>
-
-                    </LeftAsideBar>
+                <div className="left-side-bar">
+                    <LeftAsideBar/>
                 </div>
-                <div className="container container-fluid">
+                <div className="middle-panel">
                     <News/>
                 </div>
             </main>

@@ -1584,7 +1584,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-    display: flex;
+  display: flex;
+  justify-content: space-evenly;
   margin-top: 20px;
   padding-right: 15px;
   padding-left: 15px;
@@ -5459,7 +5460,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #f1f4ff;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -5711,12 +5712,12 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #ddd;
 }
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #183355;
 }
 .panel-primary > .panel-heading {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #183355;
+  border-color: #183355;
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #337ab7;
@@ -6804,10 +6805,19 @@ button.close {
 }
 
 .logo{
-    background-image: url("../images/logo.png");
-    height: 60px;
-    width: 100px;
-    background-size: 60px;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url("../images/logo.png");
+  height: 60px;
+  width: 100px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.left-side-bar{
+  order: 2;
+}
+
+.middle-panel{
+  order: 1;
 }
