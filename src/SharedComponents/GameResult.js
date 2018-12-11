@@ -29,9 +29,10 @@ export class GamesFull extends React.Component {
         for (let i = 0; i < this.props.Games.length; i++) {
             Games.push(<p className="my-paragraph">{this.props.Games[i]}</p>);
         }
+
         return (
             <div className="panel panel-primary">
-                <h1 className="news-title">بازی ها</h1>
+                <h1 className="news-title">{this.props.title}</h1>
                 <article>
                     {Games}
                 </article>
