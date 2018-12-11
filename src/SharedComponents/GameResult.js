@@ -32,7 +32,7 @@ export class GamesFull extends React.Component {
 
         return (
             <div className="panel panel-primary">
-                <h1 className="news-title">{this.props.title}</h1>
+                <div className="panel-heading">{this.props.title}</div>
                 <article>
                     {Games}
                 </article>
