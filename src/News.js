@@ -4,7 +4,7 @@ export class News extends React.Component{
     render() {
         return (
             <div className="panel panel-primary">
-                <div className="panel-heading"> News </div>
+                <div className="panel-heading"> اخبار </div>
                 <div className="panel-body">
                     <NewsItem title = 'First News' link = 'http://google.com'/>
                     <NewsItem title = 'Second News' link = 'http://varzesh3.com'/>

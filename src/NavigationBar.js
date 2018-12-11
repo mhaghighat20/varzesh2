@@ -26,15 +26,3 @@ export default class NavigationBar extends React.Component{
         );
     }
 }
-
-export class LeftAsideBar extends React.Component{
-    render() {
-        return (
-            <aside className="panel panel-primary">
-                <div className="panel-heading">Test Header</div>
-                testing side bar
-                it's amazing
-            </aside>
-        );
-    }
-}
