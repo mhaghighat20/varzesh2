@@ -18,7 +18,7 @@ export default class NavigationBar extends React.Component{
                         <li><NavLink to="/news?id=1" className="navbar-link">خبر</NavLink></li>
                         <li><NavLink to="/league" className="navbar-link">لیگ‌</NavLink></li>
                         <li><NavLink to="/team" className="navbar-link">تیم</NavLink></li>
-                        <li><NavLink to="/player" className="navbar-link">بازیکن</NavLink></li>
+                        <li><NavLink to="/player?id=1" className="navbar-link">بازیکن</NavLink></li>
                         <li><NavLink to="/game" className="navbar-link">بازی</NavLink></li>
                     </ul>
                 </div>

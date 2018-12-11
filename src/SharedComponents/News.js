@@ -1,19 +1,19 @@
 import React from "react";
 import {SportTypeEnum} from "./SportType";
+import {NewsUtil} from "../Utilities/NewsUtil";
+import {NavLink} from "react-router-dom";
 
 export class NewsList extends React.Component {
     render() {
-        let newsItem;
-        if (this.props.sportType === SportTypeEnum.soccer)
-            newsItem = <NewsItem id='Football News' link='https://www.skysports.com/football' />;
-        else {
-            newsItem = <NewsItem title='Basketball News' link='https://en.wikipedia.org/wiki/Basketball' />;
+        let newsItems = [];
+        for (let i = 0; i < this.props.newsIds.length; i++){
+            newsItems.push(<NewsItem id = {this.props.newsIds[i]}/>);
         }
         return (
             <div className="panel panel-primary">
                 <div className="panel-heading"> اخبار </div>
                 <div className="panel-body">
-                    {newsItem}
+                    {newsItems}
                 </div>
             </div>
         );
@@ -22,11 +22,12 @@ export class NewsList extends React.Component {
 
 class NewsItem extends React.Component {
     render() {
+        const newsDetails = NewsUtil.getNewsById(this.props.id, false);
         return (
             <div>
-                <a href={this.props.link}>
-                    {this.props.title}
-                </a>
+                <NavLink to={'/news?id=' + this.props.id}>
+                    {newsDetails.title}
+                </NavLink>
             </div>
         );
     }
