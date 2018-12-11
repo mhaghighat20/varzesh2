@@ -11,12 +11,11 @@ export default class Team extends React.Component {
         games.push(<GameResult leftTeam='ماشین سازی تبریز' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' />);
         games.push(<GameResult leftTeam='پرسپولیس' rightTeam='ذوب آهن' leftGoals='1' rightGoals='0' date='1397/07/97' />);
 
-        let gamesFull = <GamesFull Games={games} />;
         let members = ['1', '2', '3', '4'];
 
         return (
             <div className="container container-fluid">
-                {gamesFull}
+                <GamesFull Games={games} />
 
                 <div className="panel panel-primary">
                     <div className="panel-heading">اعضای تیم</div>
