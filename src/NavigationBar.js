@@ -15,7 +15,7 @@ export default class NavigationBar extends React.Component{
                     </div>
                     <ul className="nav navbar-nav">
                         <li><NavLink exact to="/" className="navbar-link">خانه</NavLink></li>
-                        <li><NavLink to="/news" className="navbar-link">خبر</NavLink></li>
+                        <li><NavLink to="/news?id=1" className="navbar-link">خبر</NavLink></li>
                         <li><NavLink to="/league" className="navbar-link">لیگ‌</NavLink></li>
                         <li><NavLink to="/team" className="navbar-link">تیم</NavLink></li>
                         <li><NavLink to="/player" className="navbar-link">بازیکن</NavLink></li>

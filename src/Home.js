@@ -1,6 +1,7 @@
 import React from "react";
-import {News} from "./News";
-import {SportTypeEnum} from "./SportType";
+import {NewsList} from "./SharedComponents/News";
+import {SportTypeEnum} from "./SharedComponents/SportType";
+import {Standings} from "./SharedComponents/Standings";
 
 export default class Home extends React.Component{
     render() {
@@ -60,22 +61,6 @@ class SportNavTab extends React.Component{
     }
 }
 
-export class Standings extends React.Component{
-    render() {
-        let text;
-        if (this.props.sportType === SportTypeEnum.soccer)
-            text = <p>This is soccer standings</p>;
-        else
-            text = <p>This is basketball standings</p>;
-        return (
-            <aside className="panel panel-primary">
-                <div className="panel-heading">Standings</div>
-                {text}
-            </aside>
-        );
-    }
-}
-
 class TabPane extends React.Component{
     render() {
         const displayType = this.props.isActive ? 'block' : 'none';
@@ -85,7 +70,7 @@ class TabPane extends React.Component{
                 <Standings sportType = {this.props.sportType}/>
             </div>
             <div className="middle-panel">
-                <News sportType = {this.props.sportType}/>
+                <NewsList sportType = {this.props.sportType}/>
             </div>
         </div>;
 
