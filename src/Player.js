@@ -2,6 +2,7 @@ import React from "react"
 import {URLUtil} from "./Utilities/URLUtil";
 import {PlayerUtil} from "./Utilities/PlayerUtil";
 import {SportTypeEnum} from "./SharedComponents/SportType";
+import {NewsList} from "./SharedComponents/News";
 
 export default class Player extends React.Component{
     render() {
@@ -13,6 +14,7 @@ export default class Player extends React.Component{
             <div className="container container-fluid">
                 <PlayerDetails details = {details}/>
                 <PlayerStatistics statistics = {statistics}/>
+                <NewsList newsIds = {newsIds}/>
             </div>
         );
     }
@@ -22,6 +24,7 @@ class PlayerDetails extends React.Component{
     render() {
         return (
             <div className="panel panel-primary">
+                <div className="panel-heading">مشخصات</div>
                 <img className="news-image" src={this.props.details.imagePath} alt={this.props.details.name}/>
                 <div>
                     <KeyValue colName="نام" value = {this.props.details.name}/>
@@ -39,9 +42,55 @@ class PlayerDetails extends React.Component{
 
 class PlayerStatistics extends React.Component{
     render() {
+        let statistics = [];
+        for (let i = 0; i < this.props.statistics.length; i++){
+            statistics.push(
+                <tr>
+                    <td>
+                        {this.props.statistics[i].goals}
+                    </td>
+                    <td>
+                        {this.props.statistics[i].assists}
+                    </td>
+                    <td>
+                        {this.props.statistics[i].yellowCards}
+                    </td>
+                    <td>
+                        {this.props.statistics[i].redCards}
+                    </td>
+                    <td>
+                        {this.props.statistics[i].season}
+                    </td>
+                </tr>
+            );
+        }
         return (
-            <div>
-
+            <div className="panel panel-primary">
+                <div className="panel-heading">آمار</div>
+                <table className="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            گل‌های زده
+                        </th>
+                        <th>
+                            پاس گل‌ها
+                        </th>
+                        <th>
+                            کارت‌های زرد
+                        </th>
+                        <th>
+                            کارت‌های قرمز
+                        </th>
+                        <th>
+                            فصل
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {statistics}
+                    </tbody>
+                </table>
             </div>
         );
     }
