@@ -1,7 +1,6 @@
 import React from "react";
 import {News} from "./News";
-
-const SportTypeEnum = {"basketball": 1, "soccer": 2};
+import {SportTypeEnum} from "./SportType";
 
 export default class Home extends React.Component{
     render() {
@@ -48,34 +47,14 @@ class SportNavTab extends React.Component{
         let basketballTab = <SportTab isActive = {basketballIsActive} title="بسکتبال" onClick={() => this.switchSportType(SportTypeEnum.basketball)}/>;
         let soccerTab = <SportTab isActive = {soccerIsActive} title="فوتبال" onClick={() => this.switchSportType(SportTypeEnum.soccer)}/>;
 
-        const basketballChildren = <div>
-            <div className="left-side-bar">
-                <Standings/>
-                This is basketball!!!
-            </div>
-            <div className="middle-panel">
-                <News/>
-            </div>
-        </div>;
-
-        const soccerChildren = <div>
-            <div className="left-side-bar">
-                <Standings/>
-                This is soccer!!!
-            </div>
-            <div className="middle-panel">
-                <News/>
-            </div>
-        </div>;
-
         return (
             <div className="tab-content">
                 <ul className="nav nav-tabs">
                     {soccerTab}
                     {basketballTab}
                 </ul>
-                <TabPane children = {soccerChildren} isActive = {soccerIsActive}/>
-                <TabPane children = {basketballChildren} isActive = {basketballIsActive}/>
+                <TabPane sportType = {SportTypeEnum.soccer} isActive = {soccerIsActive}/>
+                <TabPane sportType = {SportTypeEnum.basketball} isActive = {basketballIsActive}/>
             </div>
         );
     }
@@ -83,11 +62,15 @@ class SportNavTab extends React.Component{
 
 export class Standings extends React.Component{
     render() {
+        let text;
+        if (this.props.sportType === SportTypeEnum.soccer)
+            text = <p>This is soccer standings</p>;
+        else
+            text = <p>This is basketball standings</p>;
         return (
             <aside className="panel panel-primary">
                 <div className="panel-heading">Standings</div>
-                Testing standing
-                it's amazing
+                {text}
             </aside>
         );
     }
@@ -96,9 +79,19 @@ export class Standings extends React.Component{
 class TabPane extends React.Component{
     render() {
         const displayType = this.props.isActive ? 'block' : 'none';
+
+        const children = <div>
+            <div className="left-side-bar">
+                <Standings sportType = {this.props.sportType}/>
+            </div>
+            <div className="middle-panel">
+                <News sportType = {this.props.sportType}/>
+            </div>
+        </div>;
+
         return (
             <div className="tab-pane container container-fluid" style={{display: displayType}}>
-                {this.props.children}
+                {children}
             </div>
         );
     }
