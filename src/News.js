@@ -1,13 +1,30 @@
 import React from "react";
 
 export class News extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {sportType: 'football'};
+    }
+
+    switchState = () => {
+        let state = Object.assign(this.state);
+        state.sportType = 'basketball';
+        this.setState(state);
+    };
+
     render() {
+        let newsItem;
+        if (this.state.sportType === 'football')
+            newsItem = <NewsItem title = 'Football News' link = 'https://www.skysports.com/football'/>;
+            else{
+                newsItem = <NewsItem title = 'Basketball News' link = 'https://en.wikipedia.org/wiki/Basketball'/>;
+            }
         return (
             <div className="panel panel-primary">
                 <div className="panel-heading"> News </div>
                 <div className="panel-body">
-                    <NewsItem title = 'First News' link = 'http://google.com'/>
-                    <NewsItem title = 'Second News' link = 'http://varzesh3.com'/>
+                    <button onClick={() => this.switchState()}>Set Basketball</button>
+                    {newsItem}
                 </div>
             </div>
         );
