@@ -11,11 +11,19 @@ export default class Player extends React.Component {
         const statistics = PlayerUtil.getPlayerStatistics(SportTypeEnum.soccer, id);
         const newsIds = PlayerUtil.getPlayerNews(SportTypeEnum.soccer, id);
         return (
-            <div className="container container-fluid">
+            <div className="container">
                 <div className="row">
-                    <PlayerDetails details={details} />
-                    <PlayerStatistics statistics={statistics} />
-                    <NewsList newsIds={newsIds} />
+                    <div className="col-sm-5">
+                        <div>
+                            <PlayerStatistics statistics={statistics} />
+                        </div>
+                        <div>
+                            <NewsList newsIds={newsIds} />
+                        </div>
+                    </div>
+                    <div className="col-sm-7">
+                        <PlayerDetails details={details} />
+                    </div>
                 </div>
             </div>
         );
@@ -25,7 +33,7 @@ export default class Player extends React.Component {
 class PlayerDetails extends React.Component {
     render() {
         return (
-            <div className="panel panel-primary col-3">
+            <div className="panel">
                 <div className="panel-heading">مشخصات</div>
                 <img className="news-image" src={this.props.details.imagePath} alt={this.props.details.name} />
                 <div>
@@ -67,7 +75,7 @@ class PlayerStatistics extends React.Component {
             );
         }
         return (
-            <div className="panel panel-primary col-4">
+            <div className="panel">
                 <div className="panel-heading">آمار</div>
                 <table className="table table-bordered">
                     <thead>
@@ -101,7 +109,7 @@ class PlayerStatistics extends React.Component {
 class KeyValue extends React.Component {
     render() {
         return (
-            <div className="col-4">
+            <div>
                 <p className="my-paragraph">
                     {this.props.colName + ': ' + this.props.value}
                 </p>
