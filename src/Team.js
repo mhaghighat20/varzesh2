@@ -26,7 +26,7 @@ export default class Team extends React.Component {
                         <PlayerList playerIds={members} />
                     </div>
                 </div>
-                <div className="team-main-wrapper">
+                <div className="content-main-wrapper">
                     <GamesFull Games={games} title='بازی ها' />
                     <NewsList newsIds={['1', '1']} />
                 </div>
