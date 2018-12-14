@@ -6812,18 +6812,7 @@ button.close {
   background-position: center;
 }
 
-
-.left-side-bar{
-  order: 2;
-  flex-grow: 1;
-  margin-right: 20px;
-}
-
-.middle-panel{
-  order: 1;
-  flex-grow: 3;
-}
-
 .my-nav-bar{
   display: flex;
+  border-bottom: 1px solid #183355;
 }

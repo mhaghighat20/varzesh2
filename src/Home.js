@@ -6,7 +6,7 @@ import {Standings} from "./SharedComponents/Standings";
 export default class Home extends React.Component{
     render() {
         return (
-            <main>
+            <main className="container container-fluid">
                 <SportNavTab/>
             </main>
         );
@@ -17,14 +17,14 @@ class SportTab extends React.Component{
     render() {
         if (this.props.isActive === true){
             return (
-                <li>
-                    <div className="active" onClick={this.props.onClick}>{this.props.title}</div>
+                <li onClick={this.props.onClick}>
+                    <a className="tab tab-active">{this.props.title}</a>
                 </li>
             );
         }else {
             return(
-                <li>
-                    <div onClick={this.props.onClick}>{this.props.title}</div>
+                <li onClick={this.props.onClick}>
+                    <a className="tab">{this.props.title}</a>
                 </li>
             )
         }
@@ -50,7 +50,7 @@ class SportNavTab extends React.Component{
 
         return (
             <div className="tab-content">
-                <ul className="nav nav-tabs">
+                <ul className="nav nav-tabs my-nav-bar">
                     {soccerTab}
                     {basketballTab}
                 </ul>
@@ -66,10 +66,10 @@ class TabPane extends React.Component{
         const displayType = this.props.isActive ? 'block' : 'none';
 
         const children = <div>
-            <div className="left-side-bar">
+            <div className="col-sm-6">
                 <Standings sportType = {this.props.sportType}/>
             </div>
-            <div className="middle-panel">
+            <div className="col-sm-6">
                 <NewsList newsIds = {['1']}/>
             </div>
         </div>;
