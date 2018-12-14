@@ -18,7 +18,7 @@ export default class Player extends React.Component {
                             <PlayerStatistics statistics={statistics} />
                         </div>
                         <div>
-                            <NewsList newsIds={newsIds} />
+                            <NewsList newsIds={newsIds} title="اخبار" />
                         </div>
                     </div>
                     <div className="col-sm-7">

@@ -70,7 +70,7 @@ class TabPane extends React.Component{
                 <Standings sportType = {this.props.sportType}/>
             </div>
             <div className="col-sm-6">
-                <NewsList newsIds = {['1']}/>
+                <NewsList newsIds = {['1']} title="اخبار"/>
             </div>
         </div>;
 

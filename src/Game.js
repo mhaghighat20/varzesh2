@@ -77,7 +77,8 @@ export default class Game extends React.Component {
                     </table>
                 </div>
                 {gamesFull}
-                <NewsList newsIds={['1']} />
+                <NewsList newsIds={['2', '1']} title="اخبار" />
+                <NewsList newsIds={['3']} title="ویدیو های بازی" />
             </div>
         );
 
