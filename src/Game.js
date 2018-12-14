@@ -1,8 +1,9 @@
 import React from "react";
 import { GameResult, GamesFull } from "./SharedComponents/GameResult";
 import { EventItem, EventsFull, DoubleTeamItem, DoubleTeam } from "./GameComponents/Events";
+import { NewsList } from "./SharedComponents/News";
 
-export default class Game extends React.Component{
+export default class Game extends React.Component {
     render() {
         let events = [];
         events.push(<EventItem leftOrRight='1' player='علیپور' act='کارت زرد' minute='4' />);
@@ -22,7 +23,7 @@ export default class Game extends React.Component{
         stats.push(<DoubleTeamItem leftString="3" middleString="موقعیت گل" rightString="4" />)
         stats.push(<DoubleTeamItem leftString="2" middleString="کارت زرد" rightString="1" />)
         stats.push(<DoubleTeamItem leftString="0" middleString="کارت قرمز" rightString="0" />)
-        stats.push(<DoubleTeamItem leftString="صدری" middleString="بهترین بازیکن زمین" rightString="" />)
+        stats.push(<DoubleTeamItem leftString="" middleString="بهترین بازیکن زمین" rightString="صدری" />)
 
 
         let games = [];
@@ -36,7 +37,47 @@ export default class Game extends React.Component{
             <div className="game">
                 {eventsFull}
                 <DoubleTeam Items={stats}></DoubleTeam>
+                <div className="panel">
+                    <table className="event">
+                        <tr>
+                            <td>
+                                <div>
+                                    <p>محمد ناصری G</p>
+                                    <p>علی نعمتی</p>
+                                    <p>سید عبدالله حسینی</p>
+                                    <p>مسعود ریگی</p>
+                                    <p>محمد ناصری</p>
+                                    <p>علی نعمتی</p>
+                                    <p>سید عبدالله حسینی</p>
+                                    <p>مسعود ریگی</p>
+                                    <p>محمد ناصری</p>
+                                    <p>علی نعمتی</p>
+                                    <p>سید عبدالله حسینی</p>
+                                    <p>مسعود ریگی</p>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td>
+                                <div>
+                                    <p>سیامک نعمتی</p>
+                                    <p>بشار رسن</p>
+                                    <p>سید جلال حسینی</p>
+                                    <p>شجاع خلیل زاده</p>
+                                    <p>سیامک نعمتی</p>
+                                    <p>بشار رسن</p>
+                                    <p>سید جلال حسینی</p>
+                                    <p>شجاع خلیل زاده</p>
+                                    <p>سیامک نعمتی</p>
+                                    <p>بشار رسن</p>
+                                    <p>سید جلال حسینی</p>
+                                    <p>شجاع خلیل زاده</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 {gamesFull}
+                <NewsList newsIds={['1']} />
             </div>
         );
 
