@@ -3,22 +3,31 @@ import React from "react";
 export class GameResult extends React.Component {
     render() {
         return (
-            <div>
-                <a href={'/#/team/' + this.props.leftTeam}>
+            <tr>
+                <td href={'/#/team/' + this.props.leftTeam}>
                     {this.props.leftTeam}
-                </a>
+                </td>
 
-                <span>
-                    {this.props.leftGoals}-
-                </span>
+                <td>
+                    {this.props.leftGoals}
+                </td>
 
-                <a href={'/#/team/' + this.props.rightTeam}>
+                <td href={'/#/team/' + this.props.rightTeam}>
                     {this.props.rightTeam}
-                </a>
-                <span>
+                </td>
+                <td>
                     {this.props.rightGoals}
-                </span>
-            </div>
+                </td>
+                <td>
+                    {this.props.status}
+                </td>
+                <td>
+                    {this.props.score}
+                </td>
+                <td>
+                    {this.props.date}
+                </td>
+            </tr>
         );
     }
 }
@@ -27,15 +36,42 @@ export class GamesFull extends React.Component {
     render() {
         let Games = [];
         for (let i = 0; i < this.props.Games.length; i++) {
-            Games.push(<p className="my-paragraph">{this.props.Games[i]}</p>);
+            Games.push(this.props.Games[i]);
         }
 
         return (
-            <div className="panel panel-primary">
-                <div className="panel-heading">{this.props.title}</div>
-                <article>
-                    {Games}
-                </article>
+            <div className="panel">
+                <div className="panel-heading center">{this.props.title}</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                تیم رفت
+                            </th>
+                            <th>
+                                تعداد گل
+                            </th>
+                            <th>
+                                تیم برگشت
+                            </th>
+                            <th>
+                                تعداد گل
+                            </th>
+                            <th>
+                                وضعیت
+                            </th>
+                            <th>
+                                امتیاز
+                            </th>
+                            <th>
+                                تاریخ
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Games}
+                    </tbody>
+                </table>
             </div>
         );
     }

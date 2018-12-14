@@ -1,10 +1,10 @@
 import React from "react"
-import {URLUtil} from "./Utilities/URLUtil";
-import {PlayerUtil} from "./Utilities/PlayerUtil";
-import {SportTypeEnum} from "./SharedComponents/SportType";
-import {NewsList} from "./SharedComponents/News";
+import { URLUtil } from "./Utilities/URLUtil";
+import { PlayerUtil } from "./Utilities/PlayerUtil";
+import { SportTypeEnum } from "./SharedComponents/SportType";
+import { NewsList } from "./SharedComponents/News";
 
-export default class Player extends React.Component{
+export default class Player extends React.Component {
     render() {
         const id = URLUtil.getParameterByName('id', window.location.href);
         const details = PlayerUtil.getPlayerDetails(SportTypeEnum.soccer, id);
@@ -12,38 +12,40 @@ export default class Player extends React.Component{
         const newsIds = PlayerUtil.getPlayerNews(SportTypeEnum.soccer, id);
         return (
             <div className="container container-fluid">
-                <PlayerDetails details = {details}/>
-                <PlayerStatistics statistics = {statistics}/>
-                <NewsList newsIds = {newsIds}/>
-            </div>
-        );
-    }
-}
-
-class PlayerDetails extends React.Component{
-    render() {
-        return (
-            <div className="panel panel-primary">
-                <div className="panel-heading">مشخصات</div>
-                <img className="news-image" src={this.props.details.imagePath} alt={this.props.details.name}/>
-                <div>
-                    <KeyValue colName="نام" value = {this.props.details.name}/>
-                    <KeyValue colName="سن" value = {this.props.details.age + ' سال'}/>
-                    <KeyValue colName="قد" value = {this.props.details.height + ' سانتی‌متر'}/>
-                    <KeyValue colName="وزن" value = {this.props.details.weight + ' کیلوگرم'}/>
-                    <KeyValue colName="تیم کنونی" value = {this.props.details.currentTeam}/>
-                    <KeyValue colName="ملیت" value = {this.props.details.nationality}/>
-                    <KeyValue colName="پست" value = {this.props.details.post}/>
+                <div className="row">
+                    <PlayerDetails details={details} />
+                    <PlayerStatistics statistics={statistics} />
+                    <NewsList newsIds={newsIds} />
                 </div>
             </div>
         );
     }
 }
 
-class PlayerStatistics extends React.Component{
+class PlayerDetails extends React.Component {
+    render() {
+        return (
+            <div className="panel panel-primary col-3">
+                <div className="panel-heading">مشخصات</div>
+                <img className="news-image" src={this.props.details.imagePath} alt={this.props.details.name} />
+                <div>
+                    <KeyValue colName="نام" value={this.props.details.name} />
+                    <KeyValue colName="سن" value={this.props.details.age + ' سال'} />
+                    <KeyValue colName="قد" value={this.props.details.height + ' سانتی‌متر'} />
+                    <KeyValue colName="وزن" value={this.props.details.weight + ' کیلوگرم'} />
+                    <KeyValue colName="تیم کنونی" value={this.props.details.currentTeam} />
+                    <KeyValue colName="ملیت" value={this.props.details.nationality} />
+                    <KeyValue colName="پست" value={this.props.details.post} />
+                </div>
+            </div>
+        );
+    }
+}
+
+class PlayerStatistics extends React.Component {
     render() {
         let statistics = [];
-        for (let i = 0; i < this.props.statistics.length; i++){
+        for (let i = 0; i < this.props.statistics.length; i++) {
             statistics.push(
                 <tr>
                     <td>
@@ -65,27 +67,27 @@ class PlayerStatistics extends React.Component{
             );
         }
         return (
-            <div className="panel panel-primary">
+            <div className="panel panel-primary col-4">
                 <div className="panel-heading">آمار</div>
                 <table className="table table-bordered">
                     <thead>
-                    <tr>
-                        <th>
-                            گل‌های زده
+                        <tr>
+                            <th>
+                                گل‌های زده
                         </th>
-                        <th>
-                            پاس گل‌ها
+                            <th>
+                                پاس گل‌ها
                         </th>
-                        <th>
-                            کارت‌های زرد
+                            <th>
+                                کارت‌های زرد
                         </th>
-                        <th>
-                            کارت‌های قرمز
+                            <th>
+                                کارت‌های قرمز
                         </th>
-                        <th>
-                            فصل
+                            <th>
+                                فصل
                         </th>
-                    </tr>
+                        </tr>
                     </thead>
                     <tbody>
                         {statistics}
@@ -96,12 +98,14 @@ class PlayerStatistics extends React.Component{
     }
 }
 
-class KeyValue extends React.Component{
+class KeyValue extends React.Component {
     render() {
         return (
-            <p className="my-paragraph">
-                {this.props.colName + ': ' + this.props.value}
-            </p>
+            <div className="col-4">
+                <p className="my-paragraph">
+                    {this.props.colName + ': ' + this.props.value}
+                </p>
+            </div>
         );
     }
 }

@@ -1,0 +1,60 @@
+.team-page .main-wrapper {
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    margin: 0 auto 30px;
+    height: 200px;
+    box-shadow: 0 0 20px #000 inset;
+}
+
+.team-page .side-bar {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.team-page .main-wrapper {
+    background-attachment: fixed;
+    /* background-position: 0; */
+    background-repeat: no-repeat;
+    height: 250px;
+    background-size: 100%;
+}
+
+.team-page .team-main-wrapper {
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.team-page .team-main-wrapper .panel {
+    padding: 0 10px 10px 10px;
+}
+
+.team-page .post {
+    float: left;
+    font-size: 80%;
+}
+
+.panel-heading {
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 15px;
+}
+
+.side-bar .panel-heading {
+    text-align: right;
+}
+
+.panel table {
+    width: 100%;
+    text-align: center;
+}
+
+.team-page th {
+    text-align: center;
+}
