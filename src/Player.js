@@ -33,7 +33,7 @@ export default class Player extends React.Component {
 class PlayerDetails extends React.Component {
     render() {
         return (
-            <div className="panel">
+            <div className="container-fluid panel">
                 <div className="panel-heading">مشخصات</div>
                 <img className="news-image" src={this.props.details.imagePath} alt={this.props.details.name} />
                 <div>
