@@ -46,6 +46,9 @@
     text-align: right;
 }
 
+.panel {
+    text-align: center;
+}
 .panel table {
     width: 100%;
     text-align: center;
@@ -78,23 +81,41 @@ thead {
     /* color: white;
     background: #666; */
     border-bottom: solid 1px gray;
+    text-align: center;
 }
 
-.nav > li > .tab{
+.game .panel {
+    width: 80%;
+    margin: 20px auto;
+    border: none;
+}
+
+.panel .event {
+    table-layout: fixed;
+    
+    text-align: center;
+    margin: auto;
+}
+
+.event tr:nth-child(even) {
+    background: initial;
+}
+
+.nav>li>.tab {
     padding: 20px;
     background-color: #f1f4ff;
     color: black;
     border-bottom: 1px solid #183355;
 }
 
-.nav > li > .tab:hover{
+.nav>li>.tab:hover {
     background-color: #486084;
     color: white;
     cursor: pointer;
     border-bottom: 1px solid #183355;
 }
 
-.nav > li > .tab-active{
+.nav>li>.tab-active {
     background-color: #0c3354;
     color: white;
 }
