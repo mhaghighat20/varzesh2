@@ -78,6 +78,7 @@ tr:nth-child(even) {
 }
 
 thead {
-    color: white; 
-    background: #666;
+    /* color: white; 
+    background: #666; */
+    border-bottom: solid 1px gray;
 }
