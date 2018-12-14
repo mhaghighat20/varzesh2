@@ -1,6 +1,6 @@
 import React from "react";
 import { NewsList } from "./SharedComponents/News";
-import { LeagueUtil, TeamDetail } from "./Utilities/LeagueUtil";
+import { LeagueUtil, TeamDetail, LeagueWeek } from "./Utilities/LeagueUtil";
 import { SportTypeEnum } from "./SharedComponents/SportType";
 
 export default class League extends React.Component {
@@ -13,6 +13,7 @@ export default class League extends React.Component {
         paragraphs.push("لیگ برتر 93-94");
 
         let leagueDetails = LeagueUtil.getLeagueDetails(SportTypeEnum.soccer, '1');
+        let week = LeagueUtil.getLeagueWeek(SportTypeEnum.soccer, '1', '10');
 
         return (
             <div>
@@ -23,11 +24,8 @@ export default class League extends React.Component {
                     </div>
                 </div>
                 <div className="content-main-wrapper">
-                    {/* <GamesFull Games={games} title='بازی ها' /> */}
-                    {/* <NewsList newsIds={['1', '1']} /> */}
-
-                    <LeagueDetails title={leagueDetails.title} data={leagueDetails.data}>
-                    </LeagueDetails>
+                    <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
+                    <LeagueWeek count={week.count} data={week.data} />
                 </div>
             </div>
         );
@@ -94,3 +92,4 @@ class LeagueDetails extends React.Component {
         );
     }
 }
+
