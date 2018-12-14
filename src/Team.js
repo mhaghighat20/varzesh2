@@ -28,7 +28,7 @@ export default class Team extends React.Component {
                 </div>
                 <div className="content-main-wrapper">
                     <GamesFull Games={games} title='بازی ها' />
-                    <NewsList newsIds={['1', '1']} />
+                    <NewsList newsIds={['1', '1']} title="اخبار" />
                 </div>
             </div>
         );

@@ -11,7 +11,7 @@ export class NewsList extends React.Component {
         }
         return (
             <div className="panel">
-                <div className="panel-heading"> اخبار </div>
+                <div className="panel-heading">{this.props.title}</div>
                 <div className="panel-body">
                     {newsItems}
                 </div>
