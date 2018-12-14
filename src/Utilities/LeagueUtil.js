@@ -107,7 +107,7 @@ class SelectWeek extends React.Component {
     render() {
         let options = [];
         for (let i = 1; i <= this.props.limit; i++)
-            options.push(<option key={i}>{'هفته ' + i}</option>)
+            options.push(<option key={i}>{'هفته ' + i}</option>);
 
         return (
             <select>
