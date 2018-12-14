@@ -12,13 +12,19 @@ export default class League extends React.Component {
         paragraphs.push("لیگ برتر 94-95");
         paragraphs.push("لیگ برتر 93-94");
 
+        paragraphs.push("لیگ بسکتبال 97-98");
+        paragraphs.push("لیگ بسکتبال 96-97");
+        paragraphs.push("لیگ بسکتبال 95-96");
+        paragraphs.push("لیگ بسکتبال 94-95");
+        paragraphs.push("لیگ بسکتبال 93-94");
+
         let leagueDetails = LeagueUtil.getLeagueDetails(SportTypeEnum.soccer, '1');
         let week = LeagueUtil.getLeagueWeek(SportTypeEnum.soccer, '1', '10');
 
         return (
             <div>
                 <div className="side-bar panel">
-                    <div className="panel-heading">اعضای تیم</div>
+                    <div className="panel-heading">آرشیو لیگ ها</div>
                     <div className="">
                         <LeagueList paragraphs={paragraphs} />
                     </div>
