@@ -1584,8 +1584,6 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  display: flex;
-  justify-content: space-evenly;
   margin-top: 20px;
   padding-right: 15px;
   padding-left: 15px;

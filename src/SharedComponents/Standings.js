@@ -9,7 +9,7 @@ export class Standings extends React.Component{
         else
             text = <p>This is basketball standings</p>;
         return (
-            <aside className="panel panel-primary">
+            <aside className="panel">
                 <div className="panel-heading">Standings</div>
                 {text}
             </aside>
