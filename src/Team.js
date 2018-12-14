@@ -3,6 +3,7 @@ import { GameResult, GamesFull } from "./SharedComponents/GameResult";
 import { SportTypeEnum } from "./SharedComponents/SportType";
 import { PlayerUtil } from "./Utilities/PlayerUtil";
 import { NavLink } from "react-router-dom";
+import { NewsList } from "./SharedComponents/News";
 
 export default class Team extends React.Component {
     render() {
@@ -12,20 +13,22 @@ export default class Team extends React.Component {
         games.push(<GameResult leftTeam='ذوب آهن' rightTeam='پرسپولیس' leftGoals='1' rightGoals='2' date='1397/07/97' status='برد' score='3' />);
 
         let members = ['1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1'];
-        let img = "url('https://static.farakav.com/files/pictures/01322970.jpg')";
         return (
             <div className="team-page">
-                <div className="main-wrapper" style={{ backgroundImage: img }}>
+                <div className="main-wrapper" /*style={{ backgroundImage: image }}*/>
+                    <div className="transparent-title">
+                        <h1>تیم پرسپولیس</h1>
+                    </div>
                 </div>
                 <div className="side-bar panel">
-                        <div className="panel-heading">اعضای تیم</div>
-                        <div className="">
-                            <PlayerList playerIds={members} />
-                        </div>
+                    <div className="panel-heading">اعضای تیم</div>
+                    <div className="">
+                        <PlayerList playerIds={members} />
                     </div>
+                </div>
                 <div className="team-main-wrapper">
                     <GamesFull Games={games} title='بازی ها' />
-
+                    <NewsList newsIds={['1', '1']} />
                 </div>
             </div>
         );

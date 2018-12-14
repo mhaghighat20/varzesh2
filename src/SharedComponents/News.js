@@ -10,7 +10,7 @@ export class NewsList extends React.Component {
             newsItems.push(<NewsItem id = {this.props.newsIds[i]}/>);
         }
         return (
-            <div className="panel panel-primary">
+            <div className="panel">
                 <div className="panel-heading"> اخبار </div>
                 <div className="panel-body">
                     {newsItems}
