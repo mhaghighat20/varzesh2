@@ -31,7 +31,7 @@ class NewsFull extends React.Component {
         return (
             <div className="panel panel-primary">
                 <h1 className="news-title">{this.props.title}</h1>
-                <Image base64={this.props.image.base64} alt={this.props.image.alt} />
+                <Image path={this.props.image.path} alt={this.props.image.alt} />
                 <article>
                     {paragraphs}
                 </article>
@@ -44,7 +44,7 @@ class NewsFull extends React.Component {
 class Image extends React.Component {
     render() {
         return (
-            <img className="news-image" src={'data:image/jpeg;base64,' + this.props.base64} alt={this.props.alt} />
+            <img className="news-image" src={this.props.path} alt={this.props.alt}/>
         );
     }
 }
