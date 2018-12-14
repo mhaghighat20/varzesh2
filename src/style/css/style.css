@@ -125,3 +125,7 @@ thead {
     background-color: #0c3354;
     color: white;
 }
+
+.game-item{
+    padding: 10px;
+}

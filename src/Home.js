@@ -151,10 +151,16 @@ class GameItem extends React.Component{
         else{
             gameItem =
                 <div className="row">
-                    <div className="col-sm-4">
+                    <div className="col-sm-3">
                         {game.homeTeam}
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-1">
+
+                    </div>
+                    <div className="col-sm-1">
+
+                    </div>
+                    <div className="col-sm-3">
                         {game.awayTeam}
                     </div>
                     <div className="col-sm-4">
