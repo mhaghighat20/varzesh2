@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="abd50e6f-022f-4c1f-bc16-e140cf4e51a6" name="Default Changelist" comment="Fix small UI problem">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/test_react_proj.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="155">
+                <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>navbar-defa</find>
+      <find>navbar-link</find>
+      <find>.navbar-default .navbar-nav &gt; li &gt; a</find>
+      <find>.navbar-default .navbar-nav &gt; li &gt; a:hover</find>
+      <find>.navbar-default</find>
+      <find>bod</find>
+      <find>active</find>
+      <find>#183355</find>
+      <find>p</find>
+      <find>body</find>
+      <find>container</find>
+      <find>.content</find>
+      <find>.container</find>
+      <find>navbar-nav</find>
+      <find>.nav</find>
+      <find>tab</find>
+      <find>.nav-tabs &gt; li &gt; a</find>
+      <find>tab-pane</find>
+      <find>color</find>
+      <find>perspolis.jpg</find>
+      <find>logo</find>
+      <find>/Content</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>#03272b</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/varzesh2/frontend/src</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/Main.js" />
+        <option value="$PROJECT_DIR$/node_modules/NavigationBar.js" />
+        <option value="$PROJECT_DIR$/src/League.js" />
+        <option value="$PROJECT_DIR$/src/style/js/bootstrap.js" />
+        <option value="$PROJECT_DIR$/src/SportType.js" />
+        <option value="$PROJECT_DIR$/src/Utilities/URLUtil.js" />
+        <option value="$PROJECT_DIR$/src/SharedComponents/News.js" />
+        <option value="$PROJECT_DIR$/src/Utilities/PlayerUtil.js" />
+        <option value="$PROJECT_DIR$/src/SharedComponents/GameResult.js" />
+        <option value="$PROJECT_DIR$/src/Game.js" />
+        <option value="$PROJECT_DIR$/src/GameComponents/Events.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/NavigationBar.js" />
+        <option value="$PROJECT_DIR$/src/Player.js" />
+        <option value="$PROJECT_DIR$/src/News.js" />
+        <option value="$PROJECT_DIR$/src/SharedComponents/Standings.js" />
+        <option value="$PROJECT_DIR$/src/style/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/src/Utilities/NewsUtil.js" />
+        <option value="$PROJECT_DIR$/src/Team.js" />
+        <option value="$PROJECT_DIR$/src/Utilities/HomeUtil.js" />
+        <option value="$PROJECT_DIR$/src/style/css/style.css" />
+        <option value="$PROJECT_DIR$/src/Home.js" />
+        <option value="$PROJECT_DIR$/varzesh2/varzesh2/settings.py" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/index.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/postcss.config.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/package.json" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/.babelrc" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/News.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/League.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Game.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/GameComponents/Events.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/webpack.config.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/News.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/NewsUtil.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/PlayerUtil.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Team.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="70" />
+    <option name="y" value="27" />
+    <option name="width" value="925" />
+    <option name="height" value="1053" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="test_react_proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_react_proj" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test_react_proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_react_proj" type="462c0819:PsiDirectoryNode" />
+              <item name="varzesh2" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/varzesh2/varzesh2/settings.py" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/varzesh2/frontend/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="$PROJECT_DIR$/varzesh2/frontend/node_modules/eslint" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/varzesh2/frontend" />
+      <recent name="$PROJECT_DIR$/varzesh2/frontend/src" />
+      <recent name="$PROJECT_DIR$/varzesh2/static/frontend" />
+      <recent name="$PROJECT_DIR$/public/Content" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/varzesh2/frontend/src" />
+      <recent name="$PROJECT_DIR$/src/style/images" />
+      <recent name="$PROJECT_DIR$/public/Content" />
+      <recent name="$PROJECT_DIR$/src/Prototype_files" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Django server.django">
+    <configuration name="debug_react" type="JavascriptDebugType" uri="http://localhost:3000" useFirstLineBreakpoints="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="django" type="Python.DjangoServer" factoryName="Django server">
+      <module name="test_react_proj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="varzesh2.settings" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/varzesh2/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="/usr/lib/nodejs/npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="/usr/lib/nodejs/npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django server.django" />
+      <item itemvalue="JavaScript Debug.debug_react" />
+      <item itemvalue="npm.test" />
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.dev" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="abd50e6f-022f-4c1f-bc16-e140cf4e51a6" name="Default Changelist" comment="" />
+      <created>1544116284010</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544116284010</updated>
+      <workItem from="1544116286099" duration="5365000" />
+      <workItem from="1544288590579" duration="4530000" />
+      <workItem from="1544298554653" duration="1308000" />
+      <workItem from="1544343241399" duration="2317000" />
+      <workItem from="1544360841518" duration="7265000" />
+      <workItem from="1544368848761" duration="15498000" />
+      <workItem from="1544422274011" duration="2181000" />
+      <workItem from="1544434031518" duration="670000" />
+      <workItem from="1544461549845" duration="7848000" />
+      <workItem from="1544513439061" duration="27567000" />
+      <workItem from="1544801422899" duration="6419000" />
+      <workItem from="1544810018977" duration="7676000" />
+      <workItem from="1545077989009" duration="64000" />
+      <workItem from="1545080750823" duration="1270000" />
+      <workItem from="1545167816682" duration="826000" />
+      <workItem from="1545383321671" duration="127000" />
+      <workItem from="1545388798188" duration="4000" />
+      <workItem from="1545406683752" duration="599000" />
+      <workItem from="1545514137444" duration="638000" />
+      <workItem from="1546770731359" duration="1778000" />
+      <workItem from="1546899674554" duration="4799000" />
+      <workItem from="1546904598800" duration="371000" />
+      <workItem from="1546919247656" duration="3531000" />
+      <workItem from="1546943828380" duration="3225000" />
+    </task>
+    <task id="LOCAL-00001" summary="First test web page">
+      <created>1544293280671</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544293280672</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First commit">
+      <created>1544369187880</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544369187880</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added news and changed some styles">
+      <created>1544382880783</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544382880783</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added logo and some small changes">
+      <created>1544390202106</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544390202106</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Some small UI changes">
+      <created>1544461786769</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544461786769</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Make some UI adjustments">
+      <created>1544463027770</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1544463027770</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Some changes to home page">
+      <created>1544515172492</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1544515172492</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Some changes to home page">
+      <created>1544515995155</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544515995155</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Some good refactors done">
+      <created>1544521118249</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544521118249</updated>
+    </task>
+    <task id="LOCAL-00010" summary="A part of Player page added">
+      <created>1544527394372</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544527394372</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Some small changes to fix navigationBar behavior">
+      <created>1544529059484</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544529059484</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Team page refactored and Player page is complete now">
+      <created>1544532292133</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1544532292133</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Some small UI enhancements">
+      <created>1544532511734</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1544532511734</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix player's page ui">
+      <created>1544805858490</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1544805858490</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix player's image in player page">
+      <created>1544806239260</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1544806239260</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Replace news page's image base64 by path to content folder">
+      <created>1544806427118</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1544806427118</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Some changes to home page">
+      <created>1544809432506</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1544809432506</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Some fixes">
+      <created>1544810849139</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1544810849139</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Remove duplicate image">
+      <created>1544810874513</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1544810874513</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Complete homepage">
+      <created>1544817192412</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1544817192412</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fix small UI problem">
+      <created>1544817501312</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1544817501312</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Connected react to django">
+      <created>1546946384713</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1546946384713</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Updated readme.md">
+      <created>1546946723125</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1546946723125</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Fix readme.md">
+      <created>1546946759421</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1546946759421</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Changed readme.md">
+      <created>1546946832150</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1546946832150</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="105876000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47642276" visible="true" weight="0.32206208" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" sideWeight="0.5235772" side_tool="true" visible="true" weight="0.18555008" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49944568" weight="0.302072" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991228" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49972633" weight="0.32932165" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50110865" side_tool="true" weight="0.2955289" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3293348" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49889135" visible="true" weight="0.3925845" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32894737" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First test web page" />
+    <MESSAGE value="First commit" />
+    <MESSAGE value="Added news and changed some styles" />
+    <MESSAGE value="Added logo and some small changes" />
+    <MESSAGE value="Some small UI changes" />
+    <MESSAGE value="Make some UI adjustments" />
+    <MESSAGE value="Some good refactors done" />
+    <MESSAGE value="A part of Player page added" />
+    <MESSAGE value="Some small changes to fix navigationBar behavior" />
+    <MESSAGE value="Team page refactored and Player page is complete now" />
+    <MESSAGE value="Some small UI enhancements" />
+    <MESSAGE value="Fix player's page ui" />
+    <MESSAGE value="Fix player's image in player page" />
+    <MESSAGE value="Replace news page's image base64 by path to content folder" />
+    <MESSAGE value="Some changes to home page" />
+    <MESSAGE value="Some fixes" />
+    <MESSAGE value="Remove duplicate image" />
+    <MESSAGE value="Complete homepage" />
+    <MESSAGE value="Fix small UI problem" />
+    <MESSAGE value="Connected react to django" />
+    <MESSAGE value="Updated readme.md" />
+    <MESSAGE value="Fix readme.md" />
+    <MESSAGE value="Changed readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed readme.md" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/News.js</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Player.js</url>
+          <line>55</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Home.js</url>
+          <line>118</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JavascriptDebugType">
+        <watch expression="this.props.week.games[i]" language="JavaScript" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>this.props.week.games[i]</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>leagues</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>leagues[0]</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Utilities/PlayerUtil.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/NavLink.js" />
+    <entry file="file://$PROJECT_DIR$/src/GameComponents/Events.js" />
+    <entry file="file://$PROJECT_DIR$/src/Game.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/Navbar.js" />
+    <entry file="file://$PROJECT_DIR$/src/index.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/index.js" />
+    <entry file="file://$PROJECT_DIR$/src/style/images/dark-glass.png" />
+    <entry file="file://$PROJECT_DIR$/src/style/css/bootstrap.css" />
+    <entry file="file://$PROJECT_DIR$/src/Utilities/NewsUtil.js" />
+    <entry file="file://$PROJECT_DIR$/src/News.js" />
+    <entry file="file://$PROJECT_DIR$/src/Player.js" />
+    <entry file="file://$PROJECT_DIR$/src/NavigationBar.js" />
+    <entry file="file://$PROJECT_DIR$/src/SharedComponents/Standings.js" />
+    <entry file="file://$PROJECT_DIR$/src/Utilities/LeagueUtil.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js" />
+    <entry file="file://$PROJECT_DIR$/src/SharedComponents/GameResult.js" />
+    <entry file="file://$PROJECT_DIR$/src/style/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/src/SharedComponents/News.js" />
+    <entry file="file://$PROJECT_DIR$/src/League.js" />
+    <entry file="file://$PROJECT_DIR$/src/Home.js" />
+    <entry file="file://$PROJECT_DIR$/src/Team.js" />
+    <entry file="file://$PROJECT_DIR$/src/Utilities/HomeUtil.js" />
+    <entry file="file://$PROJECT_DIR$/varzesh2/varzesh2/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/postcss.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/4c3d796e20632276ea61caa96b728729.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/04551b18e31002413a193f8c3b4ce8ee.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/89889688147bd7575d6327160d64e760.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/590fe86a56bae1b5e7aa5989b793f3b6.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/style/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="6803" column="1" selection-start-line="6803" selection-start-column="1" selection-end-line="6803" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/News.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/GameComponents/Events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1798">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/LeagueUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1559">
+          <caret line="94" column="15" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/League.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/public/Content/01362047.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/public/Content/perspolis.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Team.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/PlayerUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="13" column="56" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/NewsUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="6" column="168" selection-start-line="6" selection-start-column="168" selection-end-line="6" selection-end-column="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/News.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="155">
+            <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
