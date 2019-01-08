@@ -1,4 +1,4 @@
-##Available scripts
+## Available scripts
 
 For building the frontend which is written in react you can run this command in /varzesh2/frontend directory:
 
