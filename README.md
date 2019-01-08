@@ -1,6 +1,8 @@
 ## Available scripts
 
-For building the frontend which is written in react you can run this command in /varzesh2/frontend directory:
+For building the frontend which is written in react you can run these commands in /varzesh2/frontend directory:
+
+### npm install
 
 ### npm run dev
 
