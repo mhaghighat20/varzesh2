@@ -106,3 +106,4 @@ venv.bak/
 node_modules
 varzesh2/static
 .vscode
+.idea
