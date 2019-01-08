@@ -114,7 +114,7 @@ class WeekList extends React.Component{
     render() {
         let games = [];
         for (let i = 0; i < this.props.week.games.length; i++){
-            games.push(<GameItem game={this.props.week.games[i]}/>);
+            games.push(<GameItem game={this.props.week.games[i]} key={i}/>);
         }
         return (
             <div>
