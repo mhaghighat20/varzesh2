@@ -8,9 +8,9 @@ import { NewsList } from "./SharedComponents/News";
 export default class Team extends React.Component {
     render() {
         let games = [];
-        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='ذوب آهن' leftGoals='1' rightGoals='0' date='1397/07/13' status='برد' score='3' />);
-        games.push(<GameResult leftTeam='ماشین سازی تبریز' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' status='برد' score='3' />);
-        games.push(<GameResult leftTeam='ذوب آهن' rightTeam='پرسپولیس' leftGoals='1' rightGoals='2' date='1397/07/97' status='برد' score='3' />);
+        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='ذوب آهن' leftGoals='1' rightGoals='0' date='1397/07/13' status='برد' score='3' key={0}/>);
+        games.push(<GameResult leftTeam='ماشین سازی تبریز' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' status='برد' score='3' key={1}/>);
+        games.push(<GameResult leftTeam='ذوب آهن' rightTeam='پرسپولیس' leftGoals='1' rightGoals='2' date='1397/07/97' status='برد' score='3' key={2}/>);
 
         let members = ['1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1'];
         return (
@@ -40,7 +40,7 @@ class PlayerList extends React.Component {
         let players = [];
         for (let i = 0; i < this.props.playerIds.length; i++) {
             let playerDetails = PlayerUtil.getPlayerDetails(SportTypeEnum.soccer, this.props.playerIds[i]);
-            players.push(<p className=""><NavLink to={'/player?id=' + this.props.playerIds[i]} >{playerDetails.name}</NavLink><span className="post">({playerDetails.post})</span></p>);
+            players.push(<p className="" key={i}><NavLink to={'/player?id=' + this.props.playerIds[i]} >{playerDetails.name}</NavLink><span className="post">({playerDetails.post})</span></p>);
         }
         return (
             <div>

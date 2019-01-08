@@ -55,7 +55,7 @@ class PlayerStatistics extends React.Component {
         let statistics = [];
         for (let i = 0; i < this.props.statistics.length; i++) {
             statistics.push(
-                <tr>
+                <tr key={i}>
                     <td>
                         {this.props.statistics[i].goals}
                     </td>

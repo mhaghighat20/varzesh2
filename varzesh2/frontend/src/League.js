@@ -1,6 +1,5 @@
 import React from "react";
-import { NewsList } from "./SharedComponents/News";
-import { LeagueUtil, TeamDetail, LeagueWeek } from "./Utilities/LeagueUtil";
+import { LeagueUtil, LeagueWeek } from "./Utilities/LeagueUtil";
 import { SportTypeEnum } from "./SharedComponents/SportType";
 
 export default class League extends React.Component {

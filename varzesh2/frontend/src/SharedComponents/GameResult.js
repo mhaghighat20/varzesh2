@@ -3,32 +3,32 @@ import React from "react";
 export class GameResult extends React.Component {
     render() {
         let result = [];
-        result.push(<td href={'/#/team/' + this.props.leftTeam}>
+        result.push(<td href={'/#/team/' + this.props.leftTeam} key={0}>
             {this.props.leftTeam}
         </td>);
 
-        result.push(<td>
+        result.push(<td key={1}>
             {this.props.leftGoals}
         </td>);
 
-        result.push(<td href={'/#/team/' + this.props.rightTeam}>
+        result.push(<td href={'/#/team/' + this.props.rightTeam} key={2}>
             {this.props.rightTeam}
         </td>);
 
-        result.push(<td>
+        result.push(<td key={3}>
             {this.props.rightGoals}
         </td>);
 
         if (this.props.score != null) {
-            result.push(<td>
+            result.push(<td key={4}>
                 {this.props.status}
             </td>);
-            result.push(<td>
+            result.push(<td key={5}>
                 {this.props.score}
             </td>);
         }
 
-        result.push(<td>
+        result.push(<td key={6}>
             {this.props.date}
         </td>);
 
@@ -40,35 +40,34 @@ export class GameResult extends React.Component {
 
 export class GamesFull extends React.Component {
     render() {
-        let Games = [];
-        for (let i = 0; i < this.props.Games.length; i++) {
-            Games.push(this.props.Games[i]);
-        }
-
         let headers = [];
 
-        headers.push(<th>
+        headers.push(<th key={0}>
             تیم رفت
         </th>);
-        headers.push(<th>
+        headers.push(<th key={1}>
             تعداد گل
         </th>);
-        headers.push(<th>
+        headers.push(<th key={2}>
             تیم برگشت
         </th>);
-        headers.push(<th>
+        headers.push(<th key={3}>
             تعداد گل
         </th>);
 
-        if (this.props.noScore != '1') {
-            headers.push(<th>
-                وضعیت</th>);
+        if (this.props.noScore !== '1') {
+            headers.push(
+                <th key={4}>
+                وضعیت
+                </th>);
 
-            headers.push(<th>
-                امتیاز</th>);
+            headers.push(
+                <th key={5}>
+                    امتیاز
+                </th>);
         }
 
-        headers.push(<th>
+        headers.push(<th key={6}>
             تاریخ
         </th>);
 
@@ -82,7 +81,7 @@ export class GamesFull extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {Games}
+                        {this.props.Games}
                     </tbody>
                 </table>
             </div>

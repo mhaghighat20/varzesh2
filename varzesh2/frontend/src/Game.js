@@ -27,9 +27,9 @@ export default class Game extends React.Component {
 
 
         let games = [];
-        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='پدیده' leftGoals='1' rightGoals='0' date='1397/07/13' key={1}/>);
-        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' key={2}/>);
-        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='1' rightGoals='0' date='1397/07/03' key={3}/>);
+        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='پدیده' leftGoals='1' rightGoals='0' date='1397/07/13' key={0}/>);
+        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' key={1}/>);
+        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='1' rightGoals='0' date='1397/07/03' key={2}/>);
 
         let gamesFull = <GamesFull Games={games} title='بازی های رو در رو' noScore="1" />;
 
@@ -39,41 +39,43 @@ export default class Game extends React.Component {
                 <DoubleTeam Items={stats}/>
                 <div className="panel">
                     <table className="event">
-                        <tr>
-                            <td>
-                                <div>
-                                    <p>محمد ناصری G</p>
-                                    <p>علی نعمتی</p>
-                                    <p>سید عبدالله حسینی</p>
-                                    <p>مسعود ریگی</p>
-                                    <p>محمد ناصری</p>
-                                    <p>علی نعمتی</p>
-                                    <p>سید عبدالله حسینی</p>
-                                    <p>مسعود ریگی</p>
-                                    <p>محمد ناصری</p>
-                                    <p>علی نعمتی</p>
-                                    <p>سید عبدالله حسینی</p>
-                                    <p>مسعود ریگی</p>
-                                </div>
-                            </td>
-                            <td/>
-                            <td>
-                                <div>
-                                    <p>سیامک نعمتی</p>
-                                    <p>بشار رسن</p>
-                                    <p>سید جلال حسینی</p>
-                                    <p>شجاع خلیل زاده</p>
-                                    <p>سیامک نعمتی</p>
-                                    <p>بشار رسن</p>
-                                    <p>سید جلال حسینی</p>
-                                    <p>شجاع خلیل زاده</p>
-                                    <p>سیامک نعمتی</p>
-                                    <p>بشار رسن</p>
-                                    <p>سید جلال حسینی</p>
-                                    <p>شجاع خلیل زاده</p>
-                                </div>
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p>محمد ناصری G</p>
+                                        <p>علی نعمتی</p>
+                                        <p>سید عبدالله حسینی</p>
+                                        <p>مسعود ریگی</p>
+                                        <p>محمد ناصری</p>
+                                        <p>علی نعمتی</p>
+                                        <p>سید عبدالله حسینی</p>
+                                        <p>مسعود ریگی</p>
+                                        <p>محمد ناصری</p>
+                                        <p>علی نعمتی</p>
+                                        <p>سید عبدالله حسینی</p>
+                                        <p>مسعود ریگی</p>
+                                    </div>
+                                </td>
+                                <td/>
+                                <td>
+                                    <div>
+                                        <p>سیامک نعمتی</p>
+                                        <p>بشار رسن</p>
+                                        <p>سید جلال حسینی</p>
+                                        <p>شجاع خلیل زاده</p>
+                                        <p>سیامک نعمتی</p>
+                                        <p>بشار رسن</p>
+                                        <p>سید جلال حسینی</p>
+                                        <p>شجاع خلیل زاده</p>
+                                        <p>سیامک نعمتی</p>
+                                        <p>بشار رسن</p>
+                                        <p>سید جلال حسینی</p>
+                                        <p>شجاع خلیل زاده</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 {gamesFull}
