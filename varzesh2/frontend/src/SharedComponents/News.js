@@ -7,7 +7,7 @@ export class NewsList extends React.Component {
     render() {
         let newsItems = [];
         for (let i = 0; i < this.props.newsIds.length; i++){
-            newsItems.push(<NewsItem id = {this.props.newsIds[i]}/>);
+            newsItems.push(<NewsItem id = {this.props.newsIds[i]} key={i}/>);
         }
         return (
             <div className="panel">

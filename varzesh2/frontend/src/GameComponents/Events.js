@@ -8,7 +8,7 @@ export class EventsFull extends React.Component {
         }
 
         return (
-            <DoubleTeam rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" Items={this.props.EventItems}></DoubleTeam>
+            <DoubleTeam rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" Items={this.props.EventItems}/>
         );
     }
 }

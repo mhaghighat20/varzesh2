@@ -6,37 +6,37 @@ import { NewsList } from "./SharedComponents/News";
 export default class Game extends React.Component {
     render() {
         let events = [];
-        events.push(<EventItem leftOrRight='1' player='علیپور' act='کارت زرد' minute='4' />);
-        events.push(<EventItem leftOrRight='1' player='علیپور' act='پنالتی' minute='8' />);
-        events.push(<EventItem leftOrRight='1' player='نورالهی' act='کارت زرد' minute='36' />);
-        events.push(<EventItem leftOrRight='1' player='عالیشاه -> گادوین منشا' act='تعویض' minute='67' />);
-        events.push(<EventItem leftOrRight='1' player='کامیابی نیا' act='کارت زرد' minute='73' />);
-        events.push(<EventItem leftOrRight='0' player='گرامی' act='کارت زرد' minute='75' />);
-        events.push(<EventItem leftOrRight='0' player='صدری' act='کارت زرد' minute='80' />);
-        let eventsFull = <EventsFull EventItems={events} leftTeam="پرسپولیس" rightTeam="پدیده" />;
+        events.push(<EventItem leftOrRight='1' player='علیپور' act='کارت زرد' minute='4' key={1}/>);
+        events.push(<EventItem leftOrRight='1' player='علیپور' act='پنالتی' minute='8' key={2}/>);
+        events.push(<EventItem leftOrRight='1' player='نورالهی' act='کارت زرد' minute='36' key={3}/>);
+        events.push(<EventItem leftOrRight='1' player='عالیشاه -> گادوین منشا' act='تعویض' minute='67' key={4}/>);
+        events.push(<EventItem leftOrRight='1' player='کامیابی نیا' act='کارت زرد' minute='73' key={5}/>);
+        events.push(<EventItem leftOrRight='0' player='گرامی' act='کارت زرد' minute='75' key={6}/>);
+        events.push(<EventItem leftOrRight='0' player='صدری' act='کارت زرد' minute='80' key={7}/>);
+        let eventsFull = <EventsFull EventItems={events} leftTeam="پرسپولیس" rightTeam="پدیده" key={8}/>;
 
         let stats = [];
-        stats.push(<DoubleTeamItem leftString="2" middleString="تعداد گل" rightString="1" />)
-        stats.push(<DoubleTeamItem leftString="67%" middleString="درصد مالکیت توپ" rightString="33%" />)
-        stats.push(<DoubleTeamItem leftString="2" middleString="کرنر" rightString="3" />)
-        stats.push(<DoubleTeamItem leftString="3" middleString="خطا" rightString="1" />)
-        stats.push(<DoubleTeamItem leftString="3" middleString="موقعیت گل" rightString="4" />)
-        stats.push(<DoubleTeamItem leftString="2" middleString="کارت زرد" rightString="1" />)
-        stats.push(<DoubleTeamItem leftString="0" middleString="کارت قرمز" rightString="0" />)
-        stats.push(<DoubleTeamItem leftString="" middleString="بهترین بازیکن زمین" rightString="صدری" />)
+        stats.push(<DoubleTeamItem leftString="2" middleString="تعداد گل" rightString="1" key={1}/>);
+        stats.push(<DoubleTeamItem leftString="67%" middleString="درصد مالکیت توپ" rightString="33%" key={2}/>);
+        stats.push(<DoubleTeamItem leftString="2" middleString="کرنر" rightString="3" key={3}/>);
+        stats.push(<DoubleTeamItem leftString="3" middleString="خطا" rightString="1" key={4}/>);
+        stats.push(<DoubleTeamItem leftString="3" middleString="موقعیت گل" rightString="4" key={5}/>);
+        stats.push(<DoubleTeamItem leftString="2" middleString="کارت زرد" rightString="1" key={6}/>);
+        stats.push(<DoubleTeamItem leftString="0" middleString="کارت قرمز" rightString="0" key={7}/>);
+        stats.push(<DoubleTeamItem leftString="" middleString="بهترین بازیکن زمین" rightString="صدری" key={8} />);
 
 
         let games = [];
-        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='پدیده' leftGoals='1' rightGoals='0' date='1397/07/13' />);
-        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' />);
-        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='1' rightGoals='0' date='1397/07/03' />);
+        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='پدیده' leftGoals='1' rightGoals='0' date='1397/07/13' key={1}/>);
+        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' key={2}/>);
+        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='1' rightGoals='0' date='1397/07/03' key={3}/>);
 
         let gamesFull = <GamesFull Games={games} title='بازی های رو در رو' noScore="1" />;
 
         return (
             <div className="game">
                 {eventsFull}
-                <DoubleTeam Items={stats}></DoubleTeam>
+                <DoubleTeam Items={stats}/>
                 <div className="panel">
                     <table className="event">
                         <tr>
@@ -56,7 +56,7 @@ export default class Game extends React.Component {
                                     <p>مسعود ریگی</p>
                                 </div>
                             </td>
-                            <td></td>
+                            <td/>
                             <td>
                                 <div>
                                     <p>سیامک نعمتی</p>

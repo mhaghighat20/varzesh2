@@ -11,7 +11,7 @@ export class PlayerUtil {
             player.currentTeam = 'پرسپولیس';
             player.nationality = 'ایران';
             player.post = 'هافبک دفاعی';
-            player.imagePath = '/Content/player_1_soccer.jpg';
+            player.imagePath = '/static/frontend/Content/player_1_soccer.jpg';
             return player;
         }
         if (id === '2' && sport === SportTypeEnum.soccer){
@@ -23,7 +23,7 @@ export class PlayerUtil {
             player.currentTeam = 'پرسپولیس';
             player.nationality = 'ایران';
             player.post = 'هافبک دفاعی';
-            player.imagePath = '/Content/player_2_soccer.jpg';
+            player.imagePath = '/static/frontend/Content/player_2_soccer.jpg';
             return player;
         }
         if (id === '3' && sport === SportTypeEnum.soccer){
@@ -35,7 +35,7 @@ export class PlayerUtil {
             player.currentTeam = 'پرسپولیس';
             player.nationality = 'ایران';
             player.post = 'هافبک دفاعی';
-            player.imagePath = '/Content/player_3_soccer.jpg';
+            player.imagePath = '/static/frontend/Content/player_3_soccer.jpg';
             return player;
         }
         if (id === '4' && sport === SportTypeEnum.soccer){
@@ -47,7 +47,7 @@ export class PlayerUtil {
             player.currentTeam = 'پرسپولیس';
             player.nationality = 'ایران';
             player.post = 'هافبک دفاعی';
-            player.imagePath = '/Content/player_4_soccer.jpg';
+            player.imagePath = '/static/frontend/Content/player_4_soccer.jpg';
             return player;
         }
     }

@@ -15,7 +15,7 @@ export default class Team extends React.Component {
         let members = ['1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1'];
         return (
             <div className="team-page">
-                <div className="main-wrapper" style={{ backgroundImage: "url(/Content/perspolis.jpg)" }}>
+                <div className="main-wrapper" style={{ backgroundImage: "url(/static/frontend/Content/perspolis.jpg)" }}>
                     <div className="transparent-title">
                         <h1>تیم پرسپولیس</h1>
                     </div>

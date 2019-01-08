@@ -42,7 +42,7 @@ class LeagueList extends React.Component {
     render() {
         let paragraphs = [];
         for (let i = 0; i < this.props.paragraphs.length; i++) {
-            paragraphs.push(<p className="my-paragraph">{this.props.paragraphs[i]}</p>);
+            paragraphs.push(<p className="my-paragraph" key={i}>{this.props.paragraphs[i]}</p>);
         }
 
         return (

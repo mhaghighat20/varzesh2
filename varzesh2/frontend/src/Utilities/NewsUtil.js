@@ -14,7 +14,7 @@ export class NewsUtil{
             news.title='سپاهان 1- پرسپولیس 1؛ همه چیز تحت تاثیر سوت فغانی';
             news.publishDate='۱۳۹۷/۹/۱۸';
             news.image = {
-                path: '/Content/01362047.jpg',
+                path: '/static/frontend/Content/01362047.jpg',
                 alt: 'بازی سپاهان و پرسپولیس'
             };
             return news;
@@ -33,7 +33,7 @@ export class NewsUtil{
             news.title='گزارش لحظه به لحظه بازی پدیده-پرسپولیس';
             news.publishDate='۱۳۹۷/۹/۱۸';
             news.image = {
-                path: '/Content/01362047.jpg',
+                path: '/static/frontend/Content/01362047.jpg',
                 alt: 'بازی سپاهان و پرسپولیس'
             };
             return news;
@@ -53,7 +53,7 @@ export class NewsUtil{
             news.title='ویدیوی گل اول پرسپولیس';
             news.publishDate='۱۳۹۷/۹/۱۸';
             news.image = {
-                path: '/Content/01362047.jpg',
+                path: '/static/frontend/Content/01362047.jpg',
                 alt: 'بازی سپاهان و پرسپولیس'
             };
             return news;
