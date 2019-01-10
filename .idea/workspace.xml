@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abd50e6f-022f-4c1f-bc16-e140cf4e51a6" name="Default Changelist" comment="Fix small UI problem">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/test_react_proj.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/frontend/src/League.js" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/frontend/src/League.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/frontend/src/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/frontend/src/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/frontend/src/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/frontend/src/Team.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,23 +22,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="155">
-                <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-              </first_editor>
-              <second_editor />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Team.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#1092#1349#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+            <state relative-caret-position="1085">
+              <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -78,11 +78,20 @@
       <find>perspolis.jpg</find>
       <find>logo</find>
       <find>/Content</find>
+      <find>WeekList</find>
+      <find>favicon</find>
+      <find>&lt;section class=&quot;se</find>
+      <find>PlayerStatistics</find>
+      <find>LeagueDetails</find>
+      <find>GamesFul</find>
+      <find>Game</find>
     </findStrings>
     <replaceStrings>
       <replace>#03272b</replace>
     </replaceStrings>
     <dirStrings>
+      <dir>$PROJECT_DIR$/varzesh2</dir>
+      <dir>$PROJECT_DIR$/varzesh2/frontend</dir>
       <dir>$PROJECT_DIR$/varzesh2/frontend/src</dir>
     </dirStrings>
   </component>
@@ -121,16 +130,26 @@
         <option value="$PROJECT_DIR$/varzesh2/frontend/package.json" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/.babelrc" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/News.js" />
-        <option value="$PROJECT_DIR$/varzesh2/frontend/src/League.js" />
-        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Game.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/GameComponents/Events.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/webpack.config.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/News.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/NewsUtil.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/PlayerUtil.js" />
-        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Team.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Home.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/public/index.html" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/public/manifest.json" />
+        <option value="$PROJECT_DIR$/varzesh2/static/frontend/manifest.json" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/dist/index.html" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/templates/frontend/index.html" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Game.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/LeagueUtil.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/League.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Player.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Team.js" />
       </list>
     </option>
   </component>
@@ -152,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,10 +183,24 @@
               <item name="test_react_proj" type="462c0819:PsiDirectoryNode" />
               <item name="varzesh2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="test_react_proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_react_proj" type="462c0819:PsiDirectoryNode" />
+              <item name="varzesh2" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test_react_proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_react_proj" type="462c0819:PsiDirectoryNode" />
+              <item name="varzesh2" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,11 +227,11 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/varzesh2" />
       <recent name="$PROJECT_DIR$/varzesh2/frontend/src" />
       <recent name="$PROJECT_DIR$/src/style/images" />
       <recent name="$PROJECT_DIR$/public/Content" />
       <recent name="$PROJECT_DIR$/src/Prototype_files" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -322,7 +354,8 @@
       <workItem from="1546899674554" duration="4799000" />
       <workItem from="1546904598800" duration="371000" />
       <workItem from="1546919247656" duration="3531000" />
-      <workItem from="1546943828380" duration="3225000" />
+      <workItem from="1546943828380" duration="6772000" />
+      <workItem from="1547148563189" duration="4475000" />
     </task>
     <task id="LOCAL-00001" summary="First test web page">
       <created>1544293280671</created>
@@ -499,17 +532,38 @@
       <option name="project" value="LOCAL" />
       <updated>1546946832150</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fix gitignore">
+      <created>1546947352966</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1546947352966</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Fix small UI problems">
+      <created>1546949287867</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1546949287867</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Fix warnings">
+      <created>1546950578747</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1546950578747</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105876000" />
+    <option name="totallyTimeSpent" value="113898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47642276" visible="true" weight="0.32206208" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47642276" visible="true" weight="0.32594234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5235772" side_tool="true" visible="true" weight="0.18555008" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -524,7 +578,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49972633" weight="0.32932165" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50110865" side_tool="true" weight="0.2955289" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3293348" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49889135" visible="true" weight="0.3925845" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49889135" visible="true" weight="0.391494" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32894737" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -538,7 +592,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First test web page" />
     <MESSAGE value="First commit" />
     <MESSAGE value="Added news and changed some styles" />
     <MESSAGE value="Added logo and some small changes" />
@@ -561,7 +614,10 @@
     <MESSAGE value="Updated readme.md" />
     <MESSAGE value="Fix readme.md" />
     <MESSAGE value="Changed readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed readme.md" />
+    <MESSAGE value="Fix gitignore" />
+    <MESSAGE value="Fix small UI problems" />
+    <MESSAGE value="Fix warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix warnings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -609,13 +665,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Utilities/PlayerUtil.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/NavLink.js" />
-    <entry file="file://$PROJECT_DIR$/src/GameComponents/Events.js" />
-    <entry file="file://$PROJECT_DIR$/src/Game.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/Navbar.js" />
-    <entry file="file://$PROJECT_DIR$/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/index.js" />
     <entry file="file://$PROJECT_DIR$/src/style/images/dark-glass.png" />
     <entry file="file://$PROJECT_DIR$/src/style/css/bootstrap.css" />
     <entry file="file://$PROJECT_DIR$/src/Utilities/NewsUtil.js" />
@@ -639,26 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/dist/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/templates/frontend/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/frontend/postcss.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,11 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/style/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -693,54 +721,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/News.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1240">
-          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/GameComponents/Events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1798">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/LeagueUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1559">
-          <caret line="94" column="15" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/League.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -764,23 +748,6 @@
     <entry file="file://$PROJECT_DIR$/varzesh2/frontend/public/Content/perspolis.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Team.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="17" column="101" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/PlayerUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="13" column="56" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/NewsUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -798,6 +765,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1674">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -808,10 +798,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        <state relative-caret-position="124">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/public/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/NavigationBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/LeagueUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/PlayerUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-837">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/League.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/News.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/style/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1085">
+          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Team.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#1092#1349#0" />
+          </folding>
         </state>
       </provider>
     </entry>

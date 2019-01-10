@@ -21,16 +21,18 @@ export default class League extends React.Component {
         let week = LeagueUtil.getLeagueWeek(SportTypeEnum.soccer, '1', '10');
 
         return (
-            <div>
-                <div className="side-bar panel">
-                    <div className="panel-heading">آرشیو لیگ ها</div>
-                    <div className="">
-                        <LeagueList paragraphs={paragraphs} />
+            <div className="container container-fluid">
+                <div className="row">
+                    <div className="col-sm-3">
+                        <div className="panel-heading">آرشیو لیگ ها</div>
+                        <div className="text-center">
+                            <LeagueList paragraphs={paragraphs} />
+                        </div>
                     </div>
-                </div>
-                <div className="content-main-wrapper">
-                    <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
-                    <LeagueWeek count={week.count} data={week.data} />
+                    <div className="col-sm-9">
+                        <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
+                        <LeagueWeek count={week.count} data={week.data} />
+                    </div>
                 </div>
             </div>
         );

@@ -20,15 +20,19 @@ export default class Team extends React.Component {
                         <h1>تیم پرسپولیس</h1>
                     </div>
                 </div>
-                <div className="side-bar panel">
-                    <div className="panel-heading">اعضای تیم</div>
-                    <div className="">
-                        <PlayerList playerIds={members} />
+                <div className="container container-fluid">
+                    <div className="row">
+                        <div className="col-sm-9">
+                            <GamesFull Games={games} title='بازی ها' />
+                            <NewsList newsIds={['1', '1']} title="اخبار" />
+                        </div>
+                        <div className="panel col-sm-3">
+                            <div className="panel-heading">اعضای تیم</div>
+                            <div className="panel-body">
+                                <PlayerList playerIds={members} />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="content-main-wrapper">
-                    <GamesFull Games={games} title='بازی ها' />
-                    <NewsList newsIds={['1', '1']} title="اخبار" />
                 </div>
             </div>
         );
@@ -40,7 +44,20 @@ class PlayerList extends React.Component {
         let players = [];
         for (let i = 0; i < this.props.playerIds.length; i++) {
             let playerDetails = PlayerUtil.getPlayerDetails(SportTypeEnum.soccer, this.props.playerIds[i]);
-            players.push(<p className="" key={i}><NavLink to={'/player?id=' + this.props.playerIds[i]} >{playerDetails.name}</NavLink><span className="post">({playerDetails.post})</span></p>);
+            players.push(
+                <div className="row" key={i}>
+                    <div className="col-sm-5">
+                        <span className="post pull-left">
+                            ({playerDetails.post})
+                        </span>
+                    </div>
+                    <div className="col-sm-7">
+                        <NavLink className="pull-right" to={'/player?id=' + this.props.playerIds[i]} >
+                            {playerDetails.name}
+                        </NavLink>
+                    </div>
+                </div>
+            );
         }
         return (
             <div>

@@ -13,16 +13,16 @@ export default class Player extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-5">
+                    <div className="col-sm-7 col-sm-push-5">
+                        <PlayerDetails details={details} />
+                    </div>
+                    <div className="col-sm-5 col-sm-pull-7">
                         <div>
                             <PlayerStatistics statistics={statistics} />
                         </div>
                         <div>
                             <NewsList newsIds={newsIds} title="اخبار" />
                         </div>
-                    </div>
-                    <div className="col-sm-7">
-                        <PlayerDetails details={details} />
                     </div>
                 </div>
             </div>
