@@ -2,6 +2,8 @@ import React from "react";
 import { GameResult, GamesFull } from "./SharedComponents/GameResult";
 import { EventItem, EventsFull, DoubleTeamItem, DoubleTeam } from "./GameComponents/Events";
 import { NewsList } from "./SharedComponents/News";
+import {NewsUtil} from "./Utilities/NewsUtil";
+import {VideoList} from "./GameComponents/VideoList";
 
 export default class Game extends React.Component {
     render() {
@@ -80,7 +82,7 @@ export default class Game extends React.Component {
                 </div>
                 {gamesFull}
                 <NewsList newsIds={['2', '1']} title="اخبار" />
-                <NewsList newsIds={['3']} title="ویدیو های بازی" />
+                <VideoList videoIds={['3']} title="ویدیو های بازی" />
             </div>
         );
 

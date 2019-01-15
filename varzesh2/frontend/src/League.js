@@ -3,20 +3,23 @@ import { LeagueUtil, LeagueWeek } from "./Utilities/LeagueUtil";
 import { SportTypeEnum } from "./SharedComponents/SportType";
 
 export default class League extends React.Component {
+    constructor(props) {
+        super(props);
+        this.allLeagueNames = LeagueUtil.getLeagueNames();
+        this.searchBox = React.createRef();
+        this.state = {leagueNames: this.allLeagueNames}
+    }
+
+    handleSearch = () => {
+        let leagueNames = [];
+        for (let i = 0; i < this.allLeagueNames.length; i++){
+            if (this.allLeagueNames[i].indexOf(this.searchBox.current.value) > -1)
+                leagueNames.push(this.allLeagueNames[i]);
+        }
+        this.setState({leagueNames: leagueNames});
+    };
+
     render() {
-        let paragraphs = [];
-        paragraphs.push("لیگ برتر 97-98");
-        paragraphs.push("لیگ برتر 96-97");
-        paragraphs.push("لیگ برتر 95-96");
-        paragraphs.push("لیگ برتر 94-95");
-        paragraphs.push("لیگ برتر 93-94");
-
-        paragraphs.push("لیگ بسکتبال 97-98");
-        paragraphs.push("لیگ بسکتبال 96-97");
-        paragraphs.push("لیگ بسکتبال 95-96");
-        paragraphs.push("لیگ بسکتبال 94-95");
-        paragraphs.push("لیگ بسکتبال 93-94");
-
         let leagueDetails = LeagueUtil.getLeagueDetails(SportTypeEnum.soccer, '1');
         let week = LeagueUtil.getLeagueWeek(SportTypeEnum.soccer, '1', '10');
 
@@ -26,7 +29,10 @@ export default class League extends React.Component {
                     <div className="col-sm-3">
                         <div className="panel-heading">آرشیو لیگ ها</div>
                         <div className="text-center">
-                            <LeagueList paragraphs={paragraphs} />
+                            <div>
+                                <input type="text" ref={this.searchBox} onChange={this.handleSearch} placeholder="جستجو" className="form-control"/>
+                            </div>
+                            <LeagueList leagueNames={this.state.leagueNames} />
                         </div>
                     </div>
                     <div className="col-sm-9">
@@ -42,8 +48,8 @@ export default class League extends React.Component {
 class LeagueList extends React.Component {
     render() {
         let paragraphs = [];
-        for (let i = 0; i < this.props.paragraphs.length; i++) {
-            paragraphs.push(<p className="my-paragraph" key={i}>{this.props.paragraphs[i]}</p>);
+        for (let i = 0; i < this.props.leagueNames.length; i++) {
+            paragraphs.push(<p className="my-paragraph" key={i}>{this.props.leagueNames[i]}</p>);
         }
 
         return (

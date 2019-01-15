@@ -29,7 +29,7 @@ class NewsFull extends React.Component {
             paragraphs.push(<p className="my-paragraph" key={i}>{this.props.paragraphs[i]}</p>);
         }
         return (
-            <div className="panel panel-primary">
+            <div className="panel panel-primary news-panel">
                 <h1 className="news-title">{this.props.title}</h1>
                 <Image path={this.props.image.path} alt={this.props.image.alt} />
                 <article>

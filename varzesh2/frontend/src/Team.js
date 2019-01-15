@@ -14,27 +14,31 @@ export default class Team extends React.Component {
 
         let members = ['1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1'];
         return (
-            <div className="team-page">
-                <div className="main-wrapper" style={{ backgroundImage: "url(/static/frontend/Content/perspolis.jpg)" }}>
-                    <div className="transparent-title">
-                        <h1>تیم پرسپولیس</h1>
+            <div>
+                <div className="container-fluid">
+                    <div className="parallax-team-photo" style={{ backgroundImage: "url(/static/frontend/Content/perspolis.jpg)" }}>
+                            <div className="transparent-title">
+                            <h1>تیم پرسپولیس</h1>
+                            </div>
                     </div>
                 </div>
                 <div className="container container-fluid">
-                    <div className="row">
-                        <div className="col-sm-9">
-                            <GamesFull Games={games} title='بازی ها' />
-                            <NewsList newsIds={['1', '1']} title="اخبار" />
+                <div className="row">
+                    <div className="col-sm-9">
+                        <GamesFull Games={games} title='بازی ها' />
+                        <NewsList newsIds={['1', '1']} title="اخبار" />
+                    </div>
+                    <div className="panel col-sm-3">
+                        <div className="panel-heading">
+                            اعضای تیم
                         </div>
-                        <div className="panel col-sm-3">
-                            <div className="panel-heading">اعضای تیم</div>
-                            <div className="panel-body">
-                                <PlayerList playerIds={members} />
-                            </div>
+                        <div className="panel-body">
+                            <PlayerList playerIds={members} />
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         );
     }
 }

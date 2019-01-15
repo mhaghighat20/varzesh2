@@ -32,6 +32,23 @@ export class LeagueUtil {
             return week;
         }
     }
+
+    static getLeagueNames(){
+        let paragraphs = [];
+        paragraphs.push("لیگ برتر 97-98");
+        paragraphs.push("لیگ برتر 96-97");
+        paragraphs.push("لیگ برتر 95-96");
+        paragraphs.push("لیگ برتر 94-95");
+        paragraphs.push("لیگ برتر 93-94");
+
+        paragraphs.push("لیگ بسکتبال 97-98");
+        paragraphs.push("لیگ بسکتبال 96-97");
+        paragraphs.push("لیگ بسکتبال 95-96");
+        paragraphs.push("لیگ بسکتبال 94-95");
+        paragraphs.push("لیگ بسکتبال 93-94");
+
+        return paragraphs;
+    }
 }
 
 class LeagueDetails {

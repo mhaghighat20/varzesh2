@@ -1,10 +1,12 @@
-.team-page .main-wrapper {
+.parallax-team-photo {
     position: relative;
     margin: 0 auto 30px;
     box-shadow: 0 0 20px #000 inset;
     background: no-repeat fixed;
-    background-size: 100% 70%;
-    height: 300px;
+    background-position-x: center;
+    background-size: cover;
+    height: 25em;
+    width: auto;
 }
 
 .post {
@@ -104,4 +106,110 @@ thead {
 
 .game-item{
     padding: 10px;
+}
+
+
+.active{
+  background-color: #132a48;
+  border-bottom: 5px solid white;
+  color: white;
+}
+
+.my-paragraph{
+  margin: 20px;
+  font-size: 18px;
+  text-align: right;
+}
+
+.news-image{
+  float: left;
+  clear: right;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li {
+        float: right;
+    }
+}
+
+.nav-tabs > li {
+    float: right;
+    margin-bottom: -1px;
+}
+
+@media (min-width: 768px) {
+    .my-navbar-right {
+        float: right !important;
+        margin-right: -25px;
+    }
+}
+
+.news-title{
+  margin-right: 20px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'BYekan'; /*تعریف یک نام برای فونت*/
+  src: url('../fonts/Yekan.eot'); /*اکسپلورر ۹ به بعد*/
+  src: local('bYekan'), /*بررسی نصب بودن فونت در سیستم کاربر*/
+  local('b Yekan'), /*برای برخی از مرورگرها مانند سافاری*/
+  url('../fonts/Yekan.eot?#iefix') format('embedded-opentype'), /*هک برای اکسپلورر ۸ و ماقبل*/
+  url('../fonts/Yekan.woff') format('woff'), /*مرورگر های جدید*/
+  url('../fonts/Yekan.ttf') format('truetype'), /*تمام مرورگرها به جزء اکسپلورر*/
+  url('../fonts/Yekan.svg') format('svg'); /*نسخه های قدیمی سیستم عامل iOS*/
+  font-style: normal;
+  font-weight: normal;
+}
+
+.logo{
+  background-image: url("../images/logo.png");
+  height: 60px;
+  width: 100px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main{
+    font-family: 'BYekan', sans-serif;
+    direction: rtl;
+    background-color: whitesmoke;
+}
+
+.panel {
+    background-color: ghostwhite;
+}
+
+.my-navbar {
+  background-color: #0c3354;
+  border-color: #e7e7e7;
+}
+.my-navbar .navbar-brand {
+  color: #337ab7;
+}
+.my-navbar .navbar-brand:hover,
+.my-navbar .navbar-brand:focus {
+  color: #0089ff;
+  background-color: transparent;
+}
+
+.my-navbar .navbar-nav > li > a {
+  color: white;
+  font-size: large;
+  text-align: right;
+}
+
+.my-navbar .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #0c3354;
+}
+
+.my-navbar .navbar-nav > li > a:hover {
+    color: white;
+    background-color: #11428c;
 }

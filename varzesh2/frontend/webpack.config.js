@@ -1,4 +1,4 @@
-// const webpack = require('webpack');
+const webpack = require('webpack');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
@@ -19,7 +19,12 @@ module.exports = {
       }),
         new CopyWebpackPlugin([
             { from: './public', to: '' }
-        ])
+        ]),
+        new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
+    })
     //     // This makes it possible for us to safely use env vars on our code
     // new webpack.DefinePlugin({
     //   'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)

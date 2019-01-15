@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/css/bootstrap.css';
+import './style/css/bootstrap.min.css';
 import './style/css/style.css';
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap';
 import Home from "./Home";
 import NavigationBar from "./NavigationBar";
 import League from "./League";
