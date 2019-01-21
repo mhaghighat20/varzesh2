@@ -33,8 +33,8 @@ export default class Player extends React.Component {
 class PlayerDetails extends React.Component {
     render() {
         return (
-            <div className="container-fluid panel">
-                <div className="panel-heading">مشخصات</div>
+            <div className="panel">
+                <div className="panel-heading my-panel-heading">مشخصات</div>
                 <img className="news-image" src={this.props.details.imagePath} alt={this.props.details.name} />
                 <div>
                     <KeyValue colName="نام" value={this.props.details.name} />
@@ -76,7 +76,7 @@ class PlayerStatistics extends React.Component {
         }
         return (
             <div className="panel">
-                <div className="panel-heading">آمار</div>
+                <div className="panel-heading my-panel-heading">آمار</div>
                 <table className="table table-bordered">
                     <thead>
                         <tr>

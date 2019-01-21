@@ -3,12 +3,17 @@ import React from "react";
 export class EventsFull extends React.Component {
     render() {
         let items = [];
-        for (let i = 0; i < this.props.EventItems.length; i++) {
-            items.push(this.props.EventItems[i]);
+        for (let i = 0; i < this.props.eventItems.length; i++) {
+            items.push(this.props.eventItems[i]);
         }
 
         return (
-            <DoubleTeam rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" Items={this.props.EventItems}/>
+            <div className="panel">
+                <div className="panel-heading my-panel-heading">
+                    رخدادها
+                </div>
+                <DoubleTeam rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" items={this.props.eventItems} tableClassName="event"/>
+            </div>
         );
     }
 }
@@ -26,7 +31,7 @@ export class EventItem extends React.Component {
             rightString = this.props.act + ' ' + this.props.player;
 
         return (
-            <DoubleTeamItem rightString={rightString} leftString={leftString} middleString={"'" + this.props.minute}></DoubleTeamItem>
+            <DoubleTeamItem rightString={rightString} leftString={leftString} middleString={"'" + this.props.minute}/>
         );
     }
 }
@@ -34,13 +39,13 @@ export class EventItem extends React.Component {
 export class DoubleTeam extends React.Component {
     render() {
         let items = [];
-        for (let i = 0; i < this.props.Items.length; i++) {
-            items.push(this.props.Items[i]);
+        for (let i = 0; i < this.props.items.length; i++) {
+            items.push(this.props.items[i]);
         }
 
         return (
-            <div className="panel panel-primary">
-                <table className="event">
+            <div>
+                <table className={this.props.tableClassName}>
                     <thead>
                         <tr>
                             <td>

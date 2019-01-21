@@ -28,12 +28,14 @@ export default class Team extends React.Component {
                         <GamesFull Games={games} title='بازی ها' />
                         <NewsList newsIds={['1', '1']} title="اخبار" />
                     </div>
-                    <div className="panel col-sm-3">
-                        <div className="panel-heading">
-                            اعضای تیم
-                        </div>
-                        <div className="panel-body">
-                            <PlayerList playerIds={members} />
+                    <div className="col-sm-3">
+                        <div className="panel">
+                            <div className="panel-heading my-panel-heading">
+                                اعضای تیم
+                            </div>
+                            <div className="panel-body">
+                                <PlayerList playerIds={members} />
+                            </div>
                         </div>
                     </div>
                 </div>

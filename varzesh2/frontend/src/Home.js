@@ -65,7 +65,7 @@ class TabPane extends React.Component{
     render() {
         const displayType = this.props.isActive ? 'block' : 'none';
 
-        const children = <div>
+        const children = <div className="row">
             <div className="col-sm-6">
                 <GameList sportType = {this.props.sportType}/>
             </div>
@@ -90,8 +90,8 @@ class GameList extends React.Component{
         let weekName = leagues[0].weeks[0].name;
 
         return (
-            <div className="panel container-fluid" style={{alignItems: "center"}}>
-                <div className="panel-heading">مسابقات</div>
+            <div className="panel" style={{alignItems: "center"}}>
+                <div className="panel-heading my-panel-heading">مسابقات</div>
                 <div className="row">
                     <select>
                         <option value="2">{leagueName}</option>

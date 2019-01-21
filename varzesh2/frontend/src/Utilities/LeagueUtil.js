@@ -109,8 +109,8 @@ export class LeagueWeek extends React.Component {
 
     render() {
         return (
-            <div className="panel">
-                <GamesFull Games={this.props.data} title={<SelectWeek limit={this.props.count}/>} />;
+            <div>
+                <GamesFull Games={this.props.data} title={<SelectWeek limit={this.props.count}/>} />
             </div>
         );
     }

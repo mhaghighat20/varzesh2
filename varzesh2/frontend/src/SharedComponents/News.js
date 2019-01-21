@@ -1,5 +1,4 @@
 import React from "react";
-import {SportTypeEnum} from "./SportType";
 import {NewsUtil} from "../Utilities/NewsUtil";
 import {NavLink} from "react-router-dom";
 
@@ -11,7 +10,7 @@ export class NewsList extends React.Component {
         }
         return (
             <div className="panel">
-                <div className="panel-heading">{this.props.title}</div>
+                <div className="panel-heading my-panel-heading">{this.props.title}</div>
                 <div className="panel-body">
                     {newsItems}
                 </div>

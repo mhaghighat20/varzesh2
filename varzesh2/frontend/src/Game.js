@@ -2,7 +2,6 @@ import React from "react";
 import { GameResult, GamesFull } from "./SharedComponents/GameResult";
 import { EventItem, EventsFull, DoubleTeamItem, DoubleTeam } from "./GameComponents/Events";
 import { NewsList } from "./SharedComponents/News";
-import {NewsUtil} from "./Utilities/NewsUtil";
 import {VideoList} from "./GameComponents/VideoList";
 
 export default class Game extends React.Component {
@@ -15,7 +14,7 @@ export default class Game extends React.Component {
         events.push(<EventItem leftOrRight='1' player='کامیابی نیا' act='کارت زرد' minute='73' key={5}/>);
         events.push(<EventItem leftOrRight='0' player='گرامی' act='کارت زرد' minute='75' key={6}/>);
         events.push(<EventItem leftOrRight='0' player='صدری' act='کارت زرد' minute='80' key={7}/>);
-        let eventsFull = <EventsFull EventItems={events} leftTeam="پرسپولیس" rightTeam="پدیده" key={8}/>;
+        let eventsFull = <EventsFull eventItems={events} leftTeam="پرسپولیس" rightTeam="پدیده" key={8}/>;
 
         let stats = [];
         stats.push(<DoubleTeamItem leftString="2" middleString="تعداد گل" rightString="1" key={1}/>);
@@ -36,49 +35,59 @@ export default class Game extends React.Component {
         let gamesFull = <GamesFull Games={games} title='بازی های رو در رو' noScore="1" />;
 
         return (
-            <div className="game">
+            <div className="container container-fluid">
                 {eventsFull}
-                <DoubleTeam Items={stats}/>
                 <div className="panel">
-                    <table className="event">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <p>محمد ناصری G</p>
-                                        <p>علی نعمتی</p>
-                                        <p>سید عبدالله حسینی</p>
-                                        <p>مسعود ریگی</p>
-                                        <p>محمد ناصری</p>
-                                        <p>علی نعمتی</p>
-                                        <p>سید عبدالله حسینی</p>
-                                        <p>مسعود ریگی</p>
-                                        <p>محمد ناصری</p>
-                                        <p>علی نعمتی</p>
-                                        <p>سید عبدالله حسینی</p>
-                                        <p>مسعود ریگی</p>
-                                    </div>
-                                </td>
-                                <td/>
-                                <td>
-                                    <div>
-                                        <p>سیامک نعمتی</p>
-                                        <p>بشار رسن</p>
-                                        <p>سید جلال حسینی</p>
-                                        <p>شجاع خلیل زاده</p>
-                                        <p>سیامک نعمتی</p>
-                                        <p>بشار رسن</p>
-                                        <p>سید جلال حسینی</p>
-                                        <p>شجاع خلیل زاده</p>
-                                        <p>سیامک نعمتی</p>
-                                        <p>بشار رسن</p>
-                                        <p>سید جلال حسینی</p>
-                                        <p>شجاع خلیل زاده</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div className="panel-heading my-panel-heading">
+                        آمار
+                    </div>
+                    <DoubleTeam items={stats} tableClassName="table table-stripped table-hover table-responsive my-table"/>
+                </div>
+                <div className="panel">
+                    <div className="panel-heading my-panel-heading">
+                        بازیکنان
+                    </div>
+                    <div className="panel-body">
+                        <table className="event">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <p>محمد ناصری G</p>
+                                            <p>علی نعمتی</p>
+                                            <p>سید عبدالله حسینی</p>
+                                            <p>مسعود ریگی</p>
+                                            <p>محمد ناصری</p>
+                                            <p>علی نعمتی</p>
+                                            <p>سید عبدالله حسینی</p>
+                                            <p>مسعود ریگی</p>
+                                            <p>محمد ناصری</p>
+                                            <p>علی نعمتی</p>
+                                            <p>سید عبدالله حسینی</p>
+                                            <p>مسعود ریگی</p>
+                                        </div>
+                                    </td>
+                                    <td/>
+                                    <td>
+                                        <div>
+                                            <p>سیامک نعمتی</p>
+                                            <p>بشار رسن</p>
+                                            <p>سید جلال حسینی</p>
+                                            <p>شجاع خلیل زاده</p>
+                                            <p>سیامک نعمتی</p>
+                                            <p>بشار رسن</p>
+                                            <p>سید جلال حسینی</p>
+                                            <p>شجاع خلیل زاده</p>
+                                            <p>سیامک نعمتی</p>
+                                            <p>بشار رسن</p>
+                                            <p>سید جلال حسینی</p>
+                                            <p>شجاع خلیل زاده</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 {gamesFull}
                 <NewsList newsIds={['2', '1']} title="اخبار" />

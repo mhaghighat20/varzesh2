@@ -10,7 +10,9 @@ export class VideoList extends React.Component {
         }
         return (
             <div className="panel">
-                <div className="panel-heading">{this.props.title}</div>
+                <div className="panel-heading my-panel-heading">
+                    {this.props.title}
+                </div>
                 <div className="panel-body">
                     {videoItems}
                 </div>

@@ -73,8 +73,8 @@ export class GamesFull extends React.Component {
 
         return (
             <div className="panel">
-                <div className="panel-heading center">{this.props.title}</div>
-                <table>
+                <div className="panel-heading center my-panel-heading">{this.props.title}</div>
+                <table className="table table-striped table-responsive table-hover my-table">
                     <thead>
                         <tr>
                             {headers}

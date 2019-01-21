@@ -27,17 +27,23 @@ export default class League extends React.Component {
             <div className="container container-fluid">
                 <div className="row">
                     <div className="col-sm-3">
-                        <div className="panel-heading">آرشیو لیگ ها</div>
-                        <div className="text-center">
-                            <div>
-                                <input type="text" ref={this.searchBox} onChange={this.handleSearch} placeholder="جستجو" className="form-control"/>
+                        <div className="panel">
+                            <div className="panel-heading my-panel-heading">آرشیو لیگ ها</div>
+                            <div className="text-center panel-body">
+                                <div>
+                                    <input type="text" ref={this.searchBox} onChange={this.handleSearch} placeholder="جستجو" className="form-control"/>
+                                </div>
+                                <LeagueList leagueNames={this.state.leagueNames} />
                             </div>
-                            <LeagueList leagueNames={this.state.leagueNames} />
                         </div>
                     </div>
                     <div className="col-sm-9">
-                        <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
-                        <LeagueWeek count={week.count} data={week.data} />
+                        <div className="row">
+                            <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
+                        </div>
+                        <div className="row">
+                            <LeagueWeek count={week.count} data={week.data} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,8 +70,8 @@ class LeagueDetails extends React.Component {
     render() {
         return (
             <div className="panel">
-                <div className="panel-heading center">{this.props.title}</div>
-                <table>
+                <div className="panel-heading center my-panel-heading">{this.props.title}</div>
+                <table className="table table-striped table-responsive table-hover my-table">
                     <thead>
                         <tr>
                             <td>
