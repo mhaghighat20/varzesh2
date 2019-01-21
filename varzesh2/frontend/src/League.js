@@ -38,12 +38,8 @@ export default class League extends React.Component {
                         </div>
                     </div>
                     <div className="col-sm-9">
-                        <div className="row">
-                            <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
-                        </div>
-                        <div className="row">
-                            <LeagueWeek count={week.count} data={week.data} />
-                        </div>
+                        <LeagueDetails title={leagueDetails.title} data={leagueDetails.data} />
+                        <LeagueWeek count={week.count} data={week.data} />
                     </div>
                 </div>
             </div>
@@ -74,33 +70,33 @@ class LeagueDetails extends React.Component {
                 <table className="table table-striped table-responsive table-hover my-table">
                     <thead>
                         <tr>
-                            <td>
+                            <th>
                                 تیم
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 بازی
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 برد
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 مساوی
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 باخت
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 گل زده
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 گل خورده
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 تفاضل
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 امتیاز
-                            </td>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

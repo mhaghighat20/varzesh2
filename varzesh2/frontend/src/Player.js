@@ -77,7 +77,7 @@ class PlayerStatistics extends React.Component {
         return (
             <div className="panel">
                 <div className="panel-heading my-panel-heading">آمار</div>
-                <table className="table table-bordered">
+                <table className="table table-responsive table-striped table-hover my-table">
                     <thead>
                         <tr>
                             <th>
