@@ -107,3 +107,5 @@ node_modules
 varzesh2/static
 .vscode
 .idea
+.idea/
+
