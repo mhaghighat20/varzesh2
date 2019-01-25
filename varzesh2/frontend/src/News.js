@@ -5,15 +5,10 @@ import {URLUtil} from "./Utilities/URLUtil"
 export default class NewsPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {news: <p/>}
-    }
-
-    render() {
         const id = URLUtil.getParameterByName('id', window.location.href);
-
+        this.state = {news: <p/>};
         NewsUtil.getNewsById(id, true)
             .then(newsDetails => {
-
                 this.setState({
                     news: <NewsFull
                         paragraphs={newsDetails.paragraphs}
@@ -23,6 +18,9 @@ export default class NewsPage extends React.Component {
                     />
                 });
             });
+    }
+
+    render() {
         return (
             <div className="container container-fluid">
                 {this.state.news}

@@ -24,10 +24,7 @@ export class VideoList extends React.Component {
 class VideoItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {newsDetails: <p/>}
-    }
-
-    render() {
+        this.state = {newsDetails: <p/>};
         NewsUtil.getNewsById(this.props.id, true).then(newsDetails => {
             this.setState({
                 newsDetails: <div>
@@ -38,6 +35,9 @@ class VideoItem extends React.Component {
                 </div>
             });
         });
+    }
+
+    render() {
         return (
             <div>
                 {this.state.newsDetails}

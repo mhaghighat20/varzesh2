@@ -22,3 +22,17 @@ def get_news_by_id(request, news_id, load_description):
 
     return HttpResponse(json.dumps(result, ensure_ascii=False))
 
+
+def get_related_news_by_game_id(request, game_id):
+    news_ids = list(News.objects.filter(related_game_id=game_id).values('id').all())
+    return HttpResponse(json.dumps(news_ids))
+
+
+def get_related_news_by_player_id(request, player_id):
+    news_ids = list(News.objects.filter(related_players__id__contains=player_id).values('id').all())
+    return HttpResponse(json.dumps(news_ids))
+
+
+def get_related_news_by_team_id(request, team_id):
+    news_ids = list(News.objects.filter(related_teams__id__contains=team_id).values('id').all())
+    return HttpResponse(json.dumps(news_ids))
