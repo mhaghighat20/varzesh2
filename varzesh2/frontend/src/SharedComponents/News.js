@@ -20,13 +20,22 @@ export class NewsList extends React.Component {
 }
 
 class NewsItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {newsItem: <p/>}
+    }
+
     render() {
-        const newsDetails = NewsUtil.getNewsById(this.props.id, false);
-        return (
-            <div>
-                <NavLink to={'/news?id=' + this.props.id}>
+        NewsUtil.getNewsById(this.props.id, false).then(newsDetails =>{
+            this.setState({
+                newsItem: <NavLink to={'/news?id=' + this.props.id}>
                     {newsDetails.title}
                 </NavLink>
+            });
+        });
+        return (
+            <div>
+                {this.state.newsItem}
             </div>
         );
     }

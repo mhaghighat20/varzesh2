@@ -3,20 +3,29 @@ import {NewsUtil} from "./Utilities/NewsUtil";
 import {URLUtil} from "./Utilities/URLUtil"
 
 export default class NewsPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {news: <p/>}
+    }
+
     render() {
         const id = URLUtil.getParameterByName('id', window.location.href);
 
-        let newsDetails = NewsUtil.getNewsById(id, true);
+        NewsUtil.getNewsById(id, true)
+            .then(newsDetails => {
 
-        let news = <NewsFull
-            paragraphs = {newsDetails.paragraphs}
-            image = {newsDetails.image}
-            publishDate = {newsDetails.publishDate}
-            title = {newsDetails.title}
-        />;
+                this.setState({
+                    news: <NewsFull
+                        paragraphs={newsDetails.paragraphs}
+                        image={newsDetails.image}
+                        publishDate={newsDetails.publishDate}
+                        title={newsDetails.title}
+                    />
+                });
+            });
         return (
             <div className="container container-fluid">
-                {news}
+                {this.state.news}
             </div>
         );
     }
