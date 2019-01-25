@@ -10,5 +10,6 @@ class Player(models.Model):
     nationality = models.CharField(max_length=50)
     position = models.CharField(max_length=30)
     is_basketball = models.BooleanField(null=False)
+    photo = models.ImageField(blank=True, upload_to='players/images')
 
 
