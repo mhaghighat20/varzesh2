@@ -2,20 +2,23 @@
 import json
 
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 
-from news.models import Team
+from team.models import Team
+from player.models import Person
 
 
-def get_news_by_id(request, team_id):
+def get_team_by_id(request, team_id):
     team = get_object_or_404(Team, id=team_id)
+    personnel = list(Person.objects.filter(team_id=team_id).all().values('player__id', 'first_name', 'last_name', 'position'))
+
     result = {
-        'title': team.title,
-        'personnel': team.personnel,
+        'name': team.name,
+        'personnel': personnel,
     }
 
     if team.photo:
-        result['photo'] =team.photo.path
+        result['photo'] = team.photo.path
 
     response = json.dumps(result, ensure_ascii=False)
     return HttpResponse(response)

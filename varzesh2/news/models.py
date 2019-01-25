@@ -12,6 +12,7 @@ class News(models.Model):
     source = models.CharField(max_length=200, blank=True)
     video = models.FileField(upload_to='news/videos/%Y/%m/%d/', null=True, blank=True)
     related_players = models.ManyToManyField('player.Player', blank=True)
-    related_games = models.ForeignKey('game.Game', on_delete=models.CASCADE, null=True, blank=True)
+    related_game = models.ForeignKey('game.Game', on_delete=models.CASCADE, null=True, blank=True)
     related_teams = models.ManyToManyField('team.Team', blank=True)
+    is_basketball = models.BooleanField()
 
