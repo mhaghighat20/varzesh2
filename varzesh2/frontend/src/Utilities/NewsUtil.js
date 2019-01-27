@@ -1,3 +1,5 @@
+import {FetchUtil} from "./FetchUtil";
+
 export class NewsUtil{
     static getNewsById(id, loadDescription) {
         return getNews(id, loadDescription)
@@ -30,25 +32,7 @@ function getNews(newsId, loadDescription) {
         url += '1';
     }
 
-    return fetch(url, {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, cors, *same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json",
-            // "Content-Type": "application/x-www-form-urlencoded",
-        },
-        redirect: "follow", // manual, *follow, error
-        referrer: "no-referrer", // no-referrer, *client
-    }).then(function(response) {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return response;
-    })
-    .then(response => response.json())// parses response to JSON
-    .catch(err => console.log(err));
+    return FetchUtil.fetchFromUrl(url);
 }
 
 class NewsInfo {

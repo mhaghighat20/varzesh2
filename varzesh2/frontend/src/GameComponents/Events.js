@@ -1,6 +1,18 @@
 import React from "react";
 
 export class EventsFull extends React.Component {
+    constructor(props) {
+        super(props);
+        this.leftTeamId = props.leftTeamId;
+        this.rightTeamId = props.rightTeamId;
+
+        this.state = {
+            leftTeam: '',
+            rightTeam: ''
+        };
+    }
+
+
     render() {
         let items = [];
         for (let i = 0; i < this.props.eventItems.length; i++) {
@@ -12,7 +24,7 @@ export class EventsFull extends React.Component {
                 <div className="panel-heading my-panel-heading">
                     رخدادها
                 </div>
-                <DoubleTeam rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" items={this.props.eventItems} tableClassName="event"/>
+                <GameStatistics rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" items={this.props.eventItems} tableClassName="event"/>
             </div>
         );
     }
@@ -20,10 +32,14 @@ export class EventsFull extends React.Component {
 
 
 export class EventItem extends React.Component {
-    leftOrRight;
+    constructor(props) {
+        super(props);
+        this.leftOrRight = props.leftOrRight;
+        this.player = props.player;
+        this.act = props.act;
+    }
 
     render() {
-
         let leftString, rightString = '';
         if (this.props.leftOrRight === '1')
             leftString = this.props.act + ' ' + this.props.player;
@@ -31,12 +47,21 @@ export class EventItem extends React.Component {
             rightString = this.props.act + ' ' + this.props.player;
 
         return (
-            <DoubleTeamItem rightString={rightString} leftString={leftString} middleString={"'" + this.props.minute}/>
+            <GameStatisticItem rightString={rightString} leftString={leftString} middleString={"'" + this.props.minute}/>
         );
     }
 }
 
-export class DoubleTeam extends React.Component {
+export class GameStatistics extends React.Component {
+    constructor(props) {
+        super(props);
+        this.tableClassName = props.tableClassName;
+        this.rightTitle = props.rightTitle;
+        this.mainTitle = props.mainTitle;
+        this.leftTitle = props.leftTitle;
+        this.items = props.items;
+    }
+
     render() {
         let items = [];
         for (let i = 0; i < this.props.items.length; i++) {
@@ -68,7 +93,15 @@ export class DoubleTeam extends React.Component {
     }
 }
 
-export class DoubleTeamItem extends React.Component {
+export class GameStatisticItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.rightString = props.rightString;
+        this.middleString = props.middleString;
+        this.leftString = props.this.middleString;
+    }
+
+
     render() {
         return (
             <tr>

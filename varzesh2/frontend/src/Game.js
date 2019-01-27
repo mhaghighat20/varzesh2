@@ -1,47 +1,49 @@
 import React from "react";
 import { GameResult, GamesFull } from "./SharedComponents/GameResult";
-import { EventItem, EventsFull, DoubleTeamItem, DoubleTeam } from "./GameComponents/Events";
+import { EventItem, EventsFull, GameStatisticItem, GameStatistics } from "./GameComponents/Events";
 import { NewsList } from "./SharedComponents/News";
 import {VideoList} from "./GameComponents/VideoList";
+import {GameUtil} from "./Utilities/GameUtil";
+import {URLUtil} from "./Utilities/URLUtil";
+import {PlayerName} from "./PlayerComponents/PlayerName";
 
 export default class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            eventsFull: <div/>,
+            stats: <div/>,
+            awayPlayers: [],
+            homePlayers: [],
+            gamesFull: <div/>,
+            relatedNewsIds: [],
+            relatedMediaIds: []
+        };
+    }
+
+    componentDidMount() {
+        const gameId = URLUtil.getParameterByName('id', window.location.href);
+        GameUtil.getGameDetails(gameId)
+            .then(gameDetails => {
+                this.loadAgainstGames(gameDetails.homeTeamId, gameDetails.awayTeamId);
+                this.loadStatistics(gameId, gameDetails.isBasketball);
+                this.loadEvents(gameId, gameDetails.homeTeamId, gameDetails.awayTeamId);
+            });
+
+        this.loadPlayers(gameId);
+        this.loadRelatedNews(gameId);
+        this.loadRelatedMedia(gameId);
+    }
+
     render() {
-        let events = [];
-        events.push(<EventItem leftOrRight='1' player='علیپور' act='کارت زرد' minute='4' key={1}/>);
-        events.push(<EventItem leftOrRight='1' player='علیپور' act='پنالتی' minute='8' key={2}/>);
-        events.push(<EventItem leftOrRight='1' player='نورالهی' act='کارت زرد' minute='36' key={3}/>);
-        events.push(<EventItem leftOrRight='1' player='عالیشاه -> گادوین منشا' act='تعویض' minute='67' key={4}/>);
-        events.push(<EventItem leftOrRight='1' player='کامیابی نیا' act='کارت زرد' minute='73' key={5}/>);
-        events.push(<EventItem leftOrRight='0' player='گرامی' act='کارت زرد' minute='75' key={6}/>);
-        events.push(<EventItem leftOrRight='0' player='صدری' act='کارت زرد' minute='80' key={7}/>);
-        let eventsFull = <EventsFull eventItems={events} leftTeam="پرسپولیس" rightTeam="پدیده" key={8}/>;
-
-        let stats = [];
-        stats.push(<DoubleTeamItem leftString="2" middleString="تعداد گل" rightString="1" key={1}/>);
-        stats.push(<DoubleTeamItem leftString="67%" middleString="درصد مالکیت توپ" rightString="33%" key={2}/>);
-        stats.push(<DoubleTeamItem leftString="2" middleString="کرنر" rightString="3" key={3}/>);
-        stats.push(<DoubleTeamItem leftString="3" middleString="خطا" rightString="1" key={4}/>);
-        stats.push(<DoubleTeamItem leftString="3" middleString="موقعیت گل" rightString="4" key={5}/>);
-        stats.push(<DoubleTeamItem leftString="2" middleString="کارت زرد" rightString="1" key={6}/>);
-        stats.push(<DoubleTeamItem leftString="0" middleString="کارت قرمز" rightString="0" key={7}/>);
-        stats.push(<DoubleTeamItem leftString="" middleString="بهترین بازیکن زمین" rightString="صدری" key={8} />);
-
-
-        let games = [];
-        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='پدیده' leftGoals='1' rightGoals='0' date='1397/07/13' key={0}/>);
-        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' key={1}/>);
-        games.push(<GameResult leftTeam='پدیده' rightTeam='پرسپولیس' leftGoals='1' rightGoals='0' date='1397/07/03' key={2}/>);
-
-        let gamesFull = <GamesFull Games={games} title='بازی های رو در رو' noScore="1" />;
-
         return (
             <div className="container container-fluid">
-                {eventsFull}
+                {this.state.eventsFull}
                 <div className="panel">
                     <div className="panel-heading my-panel-heading">
                         آمار
                     </div>
-                    <DoubleTeam items={stats} tableClassName="table table-stripped table-hover table-responsive my-table"/>
+                    <GameStatistics items={this.state.stats} tableClassName="table table-stripped table-hover table-responsive my-table"/>
                 </div>
                 <div className="panel">
                     <div className="panel-heading my-panel-heading">
@@ -53,35 +55,13 @@ export default class Game extends React.Component {
                                 <tr>
                                     <td>
                                         <div>
-                                            <p>محمد ناصری G</p>
-                                            <p>علی نعمتی</p>
-                                            <p>سید عبدالله حسینی</p>
-                                            <p>مسعود ریگی</p>
-                                            <p>محمد ناصری</p>
-                                            <p>علی نعمتی</p>
-                                            <p>سید عبدالله حسینی</p>
-                                            <p>مسعود ریگی</p>
-                                            <p>محمد ناصری</p>
-                                            <p>علی نعمتی</p>
-                                            <p>سید عبدالله حسینی</p>
-                                            <p>مسعود ریگی</p>
+                                            {this.state.homePlayers}
                                         </div>
                                     </td>
                                     <td/>
                                     <td>
                                         <div>
-                                            <p>سیامک نعمتی</p>
-                                            <p>بشار رسن</p>
-                                            <p>سید جلال حسینی</p>
-                                            <p>شجاع خلیل زاده</p>
-                                            <p>سیامک نعمتی</p>
-                                            <p>بشار رسن</p>
-                                            <p>سید جلال حسینی</p>
-                                            <p>شجاع خلیل زاده</p>
-                                            <p>سیامک نعمتی</p>
-                                            <p>بشار رسن</p>
-                                            <p>سید جلال حسینی</p>
-                                            <p>شجاع خلیل زاده</p>
+                                            {this.state.awayPlayers}
                                         </div>
                                     </td>
                                 </tr>
@@ -89,11 +69,140 @@ export default class Game extends React.Component {
                         </table>
                     </div>
                 </div>
-                {gamesFull}
-                <NewsList newsIds={['2', '1']} title="اخبار" />
-                <VideoList videoIds={['3']} title="ویدیو های بازی" />
+                {this.state.gamesFull}
+                <NewsList newsIds={this.state.relatedNewsIds} title="اخبار" />
+                <VideoList videoIds={this.state.relatedMediaIds} title="ویدیو های بازی" />
             </div>
         );
 
+    }
+
+    loadAgainstGames(firstTeamId, secondTeamId) {
+        GameUtil.getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId)
+            .then(gameIds => {
+                let gamesFull = <GamesFull gamesId={gameIds} title='بازی های رو در رو' />;
+                this.setState({
+                    gamesFull: gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds
+                })
+            });
+    }
+
+    loadStatistics(gameId, isBasketball) {
+        GameUtil.getGameStatistics(gameId)
+            .then(statistics => {
+                let stats = [];
+
+                if (isBasketball) {
+                    stats.push(<GameStatisticItem leftString={statistics['goals']['away']} middleString="تعداد گل"
+                                                  rightString={statistics['goals']['home']} key={1}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['ballPossession']['away']}
+                                                  middleString="درصد مالکیت توپ"
+                                                  rightString={statistics['ballPossession']['home']} key={2}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['corners']['away']} middleString="کرنر"
+                                                  rightString={statistics['corners']['home']} key={3}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['fouls']['away']} middleString="خطا"
+                                                  rightString={statistics['fouls']['home']} key={4}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['goalOpportunities']['away']}
+                                                  middleString="موقعیت گل"
+                                                  rightString={statistics['goalOpportunities']['home']} key={5}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['yellowCards']['away']} middleString="کارت زرد"
+                                                  rightString={statistics['yellowCards']['home']} key={6}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['redCards']['away']} middleString="کارت قرمز"
+                                                  rightString={statistics['redCards']['home']} key={7}/>);
+                    stats.push(<GameStatisticItem leftString={statistics['bestPlayer']['away']}
+                                                  middleString="بهترین بازیکن زمین"
+                                                  rightString={statistics['corners']['away']} key={8}/>);
+                } else {
+                    // TODO implement basketball
+                }
+                this.setState({
+                    stats: stats,
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds
+                });
+            });
+    }
+
+    loadEvents(gameId, homeTeamId, awayTeamId) {
+        GameUtil.getGameEvents(gameId)
+            .then(events => {
+                let eventItems = [];
+                for (let i = 0; i < events.length; i++) {
+                    eventItems.push(<EventItem leftOrRight={events[i].leftOrRight} player={events[i].player} act={events[i].act} minute={events[i].minute} key={i}/>);
+                }
+                let eventsFull = <EventsFull eventItems={this.state.events} leftTeamId={awayTeamId} rightTeamId={homeTeamId}/>;
+                this.setState({
+                    eventsFull: eventsFull,
+                    gamesFull: this.state.gamesFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds
+                });
+            });
+    }
+
+    loadPlayers(gameId) {
+        GameUtil.getPlayers(gameId)
+            .then(playerIds => {
+                let homePlayers = [];
+                for (let i = 0; i < playerIds.home.length; i++){
+                    homePlayers.push(<PlayerName playerId={playerIds[i]}/>)
+                }
+                let awayPlayers = [];
+                    for (let i = 0; i < playerIds.away.length; i++){
+                    awayPlayers.push(<PlayerName playerId={playerIds[i]}/>)
+                }
+                this.setState({
+                    homePlayers: homePlayers,
+                    awayPlayers: awayPlayers,
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds
+                });
+            });
+    }
+
+    loadRelatedNews(gameId) {
+        GameUtil.getRelatedNewsIds(gameId)
+            .then(relatedNewsIds => {
+                this.setState({
+                    relatedNewsIds: relatedNewsIds,
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedMediaIds: this.state.relatedMediaIds
+                });
+            });
+    }
+
+    loadRelatedMedia(gameId) {
+        GameUtil.getRelatedMediaIds(gameId)
+            .then(relatedMediaIds => {
+                this.setState({
+                    relatedMediaIds: relatedMediaIds,
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                });
+            });
     }
 }

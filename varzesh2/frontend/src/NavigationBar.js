@@ -37,7 +37,7 @@ export default class NavigationBar extends React.Component{
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink isActive={(_, { pathname }) => pathname.startsWith('/team')} to="/team">
+                                <NavLink isActive={(_, { pathname }) => pathname.startsWith('/team')} to="/team?id=1">
                                     تیم
                                 </NavLink>
                             </li>

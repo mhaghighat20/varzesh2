@@ -1,44 +1,135 @@
 import React from "react";
+import {TeamLink} from "./TeamLink";
+import {GameUtil} from "../Utilities/GameUtil";
 
 export class GameResult extends React.Component {
-    render() {
-        let result = [];
-        result.push(<td href={'/#/team/' + this.props.leftTeam} key={0}>
-            {this.props.leftTeam}
-        </td>);
+    constructor(props) {
+        super(props);
+        this.state = {result: <td/>};
+        this.gameId = props.gameId;
+        this.showStatus = props.showStatus;
+        this.showScore = props.showScore;
+        this.selectedTeamId = props.selectedTeamId;
+    }
 
-        result.push(<td key={1}>
-            {this.props.leftGoals}
-        </td>);
+    componentDidMount() {
+        GameUtil.getGameDetails(this.props.gameId)
+            .then(gameDetails => {
+                let result = [];
+                result.push(<TeamLink teamId={gameDetails.awayTeamId} key={0}/>);
 
-        result.push(<td href={'/#/team/' + this.props.rightTeam} key={2}>
-            {this.props.rightTeam}
-        </td>);
+                result.push(<td key={1}>
+                    {gameDetails.awayGoals}
+                </td>);
 
-        result.push(<td key={3}>
-            {this.props.rightGoals}
-        </td>);
+                result.push(<TeamLink teamId={gameDetails.homeTeamId} key={2}/>);
 
-        if (this.props.score != null) {
-            result.push(<td key={4}>
-                {this.props.status}
-            </td>);
-            result.push(<td key={5}>
-                {this.props.score}
-            </td>);
+                result.push(<td key={3}>
+                    {gameDetails.homeGoals}
+                </td>);
+
+                if (this.props.showStatus) {
+                    const status = this.calculateStatus(gameDetails);
+                    if (gameDetails.hasBeenHeld === true) {
+                        result.push(<td key={4}>
+                            {status}
+                        </td>);
+                    }
+                }
+
+                if (this.props.showScore) {
+                    if (gameDetails.hasBeenHeld === true) {
+                        const score = this.calculateScore(gameDetails);
+                        result.push(<td key={5}>
+                            {score}
+                        </td>);
+                    }
+                }
+
+                result.push(<td key={6}>
+                    {this.props.date}
+                </td>);
+
+                this.setState({
+                    result: result
+                });
+            });
+    }
+
+    calculateScore(gameDetails) {
+        let score = 0;
+        let thisTeamGoals = 0;
+        let thatTeamGoals = 0;
+
+        if (this.selectedTeamId === gameDetails.homeTeamId) {
+            thisTeamGoals = gameDetails.homeGoals;
+            thatTeamGoals = gameDetails.awayGoals;
+        } else if (this.selectedTeamId === gameDetails.awayTeamId) {
+            thisTeamGoals = gameDetails.awayGoals;
+            thatTeamGoals = gameDetails.homeGoals;
         }
 
-        result.push(<td key={6}>
-            {this.props.date}
-        </td>);
+        if (thisTeamGoals > thatTeamGoals) {
+            if (!gameDetails.isBasketball) {
+                score = 3;
+            } else {
+                score = 2;
+            }
+        } else if (thisTeamGoals === thatTeamGoals) {
+            score = 1;
+        } else {
+            if (gameDetails.isBasketball) {
+                score = 1;
+            }
+        }
+        return score;
+    }
 
+    calculateStatus(gameDetails) {
+        let status = '';
+        let thisTeamGoals = 0;
+        let thatTeamGoals = 0;
+
+        if (!gameDetails.hasBeenHeld)
+            status = 'برگزار نشده';
+        else {
+            if (this.selectedTeamId === gameDetails.homeTeamId) {
+                thisTeamGoals = gameDetails.homeGoals;
+                thatTeamGoals = gameDetails.awayGoals;
+            } else if (this.selectedTeamId === gameDetails.awayTeamId) {
+                thisTeamGoals = gameDetails.awayGoals;
+                thatTeamGoals = gameDetails.homeGoals;
+            }
+
+            if (thisTeamGoals > thatTeamGoals) {
+                status = 'برد';
+            } else if (thisTeamGoals === thatTeamGoals) {
+                status = 'تساوی';
+            } else {
+                status = 'باخت';
+            }
+        }
+
+        return status;
+    }
+
+    render() {
         return (
-            <tr>{result}</tr>
+            <tr>{this.state.result}</tr>
         );
     }
 }
 
 export class GamesFull extends React.Component {
+    constructor(props) {
+        super(props);
+        this.gamesId = props.gamesId;
+        this.title = props.title;
+        this.showScore = props.showScore;
+        this.showStatus = props.showStatus;
+        this.selectedTeamId = props.selectedTeamId;
+    }
+
     render() {
         let headers = [];
 
@@ -55,21 +146,29 @@ export class GamesFull extends React.Component {
             تعداد گل
         </th>);
 
-        if (this.props.noScore !== '1') {
+        if (this.props.showStatus) {
             headers.push(
                 <th key={4}>
                 وضعیت
                 </th>);
+        }
 
-            headers.push(
-                <th key={5}>
-                    امتیاز
-                </th>);
+        if (this.props.showScore) {
+                headers.push(
+                    <th key={5}>
+                        امتیاز
+                    </th>);
         }
 
         headers.push(<th key={6}>
             تاریخ
         </th>);
+
+        let games = [];
+
+        for (let i = 0; i < this.props.gamesId; i++){
+            games.push(<GameResult gameId={this.props.gamesId[i]} teamId={this.props.gamesId[i]} showScore={this.props.showScore} showStatus={this.props.showStatus} selectedTeamId={this.props.selectedTeamId} key={i}/>);
+        }
 
         return (
             <div className="panel">
@@ -81,7 +180,7 @@ export class GamesFull extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.Games}
+                        {games}
                     </tbody>
                 </table>
             </div>

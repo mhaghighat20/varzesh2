@@ -4,28 +4,41 @@ import { SportTypeEnum } from "./SharedComponents/SportType";
 import { PlayerUtil } from "./Utilities/PlayerUtil";
 import { NavLink } from "react-router-dom";
 import { NewsList } from "./SharedComponents/News";
+import {URLUtil} from "./Utilities/URLUtil";
 
 export default class Team extends React.Component {
-    render() {
-        let games = [];
-        games.push(<GameResult leftTeam='پرسپولیس' rightTeam='ذوب آهن' leftGoals='1' rightGoals='0' date='1397/07/13' status='برد' score='3' key={0}/>);
-        games.push(<GameResult leftTeam='ماشین سازی تبریز' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' status='برد' score='3' key={1}/>);
-        games.push(<GameResult leftTeam='ذوب آهن' rightTeam='پرسپولیس' leftGoals='1' rightGoals='2' date='1397/07/97' status='برد' score='3' key={2}/>);
+    id = 0;
 
-        let members = ['1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1'];
+    constructor(props) {
+        super(props);
+        this.id = URLUtil.getParameterByName('id', window.location.href);
+        this.state = {
+            team: {
+                name: 'سپاهان',
+                photoPath: '',
+                gameIds: ['1'],
+                memberIds: ['1', '2', '3', '4']
+            }
+        };
+    }
+
+    componentDidMount() {
+    }
+
+    render() {
         return (
             <div>
                 <div className="container-fluid">
-                    <div className="parallax-team-photo" style={{ backgroundImage: "url(/static/frontend/Content/perspolis.jpg)" }}>
+                    <div className="parallax-team-photo" style={{ backgroundImage: `url(${this.state.team.photoPath})` }}>
                             <div className="transparent-title">
-                            <h1>تیم پرسپولیس</h1>
+                                <h1>{this.state.team.name}</h1>
                             </div>
                     </div>
                 </div>
                 <div className="container container-fluid">
                 <div className="row">
                     <div className="col-sm-9">
-                        <GamesFull Games={games} title='بازی ها' />
+                        <GamesFull gamesId={this.state.team.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
                         <NewsList newsIds={['1', '1']} title="اخبار" />
                     </div>
                     <div className="col-sm-3">
@@ -34,7 +47,7 @@ export default class Team extends React.Component {
                                 اعضای تیم
                             </div>
                             <div className="panel-body">
-                                <PlayerList playerIds={members} />
+                                <PlayerList playerIds={this.state.team.memberIds} />
                             </div>
                         </div>
                     </div>
@@ -46,6 +59,11 @@ export default class Team extends React.Component {
 }
 
 class PlayerList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.playerIds = props.playerIds;
+    }
+
     render() {
         let players = [];
         for (let i = 0; i < this.props.playerIds.length; i++) {

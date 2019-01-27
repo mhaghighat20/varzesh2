@@ -1,7 +1,9 @@
 import {SportTypeEnum} from "../SharedComponents/SportType";
+import {FetchUtil} from "./FetchUtil";
 
 export class PlayerUtil {
     static getPlayerDetails(sport, id){
+        // TODO implement this method
         if (id === '1' && sport === SportTypeEnum.soccer){
             let player = new PlayerDetails();
             player.name = 'کمال کامیابی نیا';
@@ -52,6 +54,7 @@ export class PlayerUtil {
         }
     }
     static getPlayerStatistics(sport, id){
+        // TODO implement this method
         if (id === '1' && sport === SportTypeEnum.soccer){
             let statistics = [];
             let first = new SoccerPlayerStatistics();
@@ -126,6 +129,7 @@ export class PlayerUtil {
         }
     }
     static getPlayerNews(sport, id){
+        // TODO implement this method
         if (id === '1' && sport === SportTypeEnum.soccer)
             return ['1'];
         if (id === '2' && sport === SportTypeEnum.soccer)
@@ -135,6 +139,12 @@ export class PlayerUtil {
         if (id === '4' && sport === SportTypeEnum.soccer)
             return ['1'];
         return null;
+    }
+    static getPlayerName(playerId){
+        // TODO implement this method
+        const url = '';
+        FetchUtil.fetchFromUrl(url)
+            .then();
     }
 }
 
