@@ -5,16 +5,33 @@ import { SportTypeEnum } from "./SharedComponents/SportType";
 import { NewsList } from "./SharedComponents/News";
 
 export default class Player extends React.Component {
+    id;
+    constructor(props) {
+        super(props);
+        this.state = {details: <div/>};
+        this.id = URLUtil.getParameterByName('id', window.location.href);
+    }
+
+    componentDidMount() {
+        PlayerUtil.getPlayerDetails(this.id)
+            .then(details => {
+                const playerDetails = <PlayerDetails details={details} />;
+                // TODO complete this
+                this.setState({
+                    details: playerDetails
+                });
+            });
+    }
+
+
     render() {
-        const id = URLUtil.getParameterByName('id', window.location.href);
-        const details = PlayerUtil.getPlayerDetails(SportTypeEnum.soccer, id);
-        const statistics = PlayerUtil.getPlayerStatistics(SportTypeEnum.soccer, id);
-        const newsIds = PlayerUtil.getPlayerNews(SportTypeEnum.soccer, id);
+        const statistics = PlayerUtil.getPlayerStatistics(this.id);
+        const newsIds = PlayerUtil.getPlayerNews(this.id);
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-sm-7 col-sm-push-5">
-                        <PlayerDetails details={details} />
+                        {this.state.details}
                     </div>
                     <div className="col-sm-5 col-sm-pull-7">
                         <div>
@@ -37,10 +54,10 @@ class PlayerDetails extends React.Component {
                 <div className="panel-heading my-panel-heading">مشخصات</div>
                 <div className="row">
                     <div className="col-sm-6 pull-left">
-                        <img src={this.props.details.imagePath} alt={this.props.details.name} />
+                        <img src={this.props.details.imagePath} alt={this.props.details.firstName + ' ' + this.props.details.lastName} />
                     </div>
                     <div className="col-sm-6">
-                        <KeyValue colName="نام" value={this.props.details.name} />
+                        <KeyValue colName="نام" value={this.props.details.firstName + ' ' + this.props.details.lastName} />
                         <KeyValue colName="سن" value={this.props.details.age + ' سال'} />
                         <KeyValue colName="قد" value={this.props.details.height + ' سانتی‌متر'} />
                         <KeyValue colName="وزن" value={this.props.details.weight + ' کیلوگرم'} />
@@ -55,6 +72,11 @@ class PlayerDetails extends React.Component {
 }
 
 class PlayerStatistics extends React.Component {
+    constructor(props) {
+        super(props);
+        this.statistics = props.statistics;
+    }
+
     render() {
         let statistics = [];
         for (let i = 0; i < this.props.statistics.length; i++) {
@@ -111,6 +133,12 @@ class PlayerStatistics extends React.Component {
 }
 
 class KeyValue extends React.Component {
+    constructor(props) {
+        super(props);
+        this.colName = props.colName;
+        this.value = props.value;
+    }
+
     render() {
         return (
             <div>

@@ -7,7 +7,7 @@ import { NewsList } from "./SharedComponents/News";
 import {URLUtil} from "./Utilities/URLUtil";
 
 export default class Team extends React.Component {
-    id = 0;
+    id;
 
     constructor(props) {
         super(props);
@@ -62,30 +62,40 @@ class PlayerList extends React.Component {
     constructor(props) {
         super(props);
         this.playerIds = props.playerIds;
+        this.state = {
+          players: <div/>
+        };
+    }
+
+    componentDidMount() {
+        let players = [];
+        for (let i = 0; i < this.props.playerIds.length; i++) {
+            PlayerUtil.getPlayerDetails(this.props.playerIds[i]).then(playerDetails => {
+                players.push(
+                    <div className="row" key={i}>
+                        <div className="col-sm-5">
+                            <span className="post pull-left">
+                                ({playerDetails.post})
+                            </span>
+                        </div>
+                        <div className="col-sm-7">
+                            <NavLink className="pull-right" to={'/player?id=' + this.props.playerIds[i]} >
+                                {playerDetails.firstName + ' ' + playerDetails.lastName}
+                            </NavLink>
+                        </div>
+                    </div>
+                );
+                this.setState({
+                   players: players
+                });
+            });
+        }
     }
 
     render() {
-        let players = [];
-        for (let i = 0; i < this.props.playerIds.length; i++) {
-            let playerDetails = PlayerUtil.getPlayerDetails(SportTypeEnum.soccer, this.props.playerIds[i]);
-            players.push(
-                <div className="row" key={i}>
-                    <div className="col-sm-5">
-                        <span className="post pull-left">
-                            ({playerDetails.post})
-                        </span>
-                    </div>
-                    <div className="col-sm-7">
-                        <NavLink className="pull-right" to={'/player?id=' + this.props.playerIds[i]} >
-                            {playerDetails.name}
-                        </NavLink>
-                    </div>
-                </div>
-            );
-        }
         return (
             <div>
-                {players}
+                {this.state.players}
             </div>
         );
     }
