@@ -15,7 +15,8 @@ export class NewsUtil{
                 news.title = res['title'];
 
                 return news;
-            });
+            })
+            .catch(err => {});
     }
 
 
@@ -40,8 +41,14 @@ function getNews(newsId, loadDescription) {
         },
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
+    }).then(function(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
     })
-    .then(response => response.json()); // parses response to JSON
+    .then(response => response.json())// parses response to JSON
+    .catch(err => console.log(err));
 }
 
 class NewsInfo {

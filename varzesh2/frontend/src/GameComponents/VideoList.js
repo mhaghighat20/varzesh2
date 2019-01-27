@@ -24,7 +24,10 @@ export class VideoList extends React.Component {
 class VideoItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {newsDetails: <p/>};
+        this.state = {newsDetails: <p/>}
+    }
+
+    componentDidMount() {
         NewsUtil.getNewsById(this.props.id, true).then(newsDetails => {
             this.setState({
                 newsDetails: <div>
