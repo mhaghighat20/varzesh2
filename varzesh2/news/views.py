@@ -10,15 +10,29 @@ def get_news_by_id(request, news_id, load_description):
     news = get_object_or_404(News, id=news_id)
     result = {
         'title': news.title,
-        'publishDate': news.pub_date,
+        'publishDate': str(news.pub_date),
         'source': news.source,
     }
     if load_description == 1:
         result['text'] = news.text
     if news.photo:
-        result['photoPath'] = news.photo.path
+        result['photoPath'] = news.photo.url
     if news.video:
-        result['videoPath'] = news.video.path
+        result['videoPath'] = news.video.url
 
-    return HttpResponse(result)
+    return HttpResponse(json.dumps(result, ensure_ascii=False))
 
+
+def get_related_news_by_game_id(request, game_id):
+    news_ids = list(News.objects.filter(related_game_id=game_id).values('id').all())
+    return HttpResponse(json.dumps(news_ids))
+
+
+def get_related_news_by_player_id(request, player_id):
+    news_ids = list(News.objects.filter(related_players__id__contains=player_id).values('id').all())
+    return HttpResponse(json.dumps(news_ids))
+
+
+def get_related_news_by_team_id(request, team_id):
+    news_ids = list(News.objects.filter(related_teams__id__contains=team_id).values('id').all())
+    return HttpResponse(json.dumps(news_ids))

@@ -22,16 +22,28 @@ export class VideoList extends React.Component {
 }
 
 class VideoItem extends React.Component {
-    render() {
-        let newsDetails = NewsUtil.getNewsById(this.props.id, true);
-        return (
-            <div>
-                <div>
+    constructor(props) {
+        super(props);
+        this.state = {newsDetails: <p/>}
+    }
+
+    componentDidMount() {
+        NewsUtil.getNewsById(this.props.id, true).then(newsDetails => {
+            this.setState({
+                newsDetails: <div>
                     <img className="news-image" src={newsDetails.image.path} alt={this.props.alt}/>
                     <NavLink to={'/news?id=' + this.props.id}>
                         {newsDetails.title}
                     </NavLink>
                 </div>
+            });
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.newsDetails}
             </div>
         );
     }
