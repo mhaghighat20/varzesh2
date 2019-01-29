@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from player.models import Player
+
 type_choices = [('goal', 'گل'), ('goal_opportunity', 'موقعیت گل'), ('yellow_card', 'کارت زرد'), ('red_card', 'کارت قرمز'), ('assist', 'پاس گل'), ('2_score_goal', 'پرتاب 2 امتیازی'), ('3_score_goal', 'پرتاب 3 امتیازی'), ('foul', 'خطا'), ('rebound', 'ریباند'), ('substitution', 'تعویض'), ('penalty', 'پنالتی')]
 
 
@@ -15,8 +17,13 @@ class Game(models.Model):
     league = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE, verbose_name='لیگ')
     date = models.DateTimeField(default=timezone.now, verbose_name='تاریخ برگزاری')
 
-    home_players = models.ManyToManyField('player.Player', related_name='home_players', verbose_name='بازیکنان تیم میزبان')
-    away_players = models.ManyToManyField('player.Player', related_name='away_players', verbose_name='بازیکنان تیم میهمان')
+    home_players = models.ManyToManyField('player.Player', related_name='home_players',
+                                          verbose_name='بازیکنان تیم میزبان')
+    away_players = models.ManyToManyField('player.Player', related_name='away_players',
+                                          verbose_name='بازیکنان تیم میهمان')
+    home_ball_possession = models.FloatField(verbose_name='مالکیت توپ میزبان', null=True, blank=True)
+    best_player = models.OneToOneField(Player, on_delete=models.CASCADE, verbose_name='بهترین بازیکن میدان',
+                                       null=True, blank=True)
 
 
 class GameEvent(models.Model):

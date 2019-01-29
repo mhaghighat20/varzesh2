@@ -40,25 +40,6 @@ export class PlayerUtil {
                 }
                 return stats;
             });
-
-        if (id === '1'){
-            let statistics = [];
-            let first = new SoccerPlayerStatistics();
-            first.season = '97-98';
-            first.assists = 5;
-            first.goals = 3;
-            first.redCards = 1;
-            first.yellowCards = 5;
-            statistics.push(first);
-            let second = new SoccerPlayerStatistics();
-            second.season = '96-97';
-            second.yellowCards = 4;
-            second.redCards = 2;
-            second.goals =5;
-            second.assists = 4;
-            statistics.push(second);
-            return statistics;
-        }
     }
     static getPlayerNews(id){
         const url = `/api/player/related_news/${id}/`;
@@ -66,10 +47,9 @@ export class PlayerUtil {
             .then(newsIds => newsIds);
     }
     static getPlayerName(playerId){
-        // TODO implement this method
-        const url = '';
+        const url = `/api/player/related_news/${playerId}/`;
         FetchUtil.fetchFromUrl(url)
-            .then();
+            .then(response => response['name']);
     }
 }
 

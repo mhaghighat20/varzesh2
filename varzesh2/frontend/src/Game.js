@@ -80,7 +80,7 @@ export default class Game extends React.Component {
     loadAgainstGames(firstTeamId, secondTeamId) {
         GameUtil.getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId)
             .then(gameIds => {
-                let gamesFull = <GamesFull gamesId={gameIds} title='بازی های رو در رو' />;
+                let gamesFull = <GamesFull gameIds={gameIds} title='بازی های رو در رو' />;
                 this.setState({
                     gamesFull: gamesFull,
                     eventsFull: this.state.eventsFull,

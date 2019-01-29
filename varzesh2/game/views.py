@@ -1,5 +1,7 @@
 import datetime
 import json
+
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -34,3 +36,25 @@ def get_game_details(request, game_id):
         'isBasketball': game.league.is_basketball
     }
     return HttpResponse(json.dumps(response, ensure_ascii=False))
+
+
+def get_against_games(request, first_team_id, second_team_id):
+    game_ids = list(Game.objects.filter((Q(home_id=first_team_id) & Q(away_id=second_team_id)) |
+                                        (Q(home_id=second_team_id) & Q(away_id=first_team_id)))
+                    .values_list('id', flat=True).all())
+    return HttpResponse(json.dumps(game_ids))
+
+
+def get_game_statistics(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+    if not game.league.is_basketball:
+        if hasattr(game, 'best_player'):
+            best_player = game.best_player
+        home_ball_possession = int(game.home_ball_possession * 100)
+        away_ball_possession = 100 - home_ball_possession
+        game_events = GameEvent.objects.filter(game_id=game_id).all()
+
+        home_game_events = game_events.filter(game_id=game.home_id)
+        away_game_events = game_events.filter(game_id=game.away_id)
+
+        pass

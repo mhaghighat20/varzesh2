@@ -27,7 +27,9 @@ export class GameUtil{
     }
 
     static getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId) {
-        // TODO implement this method
+        const url = `/api/game/against_games/${firstTeamId}/${secondTeamId}`;
+        return FetchUtil.fetchFromUrl(url)
+            .then(response => response);
     }
 
     static getGameStatistics(gameId) {

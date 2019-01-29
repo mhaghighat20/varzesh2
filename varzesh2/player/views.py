@@ -2,7 +2,7 @@ import datetime
 import json
 
 from django.db.models import Count
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import get_object_or_404
 
 from game.models import GameEvent
@@ -45,7 +45,8 @@ def get_player_statistics_by_id(request, player_id):
     game_events = GameEvent.objects.filter(player_id=player_id)
     if not player.is_basketball:
         statistics = {}
-        stats = game_events.filter(type__in=['goal', 'assist', 'yellow_card', 'red_card']).values('game__league__year', 'type').annotate(count=Count('type'))
+        stats = game_events.filter(type__in=['goal', 'assist', 'yellow_card', 'red_card'])\
+            .values('game__league__year', 'type').annotate(count=Count('type'))
 
         for stat_item in stats:
             if stat_item['game__league__year'] not in statistics:
@@ -55,3 +56,13 @@ def get_player_statistics_by_id(request, player_id):
         res = sorted(statistics.items(), key=lambda kv: kv[0], reverse=True)
 
         return HttpResponse(json.dumps(res))
+
+
+def get_player_name_by_id(request, player_id):
+    person_query = Person.objects.filter(player_id=player_id)
+    if person_query.exists():
+        person = person_query.first()
+        response = {'name': person.first_name + ' ' + person.last_name}
+        return HttpResponse(json.dumps(response, ensure_ascii=False))
+    return HttpResponseNotFound('Such player do not exist')
+

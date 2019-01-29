@@ -123,7 +123,7 @@ export class GameResult extends React.Component {
 export class GamesFull extends React.Component {
     constructor(props) {
         super(props);
-        this.gamesId = props.gamesId;
+        this.gameIds = props.gameIds;
         this.title = props.title;
         this.showScore = props.showScore;
         this.showStatus = props.showStatus;
@@ -166,8 +166,8 @@ export class GamesFull extends React.Component {
 
         let games = [];
 
-        for (let i = 0; i < this.props.gamesId; i++){
-            games.push(<GameResult gameId={this.props.gamesId[i]} teamId={this.props.gamesId[i]} showScore={this.props.showScore} showStatus={this.props.showStatus} selectedTeamId={this.props.selectedTeamId} key={i}/>);
+        for (let i = 0; i < this.props.gameIds; i++){
+            games.push(<GameResult gameId={this.props.gameIds[i]} teamId={this.props.gameIds[i]} showScore={this.props.showScore} showStatus={this.props.showStatus} selectedTeamId={this.props.selectedTeamId} key={i}/>);
         }
 
         return (
