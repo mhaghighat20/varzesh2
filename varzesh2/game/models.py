@@ -9,14 +9,14 @@ class Game(models.Model):
         verbose_name_plural = 'بازی‌ها'
         verbose_name = 'بازی'
 
-    home = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='home_team', )
-    away = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='away_team')
-    week = models.IntegerField(null=False)
-    league = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE)
-    date = models.DateTimeField(default=timezone.now)
+    home = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='home_team', verbose_name='میزبان')
+    away = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='away_team', verbose_name='میهمان')
+    week = models.IntegerField(null=False, verbose_name='هفته')
+    league = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE, verbose_name='لیگ')
+    date = models.DateTimeField(default=timezone.now, verbose_name='تاریخ برگزاری')
 
-    home_players = models.ManyToManyField('player.Player', related_name='home_players')
-    away_players = models.ManyToManyField('player.Player', related_name='away_players')
+    home_players = models.ManyToManyField('player.Player', related_name='home_players', verbose_name='بازیکنان تیم میزبان')
+    away_players = models.ManyToManyField('player.Player', related_name='away_players', verbose_name='بازیکنان تیم میهمان')
 
 
 class GameEvent(models.Model):
@@ -24,11 +24,11 @@ class GameEvent(models.Model):
         verbose_name_plural = 'رخدادها'
         verbose_name = 'رخداد'
 
-    team = models.ForeignKey('team.Team', on_delete=models.CASCADE)
-    type = models.CharField(choices=type_choices, max_length=50)
-    player = models.ForeignKey('player.Player', on_delete=models.CASCADE)
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    half_or_quarter = models.IntegerField()
-    minute = models.IntegerField()
+    team = models.ForeignKey('team.Team', on_delete=models.CASCADE, verbose_name='تیم')
+    type = models.CharField(choices=type_choices, max_length=50, verbose_name='نوع رخداد')
+    player = models.ForeignKey('player.Player', on_delete=models.CASCADE, verbose_name='بازیکن')
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, verbose_name='بازی')
+    half_or_quarter = models.IntegerField(verbose_name='نیمه/کوارتر')
+    minute = models.IntegerField(verbose_name='دقیقه')
 
 

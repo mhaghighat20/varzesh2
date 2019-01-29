@@ -6,9 +6,9 @@ class Team(models.Model):
         verbose_name_plural = 'تیم‌ها'
         verbose_name = 'تیم'
 
-    name = models.CharField(max_length=100, null=False)
-    photo = models.ImageField(upload_to='teams/images', null=True, blank=True)
-    is_basketball = models.BooleanField()
+    name = models.CharField(max_length=100, null=False, verbose_name='نام')
+    photo = models.ImageField(upload_to='teams/images', null=True, blank=True, verbose_name='تصویر')
+    is_basketball = models.BooleanField(verbose_name='بسکتبال است')
 
     def __str__(self):
         return self.name

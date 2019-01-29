@@ -3,10 +3,15 @@ from django.db import models
 
 
 class ExtendedUser(models.Model):
-    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    avatar = models.ImageField(upload_to='accounts/images', null=True)
-    favorite_teams = models.ManyToManyField('team.Team')
-    favorite_players = models.ManyToManyField('player.Player')
-    favorite_games = models.ManyToManyField('game.Game')
+    class Meta:
+        verbose_name = 'اطلاعات کاربر'
+        verbose_name_plural = 'اطلاعات کاربر'
+
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE, verbose_name='کاربر')
+    first_name = models.CharField(max_length=30, verbose_name='نام')
+    last_name = models.CharField(max_length=30, verbose_name='نام خانوادگی')
+    avatar = models.ImageField(upload_to='accounts/images', null=True, verbose_name='عکس پروفایل')
+    favorite_teams = models.ManyToManyField('team.Team', blank=True, verbose_name='تیم‌های مورد علاقه')
+    favorite_players = models.ManyToManyField('player.Player', blank=True, verbose_name='بازیکنان مورد علاقه')
+    favorite_games = models.ManyToManyField('game.Game', blank=True, verbose_name='بازی‌های مورد علاقه')
+
