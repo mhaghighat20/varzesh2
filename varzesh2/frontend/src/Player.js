@@ -7,7 +7,11 @@ import { NewsList } from "./SharedComponents/News";
 export default class Player extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {details: <div/>};
+        this.state = {
+            details: <div/>,
+            statistics: [],
+            newsIds: []
+        };
         this.id = URLUtil.getParameterByName('id', window.location.href);
     }
 
@@ -21,17 +25,32 @@ export default class Player extends React.Component {
         PlayerUtil.getPlayerDetails(this.id)
             .then(details => {
                 const playerDetails = <PlayerDetails details={details} />;
-                // TODO complete this
                 this.setState({
-                    details: playerDetails
+                    details: playerDetails,
+                    statistics: this.state.statistics,
+                    newsIds: this.state.newsIds
+                });
+            });
+        PlayerUtil.getPlayerStatistics(this.id)
+            .then(statistics => {
+                this.setState({
+                    details: this.state.details,
+                    statistics: statistics,
+                    newsIds: this.state.newsIds
+                });
+            });
+        PlayerUtil.getPlayerNews(this.id)
+            .then(newsIds => {
+                this.setState({
+                    details: this.state.details,
+                    statistics: this.state.statistics,
+                    newsIds: newsIds
                 });
             });
     }
 
 
     render() {
-        const statistics = PlayerUtil.getPlayerStatistics(this.id);
-        const newsIds = PlayerUtil.getPlayerNews(this.id);
         return (
             <div className="container">
                 <div className="row">
@@ -40,10 +59,10 @@ export default class Player extends React.Component {
                     </div>
                     <div className="col-sm-5 col-sm-pull-7">
                         <div>
-                            <PlayerStatistics statistics={statistics} />
+                            <PlayerStatistics statistics={this.state.statistics} />
                         </div>
                         <div>
-                            <NewsList newsIds={newsIds} title="اخبار" />
+                            <NewsList newsIds={this.state.newsIds} title="اخبار" />
                         </div>
                     </div>
                 </div>

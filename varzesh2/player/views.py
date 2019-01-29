@@ -1,7 +1,11 @@
 import datetime
 import json
+
+from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+
+from game.models import GameEvent
 from news.models import News
 from player.models import Player, Person
 
@@ -30,9 +34,24 @@ def get_player_by_id(request, player_id):
 
 
 def get_related_news_ids_by_id(request, player_id):
-    result = list(News.objects.filter(related_players__id=player_id).values('id'))
+    result = list(News.objects.filter(related_players__id=player_id).values_list('id', flat=True))
 
     response = json.dumps(result, ensure_ascii=False)
     return HttpResponse(response)
 
 
+def get_player_statistics_by_id(request, player_id):
+    player = get_object_or_404(Player, id=player_id)
+    game_events = GameEvent.objects.filter(player_id=player_id)
+    if not player.is_basketball:
+        statistics = {}
+        stats = game_events.filter(type__in=['goal', 'assist', 'yellow_card', 'red_card']).values('game__league__year', 'type').annotate(count=Count('type'))
+
+        for stat_item in stats:
+            if stat_item['game__league__year'] not in statistics:
+                statistics[stat_item['game__league__year']] = {}
+            statistics[stat_item['game__league__year']][stat_item['type']] = stat_item['count']
+
+        res = sorted(statistics.items(), key=lambda kv: kv[0], reverse=True)
+
+        return HttpResponse(json.dumps(res))
