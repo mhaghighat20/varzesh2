@@ -1,21 +1,26 @@
 import {FetchUtil} from "./FetchUtil";
 
 export class TeamUtil{
-    static getTeamDetails(id) {
-        return getTeamDetailsById(id)
+    static getTeamDetails(teamId) {
+        let url = '/api/team/' + teamId + '/';
+
+    return FetchUtil.fetchFromUrl(url)
             .then(res => {
                 let teamInfo = new TeamInfo();
-                teamInfo.gamesId = res['gamesId'];
-                teamInfo.membersId = res['membersId'];
-                teamInfo.newsId = res['newsId'];
+                teamInfo.name = res['name'];
+                teamInfo.gameIds = res['gameIds'];
+                teamInfo.members = res['members'];
+                teamInfo.newsIds = res['newsIds'];
                 teamInfo.photoPath = res['photoPath'];
 
                 return teamInfo;
             })
             .catch(err => {});
     }
-    static getTeamName(id){
-        return getTeamNameById(id)
+    static getTeamName(teamId){
+        let url = '/api/team/by_id/name/' + teamId + '/';
+
+    return FetchUtil.fetchFromUrl(url)
             .then(res => {
                 return res['name'];
             })
@@ -24,20 +29,9 @@ export class TeamUtil{
 }
 
 class TeamInfo {
-    gamesId;
+    name;
+    gameIds;
     photoPath;
-    membersId;
-    newsId;
-}
-
-function getTeamDetailsById(teamId) {
-    let url = '/api/team/by_id/' + teamId + '/';
-
-    return FetchUtil.fetchFromUrl(url);
-}
-
-function getTeamNameById(teamId) {
-    let url = '/api/team/by_id/name/' + teamId + '/';
-
-    return FetchUtil.fetchFromUrl(url);
+    members;
+    newsIds;
 }

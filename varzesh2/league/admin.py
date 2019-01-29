@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from league.models import LeagueSeason
+
+admin.site.register(LeagueSeason)

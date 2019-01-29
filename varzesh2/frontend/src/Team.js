@@ -1,10 +1,9 @@
 import React from "react";
-import { GameResult, GamesFull } from "./SharedComponents/GameResult";
-import { SportTypeEnum } from "./SharedComponents/SportType";
-import { PlayerUtil } from "./Utilities/PlayerUtil";
+import { GamesFull } from "./SharedComponents/GameResult";
 import { NavLink } from "react-router-dom";
 import { NewsList } from "./SharedComponents/News";
 import {URLUtil} from "./Utilities/URLUtil";
+import {TeamUtil} from "./Utilities/TeamUtil";
 
 export default class Team extends React.Component {
     id;
@@ -13,33 +12,41 @@ export default class Team extends React.Component {
         super(props);
         this.id = URLUtil.getParameterByName('id', window.location.href);
         this.state = {
-            team: {
-                name: 'سپاهان',
-                photoPath: '',
-                gameIds: ['1'],
-                memberIds: ['1', '2', '3', '4']
-            }
+            name: '',
+            photoPath: '',
+            gameIds: [],
+            members: [],
+            newsIds: []
         };
     }
 
     componentDidMount() {
+        TeamUtil.getTeamDetails(this.id).then(teamInfo => {
+            this.setState({
+                name: teamInfo.name,
+                photoPath: teamInfo.photoPath,
+                gameIds: teamInfo.gameIds,
+                members: teamInfo.members,
+                newsIds: teamInfo.newsIds
+            })
+        });
     }
 
     render() {
         return (
             <div>
                 <div className="container-fluid">
-                    <div className="parallax-team-photo" style={{ backgroundImage: `url(${this.state.team.photoPath})` }}>
+                    <div className="parallax-team-photo" style={{ backgroundImage: `url(${this.state.photoPath})` }}>
                             <div className="transparent-title">
-                                <h1>{this.state.team.name}</h1>
+                                <h1>{this.state.name}</h1>
                             </div>
                     </div>
                 </div>
                 <div className="container container-fluid">
                 <div className="row">
                     <div className="col-sm-9">
-                        <GamesFull gamesId={this.state.team.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
-                        <NewsList newsIds={['1', '1']} title="اخبار" />
+                        <GamesFull gamesId={this.state.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
+                        <NewsList newsIds={this.state.newsIds} title="اخبار" />
                     </div>
                     <div className="col-sm-3">
                         <div className="panel">
@@ -47,7 +54,7 @@ export default class Team extends React.Component {
                                 اعضای تیم
                             </div>
                             <div className="panel-body">
-                                <PlayerList playerIds={this.state.team.memberIds} />
+                                <MembersList members={this.state.members} />
                             </div>
                         </div>
                     </div>
@@ -58,44 +65,51 @@ export default class Team extends React.Component {
     }
 }
 
-class PlayerList extends React.Component {
+class MembersList extends React.Component {
     constructor(props) {
         super(props);
-        this.playerIds = props.playerIds;
-        this.state = {
-          players: <div/>
-        };
+        this.members = props.members;
     }
 
-    componentDidMount() {
-        let players = [];
-        for (let i = 0; i < this.props.playerIds.length; i++) {
-            PlayerUtil.getPlayerDetails(this.props.playerIds[i]).then(playerDetails => {
-                players.push(
+    render() {
+        let members = [];
+        for (let i = 0; i < this.props.members.length; i++) {
+            const member = this.props.members[i];
+            if (member.playerId) {
+                members.push(
                     <div className="row" key={i}>
                         <div className="col-sm-5">
                             <span className="post pull-left">
-                                ({playerDetails.post})
+                                ({member.position})
                             </span>
                         </div>
                         <div className="col-sm-7">
-                            <NavLink className="pull-right" to={'/player?id=' + this.props.playerIds[i]} >
-                                {playerDetails.firstName + ' ' + playerDetails.lastName}
+                            <NavLink className="pull-right" to={'/player?id=' + member.playerId}>
+                                {member.firstName + ' ' + member.lastName}
                             </NavLink>
                         </div>
                     </div>
                 );
-                this.setState({
-                   players: players
-                });
-            });
+            } else {
+                members.push(
+                    <div className="row" key={i}>
+                        <div className="col-sm-5">
+                            <span className="post pull-left">
+                                ({member.position})
+                            </span>
+                        </div>
+                        <div className="col-sm-7">
+                            <p className="pull-right">
+                                {member.firstName + ' ' + member.lastName}
+                            </p>
+                        </div>
+                    </div>
+                );
+            }
         }
-    }
-
-    render() {
         return (
             <div>
-                {this.state.players}
+                {members}
             </div>
         );
     }
