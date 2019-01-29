@@ -6,8 +6,6 @@ import {URLUtil} from "./Utilities/URLUtil";
 import {TeamUtil} from "./Utilities/TeamUtil";
 
 export default class Team extends React.Component {
-    id;
-
     constructor(props) {
         super(props);
         this.id = URLUtil.getParameterByName('id', window.location.href);
@@ -18,6 +16,12 @@ export default class Team extends React.Component {
             members: [],
             newsIds: []
         };
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const id = URLUtil.getParameterByName('id', window.location.href);
+        if (id !== this.id)
+            window.location.reload();
     }
 
     componentDidMount() {

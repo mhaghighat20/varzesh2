@@ -37,3 +37,8 @@ def get_team_by_id(request, team_id):
     response = json.dumps(result, ensure_ascii=False)
     return HttpResponse(response)
 
+
+def get_team_name_by_id(request, team_id):
+    team = get_object_or_404(Team, id=team_id)
+    response = {'name': team.name}
+    return HttpResponse(json.dumps(response, ensure_ascii=False))

@@ -47,7 +47,7 @@ export class GameResult extends React.Component {
                 }
 
                 result.push(<td key={6}>
-                    {this.props.date}
+                    {gameDetails.date}
                 </td>);
 
                 this.setState({

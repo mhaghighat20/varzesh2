@@ -10,6 +10,7 @@ import {PlayerName} from "./PlayerComponents/PlayerName";
 export default class Game extends React.Component {
     constructor(props) {
         super(props);
+        this.id = URLUtil.getParameterByName('id', window.location.href);
         this.state = {
             eventsFull: <div/>,
             stats: <div/>,
@@ -22,17 +23,16 @@ export default class Game extends React.Component {
     }
 
     componentDidMount() {
-        const gameId = URLUtil.getParameterByName('id', window.location.href);
-        GameUtil.getGameDetails(gameId)
+        GameUtil.getGameDetails(this.id)
             .then(gameDetails => {
                 this.loadAgainstGames(gameDetails.homeTeamId, gameDetails.awayTeamId);
-                this.loadStatistics(gameId, gameDetails.isBasketball);
-                this.loadEvents(gameId, gameDetails.homeTeamId, gameDetails.awayTeamId);
+                this.loadStatistics(gameDetails.isBasketball);
+                this.loadEvents(gameDetails.homeTeamId, gameDetails.awayTeamId);
             });
 
-        this.loadPlayers(gameId);
-        this.loadRelatedNews(gameId);
-        this.loadRelatedMedia(gameId);
+        this.loadPlayers();
+        this.loadRelatedNews();
+        this.loadRelatedMedia();
     }
 
     render() {
@@ -93,8 +93,8 @@ export default class Game extends React.Component {
             });
     }
 
-    loadStatistics(gameId, isBasketball) {
-        GameUtil.getGameStatistics(gameId)
+    loadStatistics(isBasketball) {
+        GameUtil.getGameStatistics(this.id)
             .then(statistics => {
                 let stats = [];
 
@@ -133,8 +133,8 @@ export default class Game extends React.Component {
             });
     }
 
-    loadEvents(gameId, homeTeamId, awayTeamId) {
-        GameUtil.getGameEvents(gameId)
+    loadEvents(homeTeamId, awayTeamId) {
+        GameUtil.getGameEvents(this.id)
             .then(events => {
                 let eventItems = [];
                 for (let i = 0; i < events.length; i++) {
@@ -153,8 +153,8 @@ export default class Game extends React.Component {
             });
     }
 
-    loadPlayers(gameId) {
-        GameUtil.getPlayers(gameId)
+    loadPlayers() {
+        GameUtil.getPlayers(this.id)
             .then(playerIds => {
                 let homePlayers = [];
                 for (let i = 0; i < playerIds.home.length; i++){
@@ -176,8 +176,8 @@ export default class Game extends React.Component {
             });
     }
 
-    loadRelatedNews(gameId) {
-        GameUtil.getRelatedNewsIds(gameId)
+    loadRelatedNews() {
+        GameUtil.getRelatedNewsIds(this.id)
             .then(relatedNewsIds => {
                 this.setState({
                     relatedNewsIds: relatedNewsIds,
@@ -191,8 +191,8 @@ export default class Game extends React.Component {
             });
     }
 
-    loadRelatedMedia(gameId) {
-        GameUtil.getRelatedMediaIds(gameId)
+    loadRelatedMedia() {
+        GameUtil.getRelatedMediaIds(this.id)
             .then(relatedMediaIds => {
                 this.setState({
                     relatedMediaIds: relatedMediaIds,

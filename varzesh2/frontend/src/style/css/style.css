@@ -189,8 +189,9 @@ thead {
 }
 
 .my-navbar .navbar-nav > li > a:focus {
+    background-color: #193e6f;
+    border-bottom: 5px solid white;
     color: white;
-    background-color: #134785;
 }
 
 .my-navbar .navbar-nav > li > a:hover {

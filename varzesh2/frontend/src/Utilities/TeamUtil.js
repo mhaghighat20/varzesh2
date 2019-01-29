@@ -18,13 +18,13 @@ export class TeamUtil{
             .catch(err => {});
     }
     static getTeamName(teamId){
-        let url = '/api/team/by_id/name/' + teamId + '/';
+        let url = '/api/team/name/' + teamId + '/';
 
-    return FetchUtil.fetchFromUrl(url)
-            .then(res => {
-                return res['name'];
-            })
-            .catch(err => {});
+        return FetchUtil.fetchFromUrl(url)
+                .then(res => {
+                    return res['name'];
+                })
+                .catch(err => {});
     }
 }
 

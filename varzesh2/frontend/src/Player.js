@@ -5,11 +5,16 @@ import { SportTypeEnum } from "./SharedComponents/SportType";
 import { NewsList } from "./SharedComponents/News";
 
 export default class Player extends React.Component {
-    id;
     constructor(props) {
         super(props);
         this.state = {details: <div/>};
         this.id = URLUtil.getParameterByName('id', window.location.href);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const id = URLUtil.getParameterByName('id', window.location.href);
+        if (id !== this.id)
+            window.location.reload();
     }
 
     componentDidMount() {

@@ -6,11 +6,17 @@ export default class NewsPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {news: <p/>}
+        this.id = URLUtil.getParameterByName('id', window.location.href);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const id = URLUtil.getParameterByName('id', window.location.href);
+        if (id !== this.id)
+            window.location.reload();
     }
 
     componentDidMount() {
-        const id = URLUtil.getParameterByName('id', window.location.href);
-        NewsUtil.getNewsById(id, true)
+        NewsUtil.getNewsById(this.id, true)
             .then(newsDetails => {
                 this.setState({
                     news: <NewsFull
