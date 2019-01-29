@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 node_modules
-varzesh2/static
+varzesh2/static/frontend
 .vscode
 .idea
 .idea/

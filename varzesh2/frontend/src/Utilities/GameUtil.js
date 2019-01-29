@@ -2,7 +2,7 @@ import {FetchUtil} from "./FetchUtil";
 
 export class GameUtil{
     static getGameDetails(gameId){
-        let url = '/api/game/by_id/' + gameId + '/';
+        let url = '/api/game/' + gameId + '/details/';
 
         return FetchUtil.fetchFromUrl(url)
             .then(res => {
@@ -18,18 +18,7 @@ export class GameUtil{
                 return gameDetails;
             })
             .catch(err => {
-                // TODO remove these lines
-
-                let gameDetails = new GameDetails();
-                gameDetails.awayTeamId = '2';
-                gameDetails.homeTeamId = '1';
-                gameDetails.homeGoals = 2;
-                gameDetails.awayGoals = 0;
-                gameDetails.date = 'Ye mogheyi';
-                gameDetails.hasBeenHeld = true;
-                gameDetails.isBasketball = false;
-
-                return gameDetails;
+                alert(err);
             });
     }
 

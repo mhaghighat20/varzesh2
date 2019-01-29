@@ -138,7 +138,7 @@ export default class Game extends React.Component {
             .then(events => {
                 let eventItems = [];
                 for (let i = 0; i < events.length; i++) {
-                    eventItems.push(<EventItem leftOrRight={events[i].leftOrRight} player={events[i].player} act={events[i].act} minute={events[i].minute} key={i}/>);
+                    eventItems.push(<EventItem leftOrRight={events[i].teamId === homeTeamId ? '0' : '1'} player={events[i].player} act={events[i].act} minute={events[i].minute} key={i}/>);
                 }
                 let eventsFull = <EventsFull eventItems={this.state.events} leftTeamId={awayTeamId} rightTeamId={homeTeamId}/>;
                 this.setState({
