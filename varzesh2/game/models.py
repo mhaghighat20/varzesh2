@@ -5,7 +5,11 @@ type_choices = [('goal', 'گل'), ('goal_opportunity', 'موقعیت گل'), ('y
 
 
 class Game(models.Model):
-    home = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='home_team')
+    class Meta:
+        verbose_name_plural = 'بازی‌ها'
+        verbose_name = 'بازی'
+
+    home = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='home_team', )
     away = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='away_team')
     week = models.IntegerField(null=False)
     league = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE)
@@ -16,6 +20,10 @@ class Game(models.Model):
 
 
 class GameEvent(models.Model):
+    class Meta:
+        verbose_name_plural = 'رخدادها'
+        verbose_name = 'رخداد'
+
     team = models.ForeignKey('team.Team', on_delete=models.CASCADE)
     type = models.CharField(choices=type_choices, max_length=50)
     player = models.ForeignKey('player.Player', on_delete=models.CASCADE)

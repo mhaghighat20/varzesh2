@@ -3,7 +3,8 @@ from django.db import models
 
 class News(models.Model):
     class Meta:
-        verbose_name_plural = 'News'
+        verbose_name_plural = 'اخبار'
+        verbose_name = 'خبر'
 
     title = models.CharField(max_length=200)
     text = models.TextField(null=True)
