@@ -37,7 +37,9 @@ export class GameUtil{
     }
 
     static getGameEvents(gameId) {
-        // TODO implement this method
+        const url = `/api/game/events/${gameId}`;
+        return FetchUtil.fetchFromUrl(url)
+            .then(response => response);
     }
 
     static getPlayers(gameId) {

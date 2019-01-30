@@ -92,3 +92,10 @@ def get_related_media(request, game_id):
     return HttpResponse(json.dumps(result))
 
 
+def get_events(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+
+    result = list(GameEvent.objects.filter(game_id=game_id))
+    return HttpResponse(json.dumps(result))
+
+
