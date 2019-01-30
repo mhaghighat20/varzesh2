@@ -14,7 +14,7 @@ def get_team_by_id(request, team_id):
     team = get_object_or_404(Team, id=team_id)
     personnel = list(Person.objects.filter(team_id=team_id).all().values('player__id', 'first_name', 'last_name', 'position'))
     related_news = list(News.objects.filter(related_teams__id=team_id).all().values_list('id', flat=True))
-    games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).all().values_list('id', flat=True))
+
     members = []
     for person in personnel:
         members.append({
@@ -28,13 +28,25 @@ def get_team_by_id(request, team_id):
         'name': team.name,
         'members': members,
         'newsIds': related_news,
-        'gameIds': games
+
     }
 
     if team.photo:
         result['photoPath'] = team.photo.url
 
     response = json.dumps(result, ensure_ascii=False)
+    return HttpResponse(response)
+
+
+def get_sorted_games(request, team_id, sort_mode):
+    if sort_mode == 2:
+        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).all().values_list('id', flat=True))
+    elif sort_mode == 3:
+        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).all().values_list('id', flat=True))
+    else:
+        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).order_by('-date').all().values_list('id', flat=True))
+
+    response = json.dumps(games, ensure_ascii=False)
     return HttpResponse(response)
 
 
