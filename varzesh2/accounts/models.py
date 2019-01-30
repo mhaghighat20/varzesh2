@@ -2,6 +2,12 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+class Authentication(models.Model):
+    auth_token = models.CharField(max_length=100, verbose_name='توکن امنیتی')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='کاربر')
+    creation_date = models.DateTimeField('تاریخ ایجاد')
+
+
 class ExtendedUser(models.Model):
     class Meta:
         verbose_name = 'اطلاعات کاربر'

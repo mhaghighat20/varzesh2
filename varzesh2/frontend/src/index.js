@@ -11,6 +11,7 @@ import Team from "./Team";
 import Player from "./Player";
 import Game from "./Game";
 import NewsPage from "./News";
+import LoginPage from "./Login"
 import {
     Route,
     HashRouter
@@ -30,6 +31,7 @@ class Page extends React.Component {
                         <Route path="/team" component={Team}/>
                         <Route path="/player" component={Player}/>
                         <Route path="/game" component={Game}/>
+                        <Route path="/login" component={LoginPage}/>
                     </div>
                 </div>
             </HashRouter>

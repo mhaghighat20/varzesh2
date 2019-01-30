@@ -5,7 +5,7 @@ import {URLUtil} from "./Utilities/URLUtil"
 export default class NewsPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {news: <p/>}
+        this.state = {news: <p/>};
         this.id = URLUtil.getParameterByName('id', window.location.href);
     }
 
