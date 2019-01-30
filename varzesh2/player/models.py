@@ -12,6 +12,8 @@ class Player(models.Model):
     nationality = models.CharField(max_length=50, verbose_name='ملیت')
     is_basketball = models.BooleanField(null=False, verbose_name='بسکتبال است')
     photo = models.ImageField(blank=True, upload_to='players/images', verbose_name='تصویر')
+    person = models.OneToOneField('player.Person', on_delete=models.CASCADE,
+                                  verbose_name='شخص')
 
     def __str__(self):
         person = Person.objects.filter(player=self)
@@ -29,7 +31,6 @@ class Person(models.Model):
     first_name = models.CharField(max_length=50, null=False, verbose_name='نام')
     last_name = models.CharField(max_length=50, null=False, verbose_name='نام خانوادگی')
     position = models.CharField(max_length=50, verbose_name='پست')
-    player = models.OneToOneField('player.Player', null=True, on_delete=models.CASCADE, blank=True, verbose_name='بازیکن')
     team = models.ForeignKey('team.Team', on_delete=models.CASCADE, null=True, blank=True, verbose_name='تیم')
 
     def __str__(self):

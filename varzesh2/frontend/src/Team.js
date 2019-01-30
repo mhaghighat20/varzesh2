@@ -49,7 +49,7 @@ export default class Team extends React.Component {
                 <div className="container container-fluid">
                 <div className="row">
                     <div className="col-sm-9">
-                        <GamesFull gamesId={this.state.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
+                        <GamesFull gameIds={this.state.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
                         <NewsList newsIds={this.state.newsIds} title="اخبار" />
                     </div>
                     <div className="col-sm-3">
