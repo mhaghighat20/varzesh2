@@ -47,8 +47,14 @@ def get_against_games(request, first_team_id, second_team_id):
 
 def get_game_statistics(request, game_id):
     game = get_object_or_404(Game, id=game_id)
+
+    response = {}
+    response['home'] = {}
+    response['away'] = {}
+
     if not game.league.is_basketball:
-        if hasattr(game, 'best_player'):
+        if game.best_player:
+            game.best_player
             best_player = game.best_player
         home_ball_possession = int(game.home_ball_possession * 100)
         away_ball_possession = 100 - home_ball_possession
