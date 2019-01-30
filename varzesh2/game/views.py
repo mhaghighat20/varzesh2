@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from game.models import Game, GameEvent
+from news.models import News
 
 
 def get_game_details(request, game_id):
@@ -42,7 +43,7 @@ def get_against_games(request, first_team_id, second_team_id):
     game_ids = list(Game.objects.filter((Q(home_id=first_team_id) & Q(away_id=second_team_id)) |
                                         (Q(home_id=second_team_id) & Q(away_id=first_team_id)))
                     .values_list('id', flat=True).all())
-    return HttpResponse(json.dumps(game_ids))
+    return HttpResponse(json.dumps(game_ids, ensure_ascii=False))
 
 
 def get_game_statistics(request, game_id):
@@ -64,3 +65,30 @@ def get_game_statistics(request, game_id):
         away_game_events = game_events.filter(game_id=game.away_id)
 
         pass
+
+
+def get_game_players(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+
+    result = {
+        'home': list(game.home_players).all().values_list('id', flat=True),
+        'away': list(game.away_players).all().values_list('id', flat=True)
+    }
+
+    return HttpResponse(json.dumps(result, ensure_ascii=False))
+
+
+def get_related_news(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+    result = list(News.objects.filter(related_game__id=game_id).values_list('id', flat=True))
+
+    return HttpResponse(json.dumps(result))
+
+
+def get_related_media(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+    result = list(News.objects.filter(Q(video__isnull=False) & Q(related_game__id=game_id)).values_list('id', flat=True))
+
+    return HttpResponse(json.dumps(result))
+
+

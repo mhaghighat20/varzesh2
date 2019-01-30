@@ -41,15 +41,21 @@ export class GameUtil{
     }
 
     static getPlayers(gameId) {
-        // TODO implement this method
+        const url = `/api/game/players/${gameId}`;
+        return FetchUtil.fetchFromUrl(url)
+            .then(response => response);
     }
 
     static getRelatedNewsIds(gameId) {
-        // TODO implement this method
+        const url = `/api/game/related_news/${gameId}`;
+        return FetchUtil.fetchFromUrl(url)
+            .then(response => response);
     }
 
     static getRelatedMediaIds(gameId) {
-        // TODO implement this method
+        const url = `/api/game/related_media/${gameId}`;
+        return FetchUtil.fetchFromUrl(url)
+            .then(response => response);
     }
 }
 
