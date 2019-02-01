@@ -6,6 +6,8 @@ import {VideoList} from "./GameComponents/VideoList";
 import {GameUtil} from "./Utilities/GameUtil";
 import {URLUtil} from "./Utilities/URLUtil";
 import {PlayerName} from "./PlayerComponents/PlayerName";
+import Star from "./SharedComponents/Star";
+import {TeamUtil} from "./Utilities/TeamUtil";
 
 export default class Game extends React.Component {
     constructor(props) {
@@ -18,7 +20,8 @@ export default class Game extends React.Component {
             homePlayers: [],
             gamesFull: <div/>,
             relatedNewsIds: [],
-            relatedMediaIds: []
+            relatedMediaIds: [],
+            isFavorite: false
         };
     }
 
@@ -39,7 +42,33 @@ export default class Game extends React.Component {
         this.loadPlayers();
         this.loadRelatedNews();
         this.loadRelatedMedia();
+        GameUtil.getFavoriteState(this.id).then(isFavorite => {
+            this.setState({
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: isFavorite
+                })
+        });
     }
+
+    handleFavorite = () => {
+        GameUtil.toggleFavorite(this.id).catch(err => console.log(err));
+        this.setState({
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: !this.state.isFavorite
+                })
+    };
 
     render() {
         return (
@@ -76,7 +105,7 @@ export default class Game extends React.Component {
                     </div>
                 </div>
                 {this.state.gamesFull}
-                <NewsList newsIds={this.state.relatedNewsIds} title="اخبار" />
+                <NewsList star={<Star show={this.props.loggedIn} filled={this.state.isFavorite} onClick={this.handleFavorite}/>} newsIds={this.state.relatedNewsIds} title="اخبار" />
                 <VideoList videoIds={this.state.relatedMediaIds} title="ویدیو های بازی" />
             </div>
         );
@@ -94,7 +123,8 @@ export default class Game extends React.Component {
                     awayPlayers: this.state.awayPlayers,
                     homePlayers: this.state.homePlayers,
                     relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 })
             });
     }
@@ -134,7 +164,8 @@ export default class Game extends React.Component {
                     awayPlayers: this.state.awayPlayers,
                     homePlayers: this.state.homePlayers,
                     relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -154,7 +185,8 @@ export default class Game extends React.Component {
                     awayPlayers: this.state.awayPlayers,
                     homePlayers: this.state.homePlayers,
                     relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -177,7 +209,8 @@ export default class Game extends React.Component {
                     eventsFull: this.state.eventsFull,
                     stats: this.state.stats,
                     relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -192,7 +225,8 @@ export default class Game extends React.Component {
                     stats: this.state.stats,
                     awayPlayers: this.state.awayPlayers,
                     homePlayers: this.state.homePlayers,
-                    relatedMediaIds: this.state.relatedMediaIds
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -208,6 +242,7 @@ export default class Game extends React.Component {
                     awayPlayers: this.state.awayPlayers,
                     homePlayers: this.state.homePlayers,
                     relatedNewsIds: this.state.relatedNewsIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }

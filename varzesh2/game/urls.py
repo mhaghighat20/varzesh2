@@ -12,6 +12,7 @@ urlpatterns = [
     path('related_media/<int:game_id>/', views.get_related_media),
 
     path('events/<int:game_id>/', views.get_events),
-
+    path('is_favorite/<int:game_id>/', views.get_favorite_state),
+    path('toggle_favorite/<int:game_id>/', views.toggle_favorite),
 
 ]

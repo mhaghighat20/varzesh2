@@ -3,6 +3,7 @@ import { URLUtil } from "./Utilities/URLUtil";
 import { PlayerUtil } from "./Utilities/PlayerUtil";
 import { SportTypeEnum } from "./SharedComponents/SportType";
 import { NewsList } from "./SharedComponents/News";
+import Star from "./SharedComponents/Star";
 
 export default class Player extends React.Component {
     constructor(props) {
@@ -62,7 +63,7 @@ export default class Player extends React.Component {
                             <PlayerStatistics statistics={this.state.statistics} />
                         </div>
                         <div>
-                            <NewsList newsIds={this.state.newsIds} title="اخبار" />
+                            <NewsList star={<Star show={this.props.loggedIn} filled={this.state.isFavorite} onClick={this.handleFavorite}/>} newsIds={this.state.newsIds} title="اخبار" />
                         </div>
                     </div>
                 </div>

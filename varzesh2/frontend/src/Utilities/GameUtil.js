@@ -59,6 +59,16 @@ export class GameUtil{
         return FetchUtil.fetchFromUrl(url)
             .then(response => response);
     }
+
+    static getFavoriteState(id) {
+        const url = `/api/game/is_favorite/${id}/`;
+        return FetchUtil.fetchFromUrl(url).then(response => response['isFavorite']);
+    }
+
+    static toggleFavorite(id) {
+        const url = `/api/game/toggle_favorite/${id}/`;
+        return FetchUtil.fetchFromUrl(url);
+    }
 }
 
 class GameDetails {
