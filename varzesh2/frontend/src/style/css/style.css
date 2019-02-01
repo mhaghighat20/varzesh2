@@ -199,6 +199,7 @@ thead {
 .my-navbar .navbar-nav > li > a:hover {
     color: white;
     background-color: #1e59b3;
+    border-bottom: 5px solid #1e59b3;
 }
 
 .my-table > tbody > tr:nth-of-type(odd) {
