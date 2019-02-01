@@ -5,6 +5,7 @@ from django.db.models import Count
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import get_object_or_404
 
+from accounts.models import Authentication, ExtendedUser
 from game.models import GameEvent
 from news.models import News
 from player.models import Player, Person
@@ -66,3 +67,28 @@ def get_player_name_by_id(request, player_id):
         return HttpResponse(json.dumps(response, ensure_ascii=False))
     return HttpResponseNotFound('Such player do not exist')
 
+
+def get_favorite_state(request, player_id):
+    if 'logintoken' in request.COOKIES:
+        login_token = request.COOKIES['logintoken']
+        user = get_object_or_404(Authentication, auth_token=login_token).user
+        extended_user = get_object_or_404(ExtendedUser, user=user)
+        favorite = extended_user.favorite_players.filter(id=player_id).all()
+        response = {'isFavorite': False}
+        if favorite.exists():
+            response['isFavorite'] = True
+        return HttpResponse(json.dumps(response))
+    return HttpResponse()
+
+
+def toggle_favorite(request, player_id):
+    login_token = request.COOKIES['logintoken']
+    user = get_object_or_404(Authentication, auth_token=login_token).user
+    extended_user = get_object_or_404(ExtendedUser, user=user)
+    favorite = extended_user.favorite_players.filter(id=player_id).all()
+    if favorite.exists():
+        extended_user.favorite_players.remove(favorite.first())
+    else:
+        extended_user.favorite_players.add(get_object_or_404(Player, id=player_id))
+        extended_user.save()
+    return HttpResponse()

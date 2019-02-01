@@ -51,6 +51,16 @@ export class PlayerUtil {
         FetchUtil.fetchFromUrl(url)
             .then(response => response['name']);
     }
+
+    static getFavoriteState(id) {
+        const url = `/api/player/is_favorite/${id}/`;
+        return FetchUtil.fetchFromUrl(url).then(response => response['isFavorite']);
+    }
+
+    static toggleFavorite(id) {
+        const url = `/api/player/toggle_favorite/${id}/`;
+        return FetchUtil.fetchFromUrl(url);
+    }
 }
 
 class PlayerDetails{

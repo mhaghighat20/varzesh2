@@ -4,6 +4,7 @@ import { PlayerUtil } from "./Utilities/PlayerUtil";
 import { SportTypeEnum } from "./SharedComponents/SportType";
 import { NewsList } from "./SharedComponents/News";
 import Star from "./SharedComponents/Star";
+import {TeamUtil} from "./Utilities/TeamUtil";
 
 export default class Player extends React.Component {
     constructor(props) {
@@ -11,10 +12,23 @@ export default class Player extends React.Component {
         this.state = {
             details: <div/>,
             statistics: [],
-            newsIds: []
+            newsIds: [],
+            isFavorite: false
         };
         this.id = URLUtil.getParameterByName('id', window.location.href);
     }
+
+    handleFavorite = () => {
+        PlayerUtil.toggleFavorite(this.id).catch(err => console.log(err));
+        this.setState({
+                    name: this.state.name,
+                    photoPath: this.state.photoPath,
+                    gameIds: this.state.gameIds,
+                    members: this.state.members,
+                    newsIds: this.state.newsIds,
+                    isFavorite: !this.state.isFavorite
+                });
+    };
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         const id = URLUtil.getParameterByName('id', window.location.href);
@@ -29,7 +43,8 @@ export default class Player extends React.Component {
                 this.setState({
                     details: playerDetails,
                     statistics: this.state.statistics,
-                    newsIds: this.state.newsIds
+                    newsIds: this.state.newsIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
         PlayerUtil.getPlayerStatistics(this.id)
@@ -37,7 +52,8 @@ export default class Player extends React.Component {
                 this.setState({
                     details: this.state.details,
                     statistics: statistics,
-                    newsIds: this.state.newsIds
+                    newsIds: this.state.newsIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
         PlayerUtil.getPlayerNews(this.id)
@@ -45,9 +61,21 @@ export default class Player extends React.Component {
                 this.setState({
                     details: this.state.details,
                     statistics: this.state.statistics,
-                    newsIds: newsIds
+                    newsIds: newsIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
+
+        PlayerUtil.getFavoriteState(this.id).then(isFavorite => {
+            this.setState({
+                name: this.state.name,
+                photoPath: this.state.photoPath,
+                gameIds: this.state.gameIds,
+                members: this.state.members,
+                newsIds: this.state.newsIds,
+                isFavorite: isFavorite
+            });
+        });
     }
 
 
