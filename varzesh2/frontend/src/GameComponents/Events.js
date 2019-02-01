@@ -98,7 +98,7 @@ export class GameStatisticItem extends React.Component {
         super(props);
         this.rightString = props.rightString;
         this.middleString = props.middleString;
-        this.leftString = props.this.middleString;
+        this.leftString = props.leftString;
     }
 
 

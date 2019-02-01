@@ -134,7 +134,7 @@ export default class Game extends React.Component {
             .then(statistics => {
                 let stats = [];
 
-                if (isBasketball) {
+                if (!isBasketball) {
                     stats.push(<GameStatisticItem leftString={statistics['goals']['away']} middleString="تعداد گل"
                                                   rightString={statistics['goals']['home']} key={1}/>);
                     stats.push(<GameStatisticItem leftString={statistics['ballPossession']['away']}

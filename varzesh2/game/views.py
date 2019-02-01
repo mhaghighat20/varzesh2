@@ -54,20 +54,24 @@ def get_game_statistics(request, game_id):
     response = {}
     response['home'] = {}
     response['away'] = {}
-    response['ball_possession'] ={ }
+    response['goals'] = {}
+
+    response['goals']['away'] = 0
+    response['goals']['home'] = 0
+    response['ballPossession'] = {}
     response['corners'] = {}
-    response['fouls']= {}
-    response['goalOpportunities']= {}
-    response['yellowCards']= {}
-    response['redCards']= {}
-    response['bestPlayer'] = {}
+    response['fouls'] = {}
+    response['goalOpportunities'] = {}
+    response['yellowCards'] = {}
+    response['redCards'] = {}
+    response['bestPlayer'] = {'home': 0, 'away': 0}
 
     if not game.league.is_basketball:
         if game.best_player:
             response['best_player'] = None#game.best_player.value_list('firstname')
 
-        response['ball_possession']['home'] = int(game.home_ball_possession * 100)
-        response['ball_possession']['away'] = 100 - response['ball_possession']['home']
+        response['ballPossession']['home'] = int(game.home_ball_possession * 100)
+        response['ballPossession']['away'] = 100 - response['ballPossession']['home']
 
         game_events = GameEvent.objects.filter(game_id=game_id).all()
         response['corners']['home'] = 0
