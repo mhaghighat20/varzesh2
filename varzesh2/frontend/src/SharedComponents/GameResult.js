@@ -171,6 +171,8 @@ export class GamesFull extends React.Component {
             games.push(<GameResult gameId={this.props.gameIds[i]} teamId={this.props.gameIds[i]} showScore={this.props.showScore} showStatus={this.props.showStatus} selectedTeamId={this.props.selectedTeamId} key={i}/>);
         }
         const dropDown = this.props.dropDown ? this.props.dropDown : <div/>;
+
+        const content = this.props.content || <div/>;
         return (
             <div className="panel">
                 <div className="panel-heading center my-panel-heading">
@@ -179,7 +181,7 @@ export class GamesFull extends React.Component {
                         {dropDown}
                     </div>
                 </div>
-                {this.props.content}
+                {content}
                 <table className="table table-striped table-responsive table-hover my-table">
                     <thead>
                         <tr>

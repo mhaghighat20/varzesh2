@@ -15,4 +15,6 @@ urlpatterns = [
     path('is_favorite/<int:game_id>/', views.get_favorite_state),
     path('toggle_favorite/<int:game_id>/', views.toggle_favorite),
 
+    path('latest_games/<int:is_basketball>/<int:is_favorite>/', views.get_latest_games),
+
 ]

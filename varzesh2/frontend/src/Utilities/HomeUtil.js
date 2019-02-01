@@ -1,36 +1,32 @@
 import {SportTypeEnum} from "../SharedComponents/SportType";
+import {FetchUtil} from "./FetchUtil";
 
 export class HomeUtil{
-    static getNewGames(sportType){
-        let week = new Week();
-        week.games = [2, 3];
-        week.name = 'هفته ۱۵';
+    static getNewGames(sportType, isFavorite){
+        if (!isFavorite)
+            isFavorite = 0;
+        else
+            isFavorite = 1;
+        let isBasketball = 0;
+        if (sportType === SportTypeEnum.basketball)
+            isBasketball = 1;
+        const url = `/api/game/latest_games/${isBasketball}/${isFavorite}/`;
 
-        let league = new League();
-        league.weeks = [week];
-        league.name = 'لیگ برتر ایران';
-
-        return [league];
+        return FetchUtil.fetchFromUrl(url).then(response => {
+            let result = {};
+            for (let i = 0; i < response.length; i++){
+                const item = response[i];
+                const leagueName = item['leagueName'];
+                if (!(leagueName in result))
+                    result[leagueName] = {};
+                const week = item['week'];
+                if (!(week in result[leagueName])){
+                    result[leagueName][week] = [];
+                }
+                result[leagueName][week].push(item['gameId']);
+            }
+            return result;
+        });
     }
 }
-
-class League{
-    name;
-    weeks;
-}
-
-class Week{
-    name;
-    games;
-}
-
-class Game{
-    status;
-    date;
-    homeTeam;
-    awayTeam;
-    homeGoals;
-    awayGoals;
-}
-
 export const GameStatusEnum = {"homeWin": 1, "draw": 2, "homeLose": 3, "notDoneYet": 4};
