@@ -61,10 +61,10 @@ export class GameResult extends React.Component {
         let thisTeamGoals = 0;
         let thatTeamGoals = 0;
 
-        if (this.selectedTeamId === gameDetails.homeTeamId) {
+        if (this.props.selectedTeamId === gameDetails.homeTeamId) {
             thisTeamGoals = gameDetails.homeGoals;
             thatTeamGoals = gameDetails.awayGoals;
-        } else if (this.selectedTeamId === gameDetails.awayTeamId) {
+        } else if (this.props.selectedTeamId === gameDetails.awayTeamId) {
             thisTeamGoals = gameDetails.awayGoals;
             thatTeamGoals = gameDetails.homeGoals;
         }
@@ -93,7 +93,7 @@ export class GameResult extends React.Component {
         if (!gameDetails.hasBeenHeld)
             status = 'برگزار نشده';
         else {
-            if (this.selectedTeamId === gameDetails.homeTeamId) {
+            if (this.props.selectedTeamId === gameDetails.homeTeamId) {
                 thisTeamGoals = gameDetails.homeGoals;
                 thatTeamGoals = gameDetails.awayGoals;
             } else if (this.selectedTeamId === gameDetails.awayTeamId) {
@@ -179,6 +179,7 @@ export class GamesFull extends React.Component {
                         {dropDown}
                     </div>
                 </div>
+                {this.props.content}
                 <table className="table table-striped table-responsive table-hover my-table">
                     <thead>
                         <tr>
