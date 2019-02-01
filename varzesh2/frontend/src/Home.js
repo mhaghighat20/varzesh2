@@ -50,13 +50,23 @@ class SportNavTab extends React.Component{
         let soccerTab = <SportTab isActive = {soccerIsActive} title="فوتبال" onClick={() => this.switchSportType(SportTypeEnum.soccer)}/>;
 
         return (
-            <div className="tab-content">
-                <ul className="nav nav-tabs my-nav-bar">
-                    {soccerTab}
-                    {basketballTab}
-                </ul>
-                <TabPane sportType = {SportTypeEnum.soccer} isActive = {soccerIsActive}/>
-                <TabPane sportType = {SportTypeEnum.basketball} isActive = {basketballIsActive}/>
+            <div className="tab-content container container-fluid">
+                <div className="row">
+                    <div className="col-xs-4">
+                            <label className="switch pull-left">
+                                <input type="checkbox"/>
+                                <span className="slider round"/>
+                            </label>
+                    </div>
+                    <ul className="nav nav-tabs my-nav-bar col-xs-8">
+                        {soccerTab}
+                        {basketballTab}
+                    </ul>
+                </div>
+                <div className="row">
+                    <TabPane sportType = {SportTypeEnum.soccer} isActive = {soccerIsActive}/>
+                    <TabPane sportType = {SportTypeEnum.basketball} isActive = {basketballIsActive}/>
+                </div>
             </div>
         );
     }

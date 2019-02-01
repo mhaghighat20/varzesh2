@@ -12,7 +12,7 @@ class LeagueSeason(models.Model):
 
     def __str__(self):
         my_year = self.year[2:]
-        return self.name + ' ' + my_year
+        return self.name + ' ' + str(int(my_year) + 1) + '-' + my_year
 
 
 class LeagueFullStatistics:
