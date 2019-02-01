@@ -49,7 +49,7 @@ export default class SignupPage extends React.Component{
                             ورود
                         </div>
                         <div className="panel-body">
-                            <p>{this.state.error}</p>
+                            <p className="error">{this.state.error}</p>
                             <div className="form-group">
                                 <label htmlFor="username">نام کاربری</label>
                                 <input type="text" id="username" className="form-control" ref={this.userName} onKeyUp={this.handleEnter}/>
