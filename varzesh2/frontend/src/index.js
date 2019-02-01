@@ -17,16 +17,30 @@ import {
     HashRouter
 } from "react-router-dom";
 import {CookieUtil} from "./Utilities/CookieUtil";
+import {FetchUtil} from "./Utilities/FetchUtil";
+import SignupPage from "./Signup";
 
 
 class Page extends React.Component {
     constructor(props) {
         super(props);
-        let loggedIn;
-        loggedIn = !!CookieUtil.getCookie('logintoken');
         this.state = {
-            loggedIn: loggedIn
+            loggedIn: false
         };
+    }
+
+    componentDidMount() {
+        let loginToken = CookieUtil.getCookie('logintoken');
+        if (loginToken){
+            const url = `/api/accounts/is_logged_in/${loginToken}/`;
+            FetchUtil.fetchFromUrl(url)
+                .then(response => {
+                    if (response['loggedIn'] === true)
+                        this.setState({
+                            loggedIn: true
+                        });
+                });
+        }
     }
 
     render() {
@@ -35,13 +49,14 @@ class Page extends React.Component {
                 <div>
                     <NavigationBar loggedIn={this.state.loggedIn}/>
                     <div>
-                        <Route loggedIn={this.state.loggedIn} exact path="/" component={Home}/>
-                        <Route loggedIn={this.state.loggedIn} path="/news" component={NewsPage}/>
-                        <Route loggedIn={this.state.loggedIn} path="/league" component={League}/>
-                        <Route loggedIn={this.state.loggedIn} path="/team" component={Team}/>
-                        <Route loggedIn={this.state.loggedIn} path="/player" component={Player}/>
-                        <Route loggedIn={this.state.loggedIn} path="/game" component={Game}/>
-                        <Route loggedIn={this.state.loggedIn} path="/login" component={LoginPage}/>
+                        <Route exact path="/" render={() => <Home loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/news" render={() => <NewsPage loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/league" render={() => <League loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/team" render={() => <Team loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/player" render={() => <Player loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/game" render={() => <Game loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/login" render={() => <LoginPage loggedIn={this.state.loggedIn}/>}/>
+                        <Route path="/signup" render={() => <SignupPage loggedIn={this.state.loggedIn}/>}/>
                     </div>
                 </div>
             </HashRouter>

@@ -52,9 +52,9 @@ def signup(request):
         first_name = body['first_name']
         last_name = body['last_name']
         email = body['email']
-        user = User.objects.create_user(username, email, password)
+        user = User.objects.create_user(username, email, password, first_name=first_name, last_name=last_name)
         user.save()
-        extended_user = ExtendedUser.objects.create(user=user, first_name=first_name, last_name=last_name)
+        extended_user = ExtendedUser.objects.create(user=user)
         extended_user.save()
 
         response = {'status': 'done'}

@@ -44,6 +44,11 @@ export default class NavigationBar extends React.Component{
                                     ورود
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/signup">
+                                    ثبت نام
+                                </NavLink>
+                            </li>
                         </ul>;
         }
         return (
