@@ -2,6 +2,7 @@ import React from "react";
 import {NewsList} from "./SharedComponents/News";
 import {SportTypeEnum} from "./SharedComponents/SportType";
 import {GameStatusEnum, HomeUtil} from "./Utilities/HomeUtil";
+import {GamesFull} from "./SharedComponents/GameResult";
 
 export default class Home extends React.Component{
     render() {
@@ -67,7 +68,7 @@ class TabPane extends React.Component{
 
         const children = <div className="row">
             <div className="col-sm-6">
-                <GameList sportType = {this.props.sportType}/>
+                <GameList/>
             </div>
             <div className="col-sm-6">
                 <NewsList newsIds = {['1']} title="اخبار"/>
@@ -89,89 +90,21 @@ class GameList extends React.Component{
         let leagueName = leagues[0].name;
         let weekName = leagues[0].weeks[0].name;
 
-        return (
-            <div className="panel" style={{alignItems: "center"}}>
-                <div className="panel-heading my-panel-heading">مسابقات</div>
-                <div className="row">
-                    <select>
-                        <option value="2">{leagueName}</option>
-                    </select>
-                </div>
-                <div className="row">
-                    <select>
-                        <option value="15">{weekName}</option>
-                    </select>
-                </div>
-                <div className="row">
-                    <WeekList week={leagues[0].weeks[0]}/>
-                </div>
-            </div>
-        );
-    }
-}
-
-class WeekList extends React.Component{
-    render() {
-        let games = [];
-        for (let i = 0; i < this.props.week.games.length; i++){
-            games.push(<GameItem game={this.props.week.games[i]} key={i}/>);
-        }
+        let content = <div>
+                    <div className="row">
+                        <select>
+                            <option value="2">{leagueName}</option>
+                        </select>
+                    </div>
+                    <div className="row">
+                        <select>
+                            <option value="15">{weekName}</option>
+                        </select>
+                    </div>
+                </div>;
         return (
             <div>
-                {games}
-            </div>
-        );
-    }
-}
-
-class GameItem extends React.Component{
-    render() {
-        const game = this.props.game;
-        let gameItem;
-        if (game.status !== GameStatusEnum.notDoneYet){
-            gameItem =
-                <div className="row">
-                    <div className="col-sm-3">
-                        {game.homeTeam}
-                    </div>
-                    <div className="col-sm-1">
-                        {game.homeGoals}
-                    </div>
-                    <div className="col-sm-1">
-                        {game.awayGoals}
-                    </div>
-                    <div className="col-sm-3">
-                        {game.awayTeam}
-                    </div>
-                    <div className="col-sm-4">
-                        {game.date}
-                    </div>
-                </div>;
-        }
-        else{
-            gameItem =
-                <div className="row">
-                    <div className="col-sm-3">
-                        {game.homeTeam}
-                    </div>
-                    <div className="col-sm-1">
-
-                    </div>
-                    <div className="col-sm-1">
-
-                    </div>
-                    <div className="col-sm-3">
-                        {game.awayTeam}
-                    </div>
-                    <div className="col-sm-4">
-                        {game.date}
-                    </div>
-                </div>;
-        }
-
-        return (
-            <div className="game-item">
-                {gameItem}
+                    <GamesFull title={'مسابقات'} content={content} showScore={false} showStatus={false} gameIds={leagues[0].weeks[0].games}/>
             </div>
         );
     }
