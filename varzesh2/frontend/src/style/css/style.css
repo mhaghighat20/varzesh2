@@ -129,6 +129,10 @@ thead {
         float: right !important;
         margin-right: -25px;
     }
+    .my-navbar-left {
+        float: left !important;
+        margin-left: -25px;
+    }
 }
 
 .news-title{

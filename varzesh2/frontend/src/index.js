@@ -16,22 +16,32 @@ import {
     Route,
     HashRouter
 } from "react-router-dom";
+import {CookieUtil} from "./Utilities/CookieUtil";
 
 
 class Page extends React.Component {
+    constructor(props) {
+        super(props);
+        let loggedIn;
+        loggedIn = !!CookieUtil.getCookie('logintoken');
+        this.state = {
+            loggedIn: loggedIn
+        };
+    }
+
     render() {
         return (
             <HashRouter>
                 <div>
-                    <NavigationBar/>
+                    <NavigationBar loggedIn={this.state.loggedIn}/>
                     <div>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/news" component={NewsPage}/>
-                        <Route path="/league" component={League}/>
-                        <Route path="/team" component={Team}/>
-                        <Route path="/player" component={Player}/>
-                        <Route path="/game" component={Game}/>
-                        <Route path="/login" component={LoginPage}/>
+                        <Route loggedIn={this.state.loggedIn} exact path="/" component={Home}/>
+                        <Route loggedIn={this.state.loggedIn} path="/news" component={NewsPage}/>
+                        <Route loggedIn={this.state.loggedIn} path="/league" component={League}/>
+                        <Route loggedIn={this.state.loggedIn} path="/team" component={Team}/>
+                        <Route loggedIn={this.state.loggedIn} path="/player" component={Player}/>
+                        <Route loggedIn={this.state.loggedIn} path="/game" component={Game}/>
+                        <Route loggedIn={this.state.loggedIn} path="/login" component={LoginPage}/>
                     </div>
                 </div>
             </HashRouter>
