@@ -26,6 +26,21 @@ export class TeamUtil{
                 })
                 .catch(err => {});
     }
+
+    static getTeamGames(id, sortMode) {
+        const url = `/api/team/sorted_games/${id}/${sortMode}/`;
+        return FetchUtil.fetchFromUrl(url);
+    }
+
+    static getFavoriteState(id) {
+        const url = `/api/team/is_favorite/${id}/`;
+        return FetchUtil.fetchFromUrl(url).then(response => response['isFavorite']);
+    }
+
+    static toggleFavorite(id) {
+        const url = `/api/team/toggle_favorite/${id}/`;
+        return FetchUtil.fetchFromUrl(url);
+    }
 }
 
 class TeamInfo {

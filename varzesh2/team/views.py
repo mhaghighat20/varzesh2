@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
+from accounts.models import Authentication, ExtendedUser
 from game.models import Game
 from news.models import News
 from team.models import Team
@@ -13,7 +14,7 @@ from player.models import Person
 def get_team_by_id(request, team_id):
     team = get_object_or_404(Team, id=team_id)
     personnel = list(Person.objects.filter(team_id=team_id).all().values('player__id', 'first_name', 'last_name', 'position'))
-    related_news = list(News.objects.filter(related_teams__id=team_id).all().values_list('id', flat=True))
+    related_news = list(team.related_news.values_list('id', flat=True))
 
     members = []
     for person in personnel:
@@ -28,7 +29,6 @@ def get_team_by_id(request, team_id):
         'name': team.name,
         'members': members,
         'newsIds': related_news,
-
     }
 
     if team.photo:
@@ -54,3 +54,27 @@ def get_team_name_by_id(request, team_id):
     team = get_object_or_404(Team, id=team_id)
     response = {'name': team.name}
     return HttpResponse(json.dumps(response, ensure_ascii=False))
+
+
+def get_favorite_state(request, team_id):
+    login_token = request.COOKIES['logintoken']
+    user = get_object_or_404(Authentication, auth_token=login_token).user
+    extended_user = get_object_or_404(ExtendedUser, user=user)
+    favorite = extended_user.favorite_teams.filter(id=team_id).all()
+    response = {'isFavorite': False}
+    if favorite.exists():
+        response['isFavorite'] = True
+    return HttpResponse(json.dumps(response))
+
+
+def toggle_favorite(request, team_id):
+    login_token = request.COOKIES['logintoken']
+    user = get_object_or_404(Authentication, auth_token=login_token).user
+    extended_user = get_object_or_404(ExtendedUser, user=user)
+    favorite = extended_user.favorite_teams.filter(id=team_id).all()
+    if favorite.exists():
+        extended_user.favorite_teams.remove(favorite.first())
+    else:
+        extended_user.favorite_teams.add(get_object_or_404(Team, id=team_id))
+        extended_user.save()
+    return HttpResponse()

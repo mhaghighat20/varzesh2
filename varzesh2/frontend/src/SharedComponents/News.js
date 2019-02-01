@@ -3,6 +3,12 @@ import {NewsUtil} from "../Utilities/NewsUtil";
 import {NavLink} from "react-router-dom";
 
 export class NewsList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.newsIds = props.newsIds;
+        this.star = props.star;
+    }
+
     render() {
         let newsItems = [];
         for (let i = 0; i < this.props.newsIds.length; i++){
@@ -10,7 +16,12 @@ export class NewsList extends React.Component {
         }
         return (
             <div className="panel">
-                <div className="panel-heading my-panel-heading">{this.props.title}</div>
+                <div className="panel-heading my-panel-heading">
+                    {this.props.title}
+                    <div className="pull-left">
+                        {this.props.star}
+                    </div>
+                </div>
                 <div className="panel-body">
                     {newsItems}
                 </div>

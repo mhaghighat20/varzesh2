@@ -12,7 +12,6 @@ class News(models.Model):
     pub_date = models.DateTimeField(null=False, verbose_name='تاریخ انتشار')
     source = models.CharField(max_length=200, blank=True, verbose_name='منبع')
     video = models.FileField(upload_to='news/videos/%Y/%m/%d/', null=True, blank=True, verbose_name='ویدیو')
-    related_players = models.ManyToManyField('player.Player', blank=True, verbose_name='بازیکنان مرتبط')
     related_game = models.ForeignKey('game.Game', on_delete=models.CASCADE, null=True, blank=True, verbose_name='بازی مرتبط')
     related_teams = models.ManyToManyField('team.Team', blank=True, verbose_name='تیم‌های مرتبط')
     is_basketball = models.BooleanField(verbose_name='بسکتبال است')

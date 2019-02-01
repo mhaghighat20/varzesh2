@@ -14,6 +14,7 @@ class Player(models.Model):
     photo = models.ImageField(blank=True, upload_to='players/images', verbose_name='تصویر')
     person = models.OneToOneField('player.Person', on_delete=models.CASCADE,
                                   verbose_name='شخص')
+    related_news = models.ManyToManyField('news.News', blank=True, verbose_name='اخبار مرتبط')
 
     def __str__(self):
         person = Person.objects.filter(player=self)

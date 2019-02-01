@@ -128,6 +128,7 @@ export class GamesFull extends React.Component {
         this.showScore = props.showScore;
         this.showStatus = props.showStatus;
         this.selectedTeamId = props.selectedTeamId;
+        this.dropDown = props.dropDown;
     }
 
     render() {
@@ -166,13 +167,18 @@ export class GamesFull extends React.Component {
 
         let games = [];
 
-        for (let i = 0; i < this.props.gameIds; i++){
+        for (let i = 0; i < this.props.gameIds.length; i++){
             games.push(<GameResult gameId={this.props.gameIds[i]} teamId={this.props.gameIds[i]} showScore={this.props.showScore} showStatus={this.props.showStatus} selectedTeamId={this.props.selectedTeamId} key={i}/>);
         }
-
+        const dropDown = this.props.dropDown ? this.props.dropDown : <div/>;
         return (
             <div className="panel">
-                <div className="panel-heading center my-panel-heading">{this.props.title}</div>
+                <div className="panel-heading center my-panel-heading">
+                    <div>{this.props.title}</div>
+                    <div className="pull-left sort-dropdown">
+                        {dropDown}
+                    </div>
+                </div>
                 <table className="table table-striped table-responsive table-hover my-table">
                     <thead>
                         <tr>

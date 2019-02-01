@@ -22,6 +22,12 @@ export default class Game extends React.Component {
         };
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const id = URLUtil.getParameterByName('id', window.location.href);
+        if (id !== this.id)
+            window.location.reload();
+    }
+
     componentDidMount() {
         GameUtil.getGameDetails(this.id)
             .then(gameDetails => {

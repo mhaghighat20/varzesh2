@@ -27,9 +27,6 @@ class Page extends React.Component {
         this.state = {
             loggedIn: false
         };
-    }
-
-    componentDidMount() {
         let loginToken = CookieUtil.getCookie('logintoken');
         if (loginToken){
             const url = `/api/accounts/is_logged_in/${loginToken}/`;
