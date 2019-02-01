@@ -9,8 +9,10 @@ from accounts.models import Authentication, ExtendedUser
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        username = body['username']
+        password = body['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             token = str(uuid.uuid4())
@@ -22,19 +24,37 @@ def login_view(request):
             return HttpResponse(json_response)
         else:
             return HttpResponse('Unauthorized', status=401)
-    return HttpResponse('salam')
+
+    return HttpResponseBadRequest()
+
+
+def is_logged_in(request, login_token):
+    response = {
+        'loggedIn': False
+    }
+    if Authentication.objects.filter(auth_token=login_token).exists():
+        response['loggedIn'] = True
+
+    return HttpResponse(json.dumps(response))
+
+
+def logout(request, login_token):
+    Authentication.objects.filter(auth_token=login_token).delete()
+    return HttpResponse()
 
 
 def signup(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        user = User.objects.create_user(username, email, password)
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        username = body['username']
+        password = body['password']
+        first_name = body['first_name']
+        last_name = body['last_name']
+        email = body['email']
+        user = User.objects.create_user(username, email, password, first_name=first_name, last_name=last_name)
         user.save()
-        extended_user = ExtendedUser.objects.create(user=user, first_name=first_name, last_name=last_name)
+        extended_user = ExtendedUser.objects.create(user=user)
         extended_user.save()
 
         response = {'status': 'done'}

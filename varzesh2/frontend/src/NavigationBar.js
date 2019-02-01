@@ -2,9 +2,55 @@ import React from "react";
 import {
     NavLink
 } from "react-router-dom";
+import {FetchUtil} from "./Utilities/FetchUtil";
+import {CookieUtil} from "./Utilities/CookieUtil";
 
 export default class NavigationBar extends React.Component{
+    constructor(props) {
+        super(props);
+        this.loggedIn = props.loggedIn;
+    }
+
+    logout = (() => {
+        const loginToken = CookieUtil.getCookie('logintoken');
+        if (loginToken) {
+            CookieUtil.eraseCookie('logintoken');
+            let url = `/api/accounts/logout/${loginToken}/`;
+            FetchUtil.fetchFromUrl(url)
+                .then(response => {
+                    console.log(response);
+                    window.location.reload();
+                })
+                .catch(err => console.log(err));
+        } else {
+            window.location.reload();
+        }
+    });
+
     render() {
+        let loginOptions;
+        if (this.props.loggedIn){
+            loginOptions = <ul className="nav navbar-nav my-navbar-left">
+                            <li>
+                                <a href={''} onClick={this.logout}>
+                                    خروج
+                                </a>
+                            </li>
+                        </ul>;
+        } else{
+            loginOptions = <ul className="nav navbar-nav my-navbar-left">
+                            <li>
+                                <NavLink to="/login">
+                                    ورود
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/signup">
+                                    ثبت نام
+                                </NavLink>
+                            </li>
+                        </ul>;
+        }
         return (
             <nav className="navbar navbar-default my-navbar">
                 <div className="container-fluid">
@@ -50,6 +96,7 @@ export default class NavigationBar extends React.Component{
                                 بازی
                             </NavLink></li>
                         </ul>
+                        {loginOptions}
                     </div>
                 </div>
             </nav>

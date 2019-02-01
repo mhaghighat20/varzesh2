@@ -22,7 +22,7 @@ class Game(models.Model):
     away_players = models.ManyToManyField('player.Player', related_name='away_players',
                                           verbose_name='بازیکنان تیم میهمان')
     home_ball_possession = models.FloatField(verbose_name='مالکیت توپ میزبان', null=True, blank=True)
-    best_player = models.OneToOneField(Player, on_delete=models.CASCADE, verbose_name='بهترین بازیکن میدان',
+    best_player = models.ForeignKey(Player, on_delete=models.CASCADE, verbose_name='بهترین بازیکن میدان',
                                        null=True, blank=True)
 
 

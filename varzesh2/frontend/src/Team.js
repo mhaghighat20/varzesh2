@@ -4,17 +4,31 @@ import { NavLink } from "react-router-dom";
 import { NewsList } from "./SharedComponents/News";
 import {URLUtil} from "./Utilities/URLUtil";
 import {TeamUtil} from "./Utilities/TeamUtil";
+import Star from "./SharedComponents/Star";
 
 export default class Team extends React.Component {
+    handleFavorite = () => {
+        TeamUtil.toggleFavorite(this.id).catch(err => console.log(err));
+        this.setState({
+                    name: this.state.name,
+                    photoPath: this.state.photoPath,
+                    gameIds: this.state.gameIds,
+                    members: this.state.members,
+                    newsIds: this.state.newsIds,
+                    isFavorite: !this.state.isFavorite
+                });
+    };
     constructor(props) {
         super(props);
         this.id = URLUtil.getParameterByName('id', window.location.href);
+        this.loggedIn = props.loggedIn;
         this.state = {
             name: '',
             photoPath: '',
             gameIds: [],
             members: [],
-            newsIds: []
+            newsIds: [],
+            isFavorite: false
         };
     }
 
@@ -24,19 +38,55 @@ export default class Team extends React.Component {
             window.location.reload();
     }
 
+    sortGames(sortMode){
+        TeamUtil.getTeamGames(this.id, sortMode).then(gameIds => {
+                this.setState({
+                    name: this.state.name,
+                    photoPath: this.state.photoPath,
+                    gameIds: gameIds,
+                    members: this.state.members,
+                    newsIds: this.state.newsIds,
+                    isFavorite: this.state.isFavorite
+                });
+            });
+    }
+
     componentDidMount() {
         TeamUtil.getTeamDetails(this.id).then(teamInfo => {
             this.setState({
                 name: teamInfo.name,
                 photoPath: teamInfo.photoPath,
-                gameIds: teamInfo.gameIds,
+                gameIds: this.state.gameIds,
                 members: teamInfo.members,
-                newsIds: teamInfo.newsIds
-            })
+                newsIds: teamInfo.newsIds,
+                isFavorite: this.state.isFavorite
+            });
+        });
+
+        this.sortGames(1);
+
+        TeamUtil.getFavoriteState(this.id).then(isFavorite => {
+            this.setState({
+                name: this.state.name,
+                photoPath: this.state.photoPath,
+                gameIds: this.state.gameIds,
+                members: this.state.members,
+                newsIds: this.state.newsIds,
+                isFavorite: isFavorite
+            });
         });
     }
 
     render() {
+        const dropDown = <div className="dropdown">
+            <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">  مرتب سازی بر اساس
+                <span className="caret"></span></button>
+            <ul className="dropdown-menu">
+                <li><a href onClick={() => this.sortGames(1)}>تاریخ</a></li>
+                <li><a href onClick={() => this.sortGames(2)}>وضعیت</a></li>
+                <li><a href onClick={() => this.sortGames(3)}>تیم حریف</a></li>
+            </ul>
+        </div>;
         return (
             <div>
                 <div className="container-fluid">
@@ -49,8 +99,8 @@ export default class Team extends React.Component {
                 <div className="container container-fluid">
                 <div className="row">
                     <div className="col-sm-9">
-                        <GamesFull gameIds={this.state.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
-                        <NewsList newsIds={this.state.newsIds} title="اخبار" />
+                        <GamesFull dropDown={dropDown} gameIds={this.state.gameIds} showScore showStatus selectedTeamId={this.id} title='بازی ها' />
+                        <NewsList star={<Star show={this.props.loggedIn} filled={this.state.isFavorite} onClick={this.handleFavorite}/>} newsIds={this.state.newsIds} title="اخبار" />
                     </div>
                     <div className="col-sm-3">
                         <div className="panel">

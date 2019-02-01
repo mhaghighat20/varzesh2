@@ -33,7 +33,8 @@ def get_player_by_id(request, player_id):
 
 
 def get_related_news_ids_by_id(request, player_id):
-    result = list(News.objects.filter(related_players__id=player_id).values_list('id', flat=True))
+    player = get_object_or_404(Player, id=player_id)
+    result = list(player.related_news.values_list('id', flat=True))
 
     response = json.dumps(result, ensure_ascii=False)
     return HttpResponse(response)
