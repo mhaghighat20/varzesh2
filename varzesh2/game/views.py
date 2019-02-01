@@ -54,19 +54,43 @@ def get_game_statistics(request, game_id):
     response = {}
     response['home'] = {}
     response['away'] = {}
+    response['ball_possession'] ={ }
+    response['corners'] = {}
+    response['fouls']= {}
+    response['goalOpportunities']= {}
+    response['yellowCards']= {}
+    response['redCards']= {}
+    response['bestPlayer'] = {}
 
     if not game.league.is_basketball:
         if game.best_player:
-            game.best_player
-            best_player = game.best_player
-        home_ball_possession = int(game.home_ball_possession * 100)
-        away_ball_possession = 100 - home_ball_possession
+            response['best_player'] = None#game.best_player.value_list('firstname')
+
+        response['ball_possession']['home'] = int(game.home_ball_possession * 100)
+        response['ball_possession']['away'] = 100 - response['ball_possession']['home']
+
         game_events = GameEvent.objects.filter(game_id=game_id).all()
+        response['corners']['home'] = 0
+        response['corners']['away'] = 0
+
+        response['fouls']['home'] = 0
+        response['fouls']['away'] = 0
+
+        response['goalOpportunities']['home'] = 0
+        response['goalOpportunities']['away'] = 0
+
+        response['yellowCards']['home'] = 0
+        response['yellowCards']['away'] = 0
+
+        response['redCards']['home'] = 0
+        response['redCards']['away'] = 0
+
+
 
         home_game_events = game_events.filter(game_id=game.home_id)
         away_game_events = game_events.filter(game_id=game.away_id)
 
-        pass
+        return HttpResponse(json.dumps(response, ensure_ascii=False))
 
 
 def get_game_players(request, game_id):

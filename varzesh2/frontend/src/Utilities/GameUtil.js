@@ -33,7 +33,9 @@ export class GameUtil{
     }
 
     static getGameStatistics(gameId) {
-        // TODO implement this method
+        const url = `/api/game/statistics/${gameId}/`;
+        return FetchUtil.fetchFromUrl(url)
+            .then(response => response);
     }
 
     static getGameEvents(gameId) {

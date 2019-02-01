@@ -153,7 +153,7 @@ export default class Game extends React.Component {
                                                   rightString={statistics['redCards']['home']} key={7}/>);
                     stats.push(<GameStatisticItem leftString={statistics['bestPlayer']['away']}
                                                   middleString="بهترین بازیکن زمین"
-                                                  rightString={statistics['corners']['away']} key={8}/>);
+                                                  rightString={statistics['bestPlayer']['home']} key={8}/>);
                 } else {
                     // TODO implement basketball
                 }
