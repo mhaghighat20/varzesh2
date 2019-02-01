@@ -5,6 +5,8 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
+
+from accounts.models import Authentication, ExtendedUser
 from game.models import Game, GameEvent
 from news.models import News
 
@@ -99,3 +101,25 @@ def get_events(request, game_id):
     return HttpResponse(json.dumps(result))
 
 
+def get_favorite_state(request, game_id):
+    login_token = request.COOKIES['logintoken']
+    user = get_object_or_404(Authentication, auth_token=login_token).user
+    extended_user = get_object_or_404(ExtendedUser, user=user)
+    favorite = extended_user.favorite_games.filter(id=game_id).all()
+    response = {'isFavorite': False}
+    if favorite.exists():
+        response['isFavorite'] = True
+    return HttpResponse(json.dumps(response))
+
+
+def toggle_favorite(request, game_id):
+    login_token = request.COOKIES['logintoken']
+    user = get_object_or_404(Authentication, auth_token=login_token).user
+    extended_user = get_object_or_404(ExtendedUser, user=user)
+    favorite = extended_user.favorite_games.filter(id=game_id).all()
+    if favorite.exists():
+        extended_user.favorite_games.remove(favorite.first())
+    else:
+        extended_user.favorite_games.add(get_object_or_404(Game, id=game_id))
+        extended_user.save()
+    return HttpResponse()
