@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c03b435-c577-49f9-ac9c-b0c1e45abdc0" name="Default Changelist" comment="Game Completed">
+    <list default="true" id="0c03b435-c577-49f9-ac9c-b0c1e45abdc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/varzesh2/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/varzesh2/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/news/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/varzesh2/frontend/node_modules/" />
@@ -28,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/varzesh2/news/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="40" column="66" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="66" />
+            <state relative-caret-position="372">
+              <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -88,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/varzesh2/news/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
@@ -175,8 +174,8 @@
         <option value="$PROJECT_DIR$/varzesh2/game/views.py" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/Game.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/GameComponents/Events.js" />
-        <option value="$PROJECT_DIR$/varzesh2/news/views.py" />
         <option value="$PROJECT_DIR$/varzesh2/news/urls.py" />
+        <option value="$PROJECT_DIR$/varzesh2/news/views.py" />
       </list>
     </option>
   </component>
@@ -577,12 +576,12 @@
       <option name="project" value="LOCAL" />
       <updated>1549094967444</updated>
     </task>
-    <task id="LOCAL-00007" summary="Some changes to home page">
-      <created>1544515172492</created>
+    <task id="LOCAL-00007" summary="latest new api">
+      <created>1549095372746</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1544515172492</updated>
+      <updated>1549095372746</updated>
     </task>
     <task id="LOCAL-00008" summary="Some changes to home page">
       <created>1544515995155</created>
@@ -752,11 +751,11 @@
       <option name="project" value="LOCAL" />
       <updated>1548569384696</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38718000" />
+    <option name="totallyTimeSpent" value="38959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="-8" width="1854" height="1096" extended-state="6" />
@@ -836,7 +835,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix player's page ui" />
     <MESSAGE value="Fix player's image in player page" />
     <MESSAGE value="Replace news page's image base64 by path to content folder" />
     <MESSAGE value="Some changes to home page" />
@@ -861,7 +859,8 @@
     <MESSAGE value="statistics worked!" />
     <MESSAGE value="Game Works!" />
     <MESSAGE value="Game Completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game Completed" />
+    <MESSAGE value="latest new api" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest new api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1242,22 +1241,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/news/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="40" column="66" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/news/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/news/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
