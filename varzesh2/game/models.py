@@ -18,7 +18,7 @@ class Game(models.Model):
     away = models.ForeignKey('team.Team', on_delete=models.CASCADE, related_name='away_team', verbose_name='میهمان')
     week = models.IntegerField(null=False, verbose_name='هفته')
     league = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE, verbose_name='لیگ')
-    date = models.DateTimeField(default=timezone.now, verbose_name='تاریخ برگزاری'),
+    date = models.DateTimeField(default=timezone.now, verbose_name='تاریخ برگزاری')
     win_or_lose = models.IntegerField(default='0', verbose_name='وضعیت')
 
     home_players = models.ManyToManyField('player.Player', related_name='home_players',
