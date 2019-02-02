@@ -40,11 +40,14 @@ def get_team_by_id(request, team_id):
 
 def get_sorted_games(request, team_id, sort_mode):
     if sort_mode == 2:
-        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).all().values_list('id', flat=True))
+        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id))
+                     .order_by('win_or_lose').all().values_list('id', flat=True))
     elif sort_mode == 3:
-        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).all().values_list('id', flat=True))
+        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).order_by('away_id').all()
+                     .values_list('id', flat=True))
     else:
-        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).order_by('-date').all().values_list('id', flat=True))
+        games = list(Game.objects.filter(Q(home__id=team_id) | Q(away__id=team_id)).order_by('-date').all()
+                     .values_list('id', flat=True))
 
     response = json.dumps(games, ensure_ascii=False)
     return HttpResponse(response)

@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0c03b435-c577-49f9-ac9c-b0c1e45abdc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/varzesh2/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/game/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/game/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/game/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/game/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/varzesh2/team/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/varzesh2/team/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/varzesh2/frontend/node_modules/" />
     <ignored path="$PROJECT_DIR$/venv/" />
@@ -19,19 +21,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="242" column="51" selection-start-line="242" selection-start-column="51" selection-end-line="242" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/varzesh2/news/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+            <state relative-caret-position="106">
+              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -42,17 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/varzesh2/news/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/TeamUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+            <state relative-caret-position="312">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -70,28 +54,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/TeamLink.js">
+        <entry file="file://$PROJECT_DIR$/varzesh2/game/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="16" selection-end-column="5" />
+              <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/varzesh2/team/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="45" column="90" selection-start-line="45" selection-start-column="90" selection-end-line="45" selection-end-column="90" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js">
+        <entry file="file://$PROJECT_DIR$/varzesh2/game/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3674">
-              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varzesh2/news/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="202">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="16" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -100,13 +90,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/varzesh2/game/views.py">
+        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/GameUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="81" column="54" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="76">
+              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/varzesh2/game/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -137,6 +142,9 @@
     <findStrings>
       <find>homeGoals</find>
       <find>/api/player/</find>
+      <find>against_games</find>
+      <find>get_events</find>
+      <find>game/events/</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Projects\Web\varzesh2</dir>
@@ -164,18 +172,20 @@
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/Login.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/NavigationBar.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/Team.js" />
-        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/GameUtil.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/PlayerComponents/PlayerName.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/PlayerUtil.js" />
         <option value="$PROJECT_DIR$/varzesh2/player/views.py" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/TeamLink.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js" />
-        <option value="$PROJECT_DIR$/varzesh2/game/models.py" />
-        <option value="$PROJECT_DIR$/varzesh2/game/views.py" />
-        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Game.js" />
         <option value="$PROJECT_DIR$/varzesh2/frontend/src/GameComponents/Events.js" />
         <option value="$PROJECT_DIR$/varzesh2/news/urls.py" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Utilities/GameUtil.js" />
+        <option value="$PROJECT_DIR$/varzesh2/frontend/src/Game.js" />
+        <option value="$PROJECT_DIR$/varzesh2/game/urls.py" />
         <option value="$PROJECT_DIR$/varzesh2/news/views.py" />
+        <option value="$PROJECT_DIR$/varzesh2/game/views.py" />
+        <option value="$PROJECT_DIR$/varzesh2/game/models.py" />
+        <option value="$PROJECT_DIR$/varzesh2/team/views.py" />
       </list>
     </option>
   </component>
@@ -222,6 +232,12 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="varzesh2" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="player" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="varzesh2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="varzesh2" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="team" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -583,19 +599,19 @@
       <option name="project" value="LOCAL" />
       <updated>1549095372746</updated>
     </task>
-    <task id="LOCAL-00008" summary="Some changes to home page">
-      <created>1544515995155</created>
+    <task id="LOCAL-00008" summary="latest new api from + size">
+      <created>1549095603403</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1544515995155</updated>
+      <updated>1549095603403</updated>
     </task>
-    <task id="LOCAL-00009" summary="Some good refactors done">
-      <created>1544521118249</created>
+    <task id="LOCAL-00009" summary="اصلاح API news">
+      <created>1549096739301</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1544521118249</updated>
+      <updated>1549096739301</updated>
     </task>
     <task id="LOCAL-00010" summary="A part of Player page added">
       <created>1544527394372</created>
@@ -751,11 +767,11 @@
       <option name="project" value="LOCAL" />
       <updated>1548569384696</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38959000" />
+    <option name="totallyTimeSpent" value="41056000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="-8" width="1854" height="1096" extended-state="6" />
@@ -767,7 +783,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3281412" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49832776" weight="0.30098146" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49832776" weight="0.30010384" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803708" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -835,8 +851,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix player's image in player page" />
-    <MESSAGE value="Replace news page's image base64 by path to content folder" />
     <MESSAGE value="Some changes to home page" />
     <MESSAGE value="Some fixes" />
     <MESSAGE value="Remove duplicate image" />
@@ -860,7 +874,9 @@
     <MESSAGE value="Game Works!" />
     <MESSAGE value="Game Completed" />
     <MESSAGE value="latest new api" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest new api" />
+    <MESSAGE value="latest new api from + size" />
+    <MESSAGE value="اصلاح API news" />
+    <option name="LAST_COMMIT_MESSAGE" value="اصلاح API news" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -869,6 +885,11 @@
           <url>file://$PROJECT_DIR$/varzesh2/accounts/views.py</url>
           <line>41</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/varzesh2/game/views.py</url>
+          <line>126</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1062,16 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/team/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255" />
@@ -1104,23 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret column="362306" selection-start-column="362306" selection-end-column="362306" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/game/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="962" column="4133" selection-start-line="962" selection-start-column="4133" selection-end-line="962" selection-end-column="4133" />
         </state>
       </provider>
     </entry>
@@ -1162,27 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/game/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/GameUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="242" column="51" selection-start-line="242" selection-start-column="51" selection-end-line="242" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/SharedComponents/GameResult.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3674">
@@ -1194,16 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Team.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1224,23 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/game/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="81" column="54" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/varzesh2/news/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/news/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1251,10 +1197,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Team.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/static/frontend/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="1081" column="3089" selection-start-line="1081" selection-start-column="3089" selection-end-line="1081" selection-end-column="3089" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Utilities/GameUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/frontend/src/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/game/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/news/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/varzesh2/news/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+        <state relative-caret-position="106">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/game/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/game/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/varzesh2/team/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="45" column="90" selection-start-line="45" selection-start-column="90" selection-end-line="45" selection-end-column="90" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

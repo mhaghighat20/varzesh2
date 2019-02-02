@@ -127,7 +127,7 @@ def get_events(request, game_id):
     result = GameEvent.objects.filter(game_id=game_id).all()
     result = [{'player': str(item.player),
                'team_id': item.team.id,
-               'type': item.type,
+               'type': item.get_type_display(),
                'minute': item.minute}
               for item in result]
     return HttpResponse(json.dumps(result))
