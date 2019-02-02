@@ -26,8 +26,8 @@ export class GameUtil{
         // TODO implement this method
     }
 
-    static getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId) {
-        const url = `/api/game/against_games/${firstTeamId}/${secondTeamId}`;
+    static getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId, gameId) {
+        const url = `/api/game/against_games/${firstTeamId}/${secondTeamId}/${gameId}`;
         return FetchUtil.fetchFromUrl(url)
             .then(response => response);
     }

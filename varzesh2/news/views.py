@@ -44,5 +44,5 @@ def get_latest_new(request, _from, size, is_basketball, isfavorite):
     else:
         is_basket_value = True
 
-    news_ids = list(News.objects.filter(is_basketball=is_basket_value).values('id').all()[_from:_from+size])
+    news_ids = list(News.objects.filter(is_basketball=is_basket_value).values_list('id', flat=True).all()[_from:_from+size])
     return HttpResponse(json.dumps(news_ids))

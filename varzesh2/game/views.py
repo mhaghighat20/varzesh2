@@ -41,10 +41,10 @@ def get_game_details(request, game_id):
     return HttpResponse(json.dumps(response, ensure_ascii=False))
 
 
-def get_against_games(request, first_team_id, second_team_id):
+def get_against_games(request, first_team_id, second_team_id, game_id):
     game_ids = list(Game.objects.filter((Q(home_id=first_team_id) & Q(away_id=second_team_id)) |
                                         (Q(home_id=second_team_id) & Q(away_id=first_team_id)))
-                    .order_by('-date').values_list('id', flat=True).all())
+                    .order_by('-date').exclude(id=game_id).values_list('id', flat=True).all())
     return HttpResponse(json.dumps(game_ids, ensure_ascii=False))
 
 
@@ -81,19 +81,17 @@ def get_game_statistics(request, game_id):
         response['corners']['home'] = home_game_events.filter(type='corner').count()
         response['corners']['away'] = away_game_events.filter(type='corner').count()
 
-        response['fouls']['home'] = 0
-        response['fouls']['away'] = 0
+        response['fouls']['home'] = home_game_events.filter(type='fouls').count()
+        response['fouls']['away'] = away_game_events.filter(type='fouls').count()
 
-        response['goalOpportunities']['home'] = 0
-        response['goalOpportunities']['away'] = 0
+        response['goalOpportunities']['home'] = home_game_events.filter(type='goalOpportunities').count()
+        response['goalOpportunities']['away'] = away_game_events.filter(type='goalOpportunities').count()
 
-        response['yellowCards']['home'] = 0
-        response['yellowCards']['away'] = 0
+        response['yellowCards']['home'] = home_game_events.filter(type='yellowCards').count()
+        response['yellowCards']['away'] = away_game_events.filter(type='yellowCards').count()
 
-        response['redCards']['home'] = 0
-        response['redCards']['away'] = 0
-
-
+        response['redCards']['home'] = home_game_events.filter(type='redCards').count()
+        response['redCards']['away'] = away_game_events.filter(type='redCards').count()
 
         return HttpResponse(json.dumps(response, ensure_ascii=False))
 
@@ -126,8 +124,12 @@ def get_related_media(request, game_id):
 def get_events(request, game_id):
     game = get_object_or_404(Game, id=game_id)
 
-    result = list(GameEvent.objects.filter(game_id=game_id).values('player', 'team_id', 'type', 'minute'))
-    # result = [{'player': item['player'], } for item in result]
+    result = GameEvent.objects.filter(game_id=game_id).all()
+    result = [{'player': str(item.player),
+               'team_id': item.team.id,
+               'type': item.type,
+               'minute': item.minute}
+              for item in result]
     return HttpResponse(json.dumps(result))
 
 

@@ -34,7 +34,7 @@ export default class Game extends React.Component {
     componentDidMount() {
         GameUtil.getGameDetails(this.id)
             .then(gameDetails => {
-                this.loadAgainstGames(gameDetails.homeTeamId, gameDetails.awayTeamId);
+                this.loadAgainstGames(gameDetails.homeTeamId, gameDetails.awayTeamId, this.id);
                 this.loadStatistics(gameDetails.isBasketball);
                 this.loadEvents(gameDetails.homeTeamId, gameDetails.awayTeamId);
             });
@@ -112,8 +112,8 @@ export default class Game extends React.Component {
 
     }
 
-    loadAgainstGames(firstTeamId, secondTeamId) {
-        GameUtil.getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId)
+    loadAgainstGames(firstTeamId, secondTeamId, gameId) {
+        GameUtil.getAgainstGamesIdsByTeamIds(firstTeamId, secondTeamId, gameId)
             .then(gameIds => {
                 let gamesFull = <GamesFull gameIds={gameIds} title='بازی های رو در رو' />;
                 this.setState({
