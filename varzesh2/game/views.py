@@ -1,8 +1,8 @@
 import datetime
 import json
 
-from django.db.models import Q
-from django.http import HttpResponse
+from django.db.models import Q, F
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
@@ -156,3 +156,32 @@ def toggle_favorite(request, game_id):
         extended_user.favorite_games.add(get_object_or_404(Game, id=game_id))
         extended_user.save()
     return HttpResponse()
+
+
+def get_latest_games(request, is_basketball, is_favorite):
+    if is_basketball == 1:
+        is_basketball = True
+    elif is_basketball == 0:
+        is_basketball = False
+    else:
+        return HttpResponseBadRequest()
+    if is_favorite == 1:
+        is_favorite = True
+    elif is_favorite == 0:
+        is_favorite = False
+    else:
+        return HttpResponseBadRequest()
+    games = Game.objects.filter(league__is_basketball=is_basketball).filter(date__gt=timezone.datetime.now() - datetime.timedelta(days=365))
+
+    response = []
+    for game in games:
+        league_name = str(game.league)
+        week = game.week
+        game_id = game.id
+        response.append({
+            'leagueName': league_name,
+            'week': 'هفته ' + str(week),
+            'gameId': game_id
+        })
+
+    return HttpResponse(json.dumps(response, ensure_ascii=False))

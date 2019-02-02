@@ -10,6 +10,10 @@ class LeagueSeason(models.Model):
     year = models.CharField(max_length=50, verbose_name='سال')
     is_basketball = models.BooleanField(verbose_name='بسکتبال است')
 
+    def __str__(self):
+        my_year = self.year[2:]
+        return self.name + ' ' + str(int(my_year) + 1) + '-' + my_year
+
 
 class LeagueFullStatistics:
     team = models.ForeignKey('team.Team', on_delete=models.CASCADE, verbose_name='تیم')

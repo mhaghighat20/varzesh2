@@ -50,13 +50,23 @@ class SportNavTab extends React.Component{
         let soccerTab = <SportTab isActive = {soccerIsActive} title="فوتبال" onClick={() => this.switchSportType(SportTypeEnum.soccer)}/>;
 
         return (
-            <div className="tab-content">
-                <ul className="nav nav-tabs my-nav-bar">
-                    {soccerTab}
-                    {basketballTab}
-                </ul>
-                <TabPane sportType = {SportTypeEnum.soccer} isActive = {soccerIsActive}/>
-                <TabPane sportType = {SportTypeEnum.basketball} isActive = {basketballIsActive}/>
+            <div className="tab-content container container-fluid">
+                <div className="row">
+                    <div className="col-xs-4">
+                            <label className="switch pull-left">
+                                <input type="checkbox"/>
+                                <span className="slider round"/>
+                            </label>
+                    </div>
+                    <ul className="nav nav-tabs my-nav-bar col-xs-8">
+                        {soccerTab}
+                        {basketballTab}
+                    </ul>
+                </div>
+                <div className="row">
+                    <TabPane sportType = {SportTypeEnum.soccer} isActive = {soccerIsActive}/>
+                    <TabPane sportType = {SportTypeEnum.basketball} isActive = {basketballIsActive}/>
+                </div>
             </div>
         );
     }
@@ -68,7 +78,7 @@ class TabPane extends React.Component{
 
         const children = <div className="row">
             <div className="col-sm-6">
-                <GameList/>
+                <GameList isFavorite={this.props.isFavorite}/>
             </div>
             <div className="col-sm-6">
                 <NewsList newsIds = {['1']} title="اخبار"/>
@@ -84,27 +94,64 @@ class TabPane extends React.Component{
 }
 
 class GameList extends React.Component{
-    render() {
-        let leagues = HomeUtil.getNewGames(this.props.sportType);
+    constructor(props) {
+        super(props);
+        this.sportType = props.sportType;
+        this.isFavorite = props.isFavorite;
+        this.leagueSelect = React.createRef();
+        this.weekSelect = React.createRef();
+        this.state = {
+            games: {},
+            gameIds: [],
+            content: <div/>
+        };
+    }
 
-        let leagueName = leagues[0].name;
-        let weekName = leagues[0].weeks[0].name;
-
+    componentDidMount() {
+        HomeUtil.getNewGames(this.props.sportType, this.props.isFavorite).then(result => {
+            let leagueOptions = [];
+            let weekOptions = [];
+            Object.keys(result).forEach((leagueName) => {
+                leagueOptions.push(<option value={leagueName}>{leagueName}</option>);
+                Object.keys(result[leagueName]).forEach((weekName) => {
+                    weekOptions.push(<option value={weekName}>{weekName}</option>);
+                });
+        });
         let content = <div>
                     <div className="row">
-                        <select>
-                            <option value="2">{leagueName}</option>
+                        <select ref={this.leagueSelect} onChange={this.handleChange}>
+                            {leagueOptions}
                         </select>
                     </div>
                     <div className="row">
-                        <select>
-                            <option value="15">{weekName}</option>
+                        <select ref={this.weekSelect} onChange={this.handleChange}>
+                            {weekOptions}
                         </select>
                     </div>
                 </div>;
+            this.setState({
+                games: result,
+                gameIds: this.state.gameIds,
+                content: content
+            });
+            this.handleChange();
+        });
+    }
+
+    handleChange = () => {
+            if (this.leagueSelect.current.value in this.state.games && this.weekSelect.current.value in this.state.games[this.leagueSelect.current.value]) {
+                this.setState({
+                    games: this.state.games,
+                    gameIds: this.state.games[this.leagueSelect.current.value][this.weekSelect.current.value],
+                    content: this.state.content
+                });
+            }
+    };
+
+    render() {
         return (
             <div>
-                    <GamesFull title={'مسابقات'} content={content} showScore={false} showStatus={false} gameIds={leagues[0].weeks[0].games}/>
+                    <GamesFull title={'مسابقات'} content={this.state.content} showScore={false} showStatus={false} gameIds={this.state.gameIds}/>
             </div>
         );
     }
