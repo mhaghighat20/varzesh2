@@ -6,12 +6,20 @@ export class EventsFull extends React.Component {
         super(props);
         this.leftTeamId = props.leftTeamId;
         this.rightTeamId = props.rightTeamId;
-
         this.state = {
-            leftTeam: TeamUtil.getTeamName(this.leftTeamId),
-            rightTeam: TeamUtil.getTeamName(this.rightTeamId)
+            leftTeam: 'salam',
+            rightTeam: ''
         };
+
+        TeamUtil.getTeamName(this.leftTeamId).then(name => {
+                this.setState({leftTeam: name, rightTeam: this.state.rightTeam});
+            });
+
+        TeamUtil.getTeamName(this.rightTeamId).then(name => {
+                this.setState({rightTeam: name, leftTeam: this.state.leftTeam});
+            });
     }
+
 
 
     render() {
@@ -25,7 +33,7 @@ export class EventsFull extends React.Component {
                 <div className="panel-heading my-panel-heading">
                     رخدادها
                 </div>
-                <GameStatistics rightTitle={this.props.rightTeam} leftTitle={this.props.leftTeam} mainTitle="دقیقه" items={this.props.eventItems} tableClassName="event"/>
+                <GameStatistics rightTitle={this.state.rightTeam} leftTitle={this.state.leftTeam} mainTitle="دقیقه" items={this.props.eventItems} tableClassName="event"/>
             </div>
         );
     }

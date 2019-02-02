@@ -159,13 +159,13 @@ export default class Game extends React.Component {
                 }
                 this.setState({
                     stats: stats,
-                    // gamesFull: this.state.gamesFull,
-                    // eventsFull: this.state.eventsFull,
-                    // awayPlayers: this.state.awayPlayers,
-                    // homePlayers: this.state.homePlayers,
-                    // relatedNewsIds: this.state.relatedNewsIds,
-                    // relatedMediaIds: this.state.relatedMediaIds,
-                    // isFavorite: this.state.isFavorite
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -180,13 +180,13 @@ export default class Game extends React.Component {
                 let eventsFull = <EventsFull eventItems={eventItems} leftTeamId={awayTeamId} rightTeamId={homeTeamId}/>;
                 this.setState({
                     eventsFull: eventsFull,
-                    // gamesFull: this.state.gamesFull,
-                    // stats: this.state.stats,
-                    // awayPlayers: this.state.awayPlayers,
-                    // homePlayers: this.state.homePlayers,
-                    // relatedNewsIds: this.state.relatedNewsIds,
-                    // relatedMediaIds: this.state.relatedMediaIds,
-                    // isFavorite: this.state.isFavorite
+                    gamesFull: this.state.gamesFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -205,12 +205,12 @@ export default class Game extends React.Component {
                 this.setState({
                     homePlayers: homePlayers,
                     awayPlayers: awayPlayers,
-                    // gamesFull: this.state.gamesFull,
-                    // eventsFull: this.state.eventsFull,
-                    // stats: this.state.stats,
-                    // relatedNewsIds: this.state.relatedNewsIds,
-                    // relatedMediaIds: this.state.relatedMediaIds,
-                    // isFavorite: this.state.isFavorite
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -220,13 +220,13 @@ export default class Game extends React.Component {
             .then(relatedNewsIds => {
                 this.setState({
                     relatedNewsIds: relatedNewsIds,
-                    // gamesFull: this.state.gamesFull,
-                    // eventsFull: this.state.eventsFull,
-                    // stats: this.state.stats,
-                    // awayPlayers: this.state.awayPlayers,
-                    // homePlayers: this.state.homePlayers,
-                    // relatedMediaIds: this.state.relatedMediaIds,
-                    // isFavorite: this.state.isFavorite
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedMediaIds: this.state.relatedMediaIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -236,13 +236,13 @@ export default class Game extends React.Component {
             .then(relatedMediaIds => {
                 this.setState({
                     relatedMediaIds: relatedMediaIds,
-                    // gamesFull: this.state.gamesFull,
-                    // eventsFull: this.state.eventsFull,
-                    // stats: this.state.stats,
-                    // awayPlayers: this.state.awayPlayers,
-                    // homePlayers: this.state.homePlayers,
-                    // relatedNewsIds: this.state.relatedNewsIds,
-                    // isFavorite: this.state.isFavorite
+                    gamesFull: this.state.gamesFull,
+                    eventsFull: this.state.eventsFull,
+                    stats: this.state.stats,
+                    awayPlayers: this.state.awayPlayers,
+                    homePlayers: this.state.homePlayers,
+                    relatedNewsIds: this.state.relatedNewsIds,
+                    isFavorite: this.state.isFavorite
                 });
             });
     }
