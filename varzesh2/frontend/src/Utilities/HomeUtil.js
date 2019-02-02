@@ -28,5 +28,12 @@ export class HomeUtil{
             return result;
         });
     }
+
+    static getLatestNews(from, size, isBasketball, isFavorite) {
+        isBasketball = isBasketball ? 1 : 0;
+        isFavorite = isFavorite ? 1 : 0;
+        const url = `/api/news/latest/${from}/${size}/${isBasketball}/${isFavorite}`;
+        return FetchUtil.fetchFromUrl(url);
+    }
 }
 export const GameStatusEnum = {"homeWin": 1, "draw": 2, "homeLose": 3, "notDoneYet": 4};

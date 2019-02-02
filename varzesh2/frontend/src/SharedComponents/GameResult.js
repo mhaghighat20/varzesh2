@@ -47,7 +47,9 @@ export class GameResult extends React.Component {
                 }
 
                 result.push(<td key={6}>
-                    {gameDetails.date}
+                    <a href={"/#/game?id=" + this.props.gameId}>
+                        {gameDetails.date}
+                    </a>
                 </td>);
 
                 this.setState({
@@ -61,10 +63,10 @@ export class GameResult extends React.Component {
         let thisTeamGoals = 0;
         let thatTeamGoals = 0;
 
-        if (this.props.selectedTeamId === gameDetails.homeTeamId) {
+        if (this.props.selectedTeamId == gameDetails.homeTeamId) {
             thisTeamGoals = gameDetails.homeGoals;
             thatTeamGoals = gameDetails.awayGoals;
-        } else if (this.props.selectedTeamId === gameDetails.awayTeamId) {
+        } else if (this.props.selectedTeamId == gameDetails.awayTeamId) {
             thisTeamGoals = gameDetails.awayGoals;
             thatTeamGoals = gameDetails.homeGoals;
         }
@@ -93,10 +95,10 @@ export class GameResult extends React.Component {
         if (!gameDetails.hasBeenHeld)
             status = 'برگزار نشده';
         else {
-            if (this.props.selectedTeamId === gameDetails.homeTeamId) {
+            if (this.props.selectedTeamId == gameDetails.homeTeamId) {
                 thisTeamGoals = gameDetails.homeGoals;
                 thatTeamGoals = gameDetails.awayGoals;
-            } else if (this.selectedTeamId === gameDetails.awayTeamId) {
+            } else if (this.selectedTeamId == gameDetails.awayTeamId) {
                 thisTeamGoals = gameDetails.awayGoals;
                 thatTeamGoals = gameDetails.homeGoals;
             }

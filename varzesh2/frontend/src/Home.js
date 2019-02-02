@@ -35,7 +35,9 @@ class SportTab extends React.Component{
 class SportNavTab extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {sportType: SportTypeEnum.soccer};
+        this.state = {
+            sportType: SportTypeEnum.soccer
+        };
     }
 
     switchSportType = (sportType) => {
@@ -73,6 +75,28 @@ class SportNavTab extends React.Component{
 }
 
 class TabPane extends React.Component{
+    constructor(props) {
+        super(props);
+        this.sportType = props.sportType;
+        this.state = {
+            from: 0,
+            size: 10,
+            newsIds: []
+        };
+    }
+
+    componentDidMount() {
+        HomeUtil.getLatestNews(this.state.from, this.state.size, this.props.sportType === SportTypeEnum.basketball, false).then(newsIds => {
+            let news = this.state.newsIds.concat(newsIds);
+            this.setState({
+                newsIds: news,
+                from: this.state.from,
+                size: this.state.size
+            });
+        });
+    }
+
+
     render() {
         const displayType = this.props.isActive ? 'block' : 'none';
 
@@ -81,7 +105,7 @@ class TabPane extends React.Component{
                 <GameList isFavorite={this.props.isFavorite}/>
             </div>
             <div className="col-sm-6">
-                <NewsList newsIds = {['1']} title="اخبار"/>
+                <NewsList newsIds = {this.state.newsIds} title="اخبار"/>
             </div>
         </div>;
 
@@ -139,7 +163,10 @@ class GameList extends React.Component{
     }
 
     handleChange = () => {
-            if (this.leagueSelect.current.value in this.state.games && this.weekSelect.current.value in this.state.games[this.leagueSelect.current.value]) {
+            if (this.leagueSelect.current
+                && this.leagueSelect.current.value in this.state.games
+                && this.weekSelect.current
+                && this.weekSelect.current.value in this.state.games[this.leagueSelect.current.value]) {
                 this.setState({
                     games: this.state.games,
                     gameIds: this.state.games[this.leagueSelect.current.value][this.weekSelect.current.value],
