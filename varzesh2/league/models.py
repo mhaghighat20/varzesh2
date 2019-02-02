@@ -15,9 +15,9 @@ class LeagueSeason(models.Model):
         return self.name + ' ' + str(int(my_year) + 1) + '-' + my_year
 
 
-class LeagueFullStatistics:
+class LeagueFullStatistics(models.Model):
     team = models.ForeignKey('team.Team', on_delete=models.CASCADE, verbose_name='تیم')
-    leagueSeason = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE, verbose_name='فصل')
+    league_season = models.ForeignKey('league.LeagueSeason', on_delete=models.CASCADE, verbose_name='فصل')
 
     game_count = models.IntegerField(verbose_name='تعداد بازی')
     wins = models.IntegerField(verbose_name='برد')
