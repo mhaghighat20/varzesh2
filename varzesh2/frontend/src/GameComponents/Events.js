@@ -1,4 +1,5 @@
 import React from "react";
+import {TeamUtil} from "../Utilities/TeamUtil";
 
 export class EventsFull extends React.Component {
     constructor(props) {
@@ -7,8 +8,8 @@ export class EventsFull extends React.Component {
         this.rightTeamId = props.rightTeamId;
 
         this.state = {
-            leftTeam: '',
-            rightTeam: ''
+            leftTeam: TeamUtil.getTeamName(this.leftTeamId),
+            rightTeam: TeamUtil.getTeamName(this.rightTeamId)
         };
     }
 

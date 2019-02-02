@@ -159,13 +159,13 @@ export default class Game extends React.Component {
                 }
                 this.setState({
                     stats: stats,
-                    gamesFull: this.state.gamesFull,
-                    eventsFull: this.state.eventsFull,
-                    awayPlayers: this.state.awayPlayers,
-                    homePlayers: this.state.homePlayers,
-                    relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds,
-                    isFavorite: this.state.isFavorite
+                    // gamesFull: this.state.gamesFull,
+                    // eventsFull: this.state.eventsFull,
+                    // awayPlayers: this.state.awayPlayers,
+                    // homePlayers: this.state.homePlayers,
+                    // relatedNewsIds: this.state.relatedNewsIds,
+                    // relatedMediaIds: this.state.relatedMediaIds,
+                    // isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -175,18 +175,18 @@ export default class Game extends React.Component {
             .then(events => {
                 let eventItems = [];
                 for (let i = 0; i < events.length; i++) {
-                    eventItems.push(<EventItem leftOrRight={events[i].teamId === homeTeamId ? '0' : '1'} player={events[i].player} act={events[i].act} minute={events[i].minute} key={i}/>);
+                    eventItems.push(<EventItem leftOrRight={events[i].team_id === homeTeamId ? '0' : '1'} player={events[i].player} act={events[i].type} minute={events[i].minute} key={i}/>);
                 }
-                let eventsFull = <EventsFull eventItems={this.state.events} leftTeamId={awayTeamId} rightTeamId={homeTeamId}/>;
+                let eventsFull = <EventsFull eventItems={eventItems} leftTeamId={awayTeamId} rightTeamId={homeTeamId}/>;
                 this.setState({
                     eventsFull: eventsFull,
-                    gamesFull: this.state.gamesFull,
-                    stats: this.state.stats,
-                    awayPlayers: this.state.awayPlayers,
-                    homePlayers: this.state.homePlayers,
-                    relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds,
-                    isFavorite: this.state.isFavorite
+                    // gamesFull: this.state.gamesFull,
+                    // stats: this.state.stats,
+                    // awayPlayers: this.state.awayPlayers,
+                    // homePlayers: this.state.homePlayers,
+                    // relatedNewsIds: this.state.relatedNewsIds,
+                    // relatedMediaIds: this.state.relatedMediaIds,
+                    // isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -196,21 +196,21 @@ export default class Game extends React.Component {
             .then(playerIds => {
                 let homePlayers = [];
                 for (let i = 0; i < playerIds.home.length; i++){
-                    homePlayers.push(<PlayerName playerId={playerIds[i]}/>)
+                    homePlayers.push(<PlayerName playerId={playerIds.home[i]}/>)
                 }
                 let awayPlayers = [];
                     for (let i = 0; i < playerIds.away.length; i++){
-                    awayPlayers.push(<PlayerName playerId={playerIds[i]}/>)
+                    awayPlayers.push(<PlayerName playerId={playerIds.away[i]}/>)
                 }
                 this.setState({
                     homePlayers: homePlayers,
                     awayPlayers: awayPlayers,
-                    gamesFull: this.state.gamesFull,
-                    eventsFull: this.state.eventsFull,
-                    stats: this.state.stats,
-                    relatedNewsIds: this.state.relatedNewsIds,
-                    relatedMediaIds: this.state.relatedMediaIds,
-                    isFavorite: this.state.isFavorite
+                    // gamesFull: this.state.gamesFull,
+                    // eventsFull: this.state.eventsFull,
+                    // stats: this.state.stats,
+                    // relatedNewsIds: this.state.relatedNewsIds,
+                    // relatedMediaIds: this.state.relatedMediaIds,
+                    // isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -220,13 +220,13 @@ export default class Game extends React.Component {
             .then(relatedNewsIds => {
                 this.setState({
                     relatedNewsIds: relatedNewsIds,
-                    gamesFull: this.state.gamesFull,
-                    eventsFull: this.state.eventsFull,
-                    stats: this.state.stats,
-                    awayPlayers: this.state.awayPlayers,
-                    homePlayers: this.state.homePlayers,
-                    relatedMediaIds: this.state.relatedMediaIds,
-                    isFavorite: this.state.isFavorite
+                    // gamesFull: this.state.gamesFull,
+                    // eventsFull: this.state.eventsFull,
+                    // stats: this.state.stats,
+                    // awayPlayers: this.state.awayPlayers,
+                    // homePlayers: this.state.homePlayers,
+                    // relatedMediaIds: this.state.relatedMediaIds,
+                    // isFavorite: this.state.isFavorite
                 });
             });
     }
@@ -236,13 +236,13 @@ export default class Game extends React.Component {
             .then(relatedMediaIds => {
                 this.setState({
                     relatedMediaIds: relatedMediaIds,
-                    gamesFull: this.state.gamesFull,
-                    eventsFull: this.state.eventsFull,
-                    stats: this.state.stats,
-                    awayPlayers: this.state.awayPlayers,
-                    homePlayers: this.state.homePlayers,
-                    relatedNewsIds: this.state.relatedNewsIds,
-                    isFavorite: this.state.isFavorite
+                    // gamesFull: this.state.gamesFull,
+                    // eventsFull: this.state.eventsFull,
+                    // stats: this.state.stats,
+                    // awayPlayers: this.state.awayPlayers,
+                    // homePlayers: this.state.homePlayers,
+                    // relatedNewsIds: this.state.relatedNewsIds,
+                    // isFavorite: this.state.isFavorite
                 });
             });
     }

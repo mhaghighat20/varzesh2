@@ -44,7 +44,7 @@ def get_game_details(request, game_id):
 def get_against_games(request, first_team_id, second_team_id):
     game_ids = list(Game.objects.filter((Q(home_id=first_team_id) & Q(away_id=second_team_id)) |
                                         (Q(home_id=second_team_id) & Q(away_id=first_team_id)))
-                    .values_list('id', flat=True).all())
+                    .order_by('-date').values_list('id', flat=True).all())
     return HttpResponse(json.dumps(game_ids, ensure_ascii=False))
 
 
@@ -74,8 +74,12 @@ def get_game_statistics(request, game_id):
         response['ballPossession']['away'] = 100 - response['ballPossession']['home']
 
         game_events = GameEvent.objects.filter(game_id=game_id).all()
-        response['corners']['home'] = 0
-        response['corners']['away'] = 0
+
+        home_game_events = game_events.filter(game_id=game.home_id)
+        away_game_events = game_events.filter(game_id=game.away_id)
+
+        response['corners']['home'] = home_game_events.filter(type='corner').count()
+        response['corners']['away'] = away_game_events.filter(type='corner').count()
 
         response['fouls']['home'] = 0
         response['fouls']['away'] = 0
@@ -90,9 +94,6 @@ def get_game_statistics(request, game_id):
         response['redCards']['away'] = 0
 
 
-
-        home_game_events = game_events.filter(game_id=game.home_id)
-        away_game_events = game_events.filter(game_id=game.away_id)
 
         return HttpResponse(json.dumps(response, ensure_ascii=False))
 
@@ -125,19 +126,23 @@ def get_related_media(request, game_id):
 def get_events(request, game_id):
     game = get_object_or_404(Game, id=game_id)
 
-    result = list(GameEvent.objects.filter(game_id=game_id))
+    result = list(GameEvent.objects.filter(game_id=game_id).values('player', 'team_id', 'type', 'minute'))
+    # result = [{'player': item['player'], } for item in result]
     return HttpResponse(json.dumps(result))
 
 
 def get_favorite_state(request, game_id):
-    login_token = request.COOKIES['logintoken']
-    user = get_object_or_404(Authentication, auth_token=login_token).user
-    extended_user = get_object_or_404(ExtendedUser, user=user)
-    favorite = extended_user.favorite_games.filter(id=game_id).all()
-    response = {'isFavorite': False}
-    if favorite.exists():
-        response['isFavorite'] = True
-    return HttpResponse(json.dumps(response))
+    if 'logintoken' in request.COOKIES:
+        login_token = request.COOKIES['logintoken']
+        user = get_object_or_404(Authentication, auth_token=login_token).user
+        extended_user = get_object_or_404(ExtendedUser, user=user)
+        favorite = extended_user.favorite_games.filter(id=game_id).all()
+        response = {'isFavorite': False}
+        if favorite.exists():
+            response['isFavorite'] = True
+        return HttpResponse(json.dumps(response))
+    else:
+        return HttpResponse(json.dumps({}))
 
 
 def toggle_favorite(request, game_id):
