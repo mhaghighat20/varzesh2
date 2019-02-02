@@ -1,57 +1,45 @@
 import React from "react";
 import { SportTypeEnum } from "../SharedComponents/SportType";
 import { GameResult, GamesFull } from "../SharedComponents/GameResult";
+import {FetchUtil} from "./FetchUtil";
 
 export class LeagueUtil {
-    static getLeagueDetails(sport, id) {
-        if (id === '1' && sport === SportTypeEnum.soccer) {
-            let league = new LeagueDetails();
-            league.title = "لیگ برتر 97-98";
+    static getLeagueDetails(id) {
+        const url = `/api/league/statistics/${id}/`;
+        return FetchUtil.fetchFromUrl(url).then(response => {
+            let league = new LeagueInfo();
+            league.title = response.title;
             league.data = [];
 
-            league.data.push(<TeamDetail title="پدیده" totalGames="15" wins="9" draws="4" looses="2" goleZadeh="19" goleKhordeh="8" tafazol="11" score="31" key={0}/>);
-            league.data.push(<TeamDetail title="سپاهان" totalGames="14" wins="8" draws="6" looses="0" goleZadeh="27" goleKhordeh="11" tafazol="16" score="30" key={1}/>);
-            league.data.push(<TeamDetail title="پرسپولیس" totalGames="14" wins="7" draws="7" looses="0" goleZadeh="14" goleKhordeh="5" tafazol="9" score="28" key={2}/>);
-            league.data.push(<TeamDetail title="تراکتورسازی" totalGames="15" wins="7" draws="5" looses="3" goleZadeh="23" goleKhordeh="14" tafazol="9" score="26" key={3}/>);
-            league.data.push(<TeamDetail title="پدیده" totalGames="15" wins="9" draws="4" looses="2" goleZadeh="19" goleKhordeh="8" tafazol="11" score="25" key={4}/>);
-            league.data.push(<TeamDetail title="سپاهان" totalGames="14" wins="8" draws="6" looses="0" goleZadeh="27" goleKhordeh="11" tafazol="16" score="24" key={5}/>);
-            league.data.push(<TeamDetail title="پرسپولیس" totalGames="14" wins="7" draws="7" looses="0" goleZadeh="14" goleKhordeh="5" tafazol="9" score="23" key={6}/>);
+            for (let i = 0; i < response.data.length; i++){
+                const teamInfo = response.data[i];
+                league.data.push(<TeamDetail title={teamInfo['title']} totalGames={teamInfo['totalGames']} wins={teamInfo['wins']} draws={teamInfo['draw']} looses={teamInfo['loses']} goleZadeh={teamInfo['goleZadeh']} goleKhordeh={teamInfo['goleKhordeh']} tafazol={teamInfo['tafazol']} score={teamInfo['score']} key={0}/>);
+            }
+
             return league;
-        }
+        });
+
+
     }
 
-    static getLeagueWeek(sport, id, count) {
-        if (id === '1' && sport === SportTypeEnum.soccer && count === '10') {
-            let week = new LeagueWeek();
-            week.count = '10';
-            week.data = [];
-            week.data.push(<GameResult leftTeam='پرسپولیس' rightTeam='ذوب آهن' leftGoals='1' rightGoals='0' date='1397/07/13' status='برد' score='3' key={0}/>);
-            week.data.push(<GameResult leftTeam='ماشین سازی تبریز' rightTeam='پرسپولیس' leftGoals='0' rightGoals='1' date='1397/07/08' status='برد' score='3' key={1}/>);
-            week.data.push(<GameResult leftTeam='ذوب آهن' rightTeam='پرسپولیس' leftGoals='1' rightGoals='2' date='1397/07/97' status='برد' score='3' key={3}/>);
+    static getLeagueWeeks(leagueId) {
+        const url = `/api/league/weeks/${leagueId}/`;
 
-            return week;
-        }
+        return FetchUtil.fetchFromUrl(url).then(response => response);
     }
 
     static getLeagueNames(){
-        let paragraphs = [];
-        paragraphs.push("لیگ برتر 97-98");
-        paragraphs.push("لیگ برتر 96-97");
-        paragraphs.push("لیگ برتر 95-96");
-        paragraphs.push("لیگ برتر 94-95");
-        paragraphs.push("لیگ برتر 93-94");
+        const url = '/api/league/get_all_leagues/';
+        return FetchUtil.fetchFromUrl(url);
+    }
 
-        paragraphs.push("لیگ بسکتبال 97-98");
-        paragraphs.push("لیگ بسکتبال 96-97");
-        paragraphs.push("لیگ بسکتبال 95-96");
-        paragraphs.push("لیگ بسکتبال 94-95");
-        paragraphs.push("لیگ بسکتبال 93-94");
-
-        return paragraphs;
+    static getGames(leagueId, week) {
+        const url = `/api/league/games_by_week/${leagueId}/${week}/`;
+        return FetchUtil.fetchFromUrl(url);
     }
 }
 
-class LeagueDetails {
+export class LeagueInfo {
     title;
     data;
 }
@@ -102,26 +90,17 @@ export class TeamDetail extends React.Component {
 
 }
 
-
-export class LeagueWeek extends React.Component {
-    count;
-    data;
-
-    render() {
-        return (
-            <div>
-                <GamesFull Games={this.props.data} title={<SelectWeek limit={this.props.count}/>} />
-            </div>
-        );
+export class SelectWeek extends React.Component {
+    constructor(props) {
+        super(props);
+        this.weeks = props.weeks;
+        this.handleWeekClick = props.handleWeekClick;
     }
-}
 
-class SelectWeek extends React.Component {
-    limit;
     render() {
         let options = [];
-        for (let i = 1; i <= this.props.limit; i++)
-            options.push(<option key={i}>{'هفته ' + i}</option>);
+        for (let i = 0; i < this.props.weeks.length; i++)
+            options.push(<option onClick={() => this.props.handleWeekClick(this.props.weeks[i])} key={i}>{'هفته ' + this.props.weeks[i]}</option>);
 
         return (
             <select>
