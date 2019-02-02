@@ -36,3 +36,8 @@ def get_related_news_by_player_id(request, player_id):
 def get_related_news_by_team_id(request, team_id):
     news_ids = list(News.objects.filter(related_teams__id__contains=team_id).values('id').all())
     return HttpResponse(json.dumps(news_ids))
+
+
+def get_latest_new(request, _from, size, is_basketball, isfavorite)
+    news_ids = list(News.objects.filter(is_basketball=is_basketball).values('id').all())
+    return HttpResponse(json.dumps(news_ids))
