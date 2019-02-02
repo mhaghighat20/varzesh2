@@ -60,7 +60,7 @@ def get_player_statistics_by_id(request, player_id):
 
 
 def get_player_name_by_id(request, player_id):
-    person_query = Person.objects.filter(player_id=player_id)
+    person_query = Person.objects.filter(player=player_id)
     if person_query.exists():
         person = person_query.first()
         response = {'name': person.first_name + ' ' + person.last_name}

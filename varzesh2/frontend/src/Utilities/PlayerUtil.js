@@ -47,8 +47,8 @@ export class PlayerUtil {
             .then(newsIds => newsIds);
     }
     static getPlayerName(playerId){
-        const url = `/api/player/related_news/${playerId}/`;
-        FetchUtil.fetchFromUrl(url)
+        const url = `/api/player/name/${playerId}/`;
+        return FetchUtil.fetchFromUrl(url)
             .then(response => response['name']);
     }
 
